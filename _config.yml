@@ -26,23 +26,36 @@ description: >- # used by seo meta and the atom feed
 url: "https://0xmrsecurity.github.io"
 
 github:
-  username:  0xmrsecurity # change to your GitHub username
+  username:  0xmr # change to your GitHub username
 
 twitter:
-  username: 0xmrsecurity # change to your Twitter username
-
+  username: 0xmr # change to your Twitter username
+  
 social:
+  name: AnP
+  email: 0xmr@0xmr.com
+  links:
+    - https://twitter.com/0xmr
+    - https://github.com/0xmr
+
+#social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name:  0xmr
-  email:  0xmr@example.com # change to your email address
-  links:
+ # name:  0xmr
+  #email:  0xmr@example.com # change to your email address
+  #links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username # change to your Twitter homepage
-    - https://github.com/username # change to your GitHub homepage
+   # - https://twitter.com/username # change to your Twitter homepage
+    #- https://github.com/username # change to your GitHub homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
+# ====================================
+# Chirpy Theme Settings
+# ====================================
+
+chirpy:
+  skin: dark  # Force dark theme
 
 # Site Verification Settings
 webmaster_verifications:
@@ -88,7 +101,8 @@ pageviews:
 #     light — Use the light color scheme
 #     dark — Use the dark color scheme
 #
-theme_mode: # [light | dark]
+#theme_mode: # [light | dark]
+theme_mode: dark  # Force dark mode
 
 # The CDN endpoint for media resources.
 # Notice that once it is assigned, the CDN url
@@ -157,14 +171,26 @@ baseurl: ""
 kramdown:
   footnote_backlink: "&#8617;&#xfe0e;"
   syntax_highlighter: rouge
-  syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
-    css_class: highlight
-    # default_lang: console
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    default_lang: 'text'
+    theme: 'github-dark'  # Dark syntax highlighting
     span:
       line_numbers: false
     block:
       line_numbers: true
       start_line: 1
+#kramdown:
+#  footnote_backlink: "&#8617;&#xfe0e;"
+#  syntax_highlighter: rouge
+#  syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
+#    css_class: highlight
+    # default_lang: console
+#    span:
+#      line_numbers: false
+#    block:
+#      line_numbers: true
+#      start_line: 1
 
 collections:
   tabs:
