@@ -1,5 +1,5 @@
 ---
-title: "Hack Smarter SYSCO Lab: Active Directory Exploitation Walkthrough"
+title: "Hack  Smarter  SYSCO  Lab"
 date: 2025-10-31 00:00:00 +0800
 categories: [Hack Smarter Lab]
 tags: [username-anarchy, remmina, gpo-abuse, asreproasting, kerbrute, active-directory, privilege-escalation]
