@@ -126,7 +126,7 @@ Added to the queue: forms/
 image: /assets/img/posts/sysco-lab.png
 ---
 
-### Download the condig file
+### Download the config file
 Crack the hash using the hashcat ---> Chocolate1
 ```language
 cat router2.cfg 
