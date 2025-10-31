@@ -122,9 +122,6 @@ Added to the queue: forms/
 [16:39:59] 200 -  219B  - /Readme.txt
 [16:40:03] 200 -    5KB - /roundcube/index.php                            
 ```
----
-image: /assets/img/posts/sysco-lab.png
----
 
 ### Download the config file
 Crack the hash using the hashcat ---> Chocolate1
