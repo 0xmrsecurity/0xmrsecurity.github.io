@@ -8,54 +8,41 @@ theme: jekyll-theme-chirpy
 # otherwise, the layout language will use the default value of 'en'.
 lang: en
 
-# Change to your timezone › https://zones.arilyn.cc
-timezone:
+# Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
+timezone: Asia/Kolkata
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
 title: 0xmr # the main title
 
-tagline: welcome to the 0xmr hack stuff Think's # it will display as the subtitle
+tagline: Pentester and Red Teamer # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-   Personal Blog Post 
+  Blog of my journey in security
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
-url: "https://0xmrsecurity.github.io"
+url: "https://0xmrsecurity.github.io/"
 
 github:
-  username:  0xmr # change to your GitHub username
+  username: 0xmrsecurity # change to your GitHub username
 
 twitter:
-  username: 0xmr # change to your Twitter username
-  
-social:
-  name: AnP
-  email: 0xmr@0xmr.com
-  links:
-    - https://twitter.com/0xmr
-    - https://github.com/0xmr
+  username: 0xmr  # change to your Twitter username
 
-#social:
+social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
- # name:  0xmr
-  #email:  0xmr@example.com # change to your email address
-  #links:
+  name: 0xmr
+  email: 0xmr@0xmr.com # change to your email address
+  links:
     # The first element serves as the copyright owner's link
-   # - https://twitter.com/username # change to your Twitter homepage
-    #- https://github.com/username # change to your GitHub homepage
+    - https://twitter.com/0xmr # change to your Twitter homepage
+    - https://github.com/0xmr # change to your GitHub homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
-# ====================================
-# Chirpy Theme Settings
-# ====================================
-
-chirpy:
-  skin: dark  # Force dark theme
+    
 
 # Site Verification Settings
 webmaster_verifications:
@@ -101,8 +88,7 @@ pageviews:
 #     light — Use the light color scheme
 #     dark — Use the dark color scheme
 #
-#theme_mode: # [light | dark]
-theme_mode: dark  # Force dark mode
+theme_mode: # [light | dark]
 
 # The CDN endpoint for media resources.
 # Notice that once it is assigned, the CDN url
@@ -112,11 +98,11 @@ theme_mode: dark  # Force dark mode
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: assets/img/avatar.jpg
-favicon: /assets/img/favicon.png
+avatar: "assets/img/avatar.jpg"
+
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
-social_preview_image: # string, local or CORS resources
+social_preview_image: "/assets/img/favicons/favicon.png"
 
 # boolean type, the global switch for TOC in posts.
 toc: true
@@ -171,26 +157,14 @@ baseurl: ""
 kramdown:
   footnote_backlink: "&#8617;&#xfe0e;"
   syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    css_class: 'highlight'
-    default_lang: 'text'
-    theme: 'github-dark'  # Dark syntax highlighting
+  syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
+    css_class: highlight
+    # default_lang: console
     span:
       line_numbers: false
     block:
       line_numbers: true
       start_line: 1
-#kramdown:
-#  footnote_backlink: "&#8617;&#xfe0e;"
-#  syntax_highlighter: rouge
-#  syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
-#    css_class: highlight
-    # default_lang: console
-#    span:
-#      line_numbers: false
-#    block:
-#      line_numbers: true
-#      start_line: 1
 
 collections:
   tabs:
@@ -218,6 +192,10 @@ defaults:
     values:
       layout: page
       permalink: /:title/
+  - scope:
+      path: "assets/img/favicons"
+    values:
+      swcache: true
 
 sass:
   style: compressed
@@ -238,9 +216,8 @@ exclude:
   - tools
   - README.md
   - LICENSE
-  - purgecss.js
   - "*.config.js"
-  - "package*.json"
+  - package*.json
 
 jekyll-archives:
   enabled: [categories, tags]
