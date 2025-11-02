@@ -5,7 +5,7 @@ categories: [HTB]
 tags: [Kerberoasting, WriteSPN, Rusthound, NTLM Disable, DPAPI Attack, SCP, sshkeygen, impacket-secretsdump]
 platform: HTB
 author: 0xmr
-image: /assets/img/posts/voleur.png
+image: /assets/img/posts/voleur-cover.webp
 excerpt: "Walkthrough"
 ---
 
