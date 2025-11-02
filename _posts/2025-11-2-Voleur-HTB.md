@@ -11,7 +11,7 @@ excerpt: "Walkthrough"
 
 # Voleur HTB
 
-> Walkthrough for the Voleur machine (Active Directory). This document has been edited for grammar, clarity and formatting.
+> Walkthrough for the Voleur machine (Active Directory).  
 
 ## Machine Information
 
