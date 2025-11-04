@@ -24,7 +24,6 @@ If you find a Local File Inclusion (LFI) vulnerability, you can often read `web.
 
 ###  Read know
 if you get this `web.config` file, know it's time to extract some important info from there.
-```bash
 # We Need this Info:-
    --validationalg=
    --validationkey=
