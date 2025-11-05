@@ -14,6 +14,7 @@ excerpt: "Technical understanding and practical overview"
 .NET is commonly used for Windows-compatible web applications (e.g., `.aspx` pages).
 
 > **Important:** If you're new to this attack flow, spin up a practice machine (for example, a Pov / HTB box) and learn hands-on using Hack The Box (HTB).
+{: .prompt-tip }
 
 ## Locate the `web.config` file via LFI
 If you find a Local File Inclusion (LFI) vulnerability, you can often read `web.config`:
