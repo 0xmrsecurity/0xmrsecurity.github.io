@@ -4,6 +4,6 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-# Whoami
-> Boy with this Big Dreams... 
+# `Whoami`
+> Boy with his Big Dreams... 
 {: .prompt-tip }
