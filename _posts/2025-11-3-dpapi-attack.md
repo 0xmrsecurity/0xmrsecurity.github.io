@@ -12,19 +12,31 @@ excerpt: "Technical understanding and practical overview"
 # DpApi attack  
 > DPAPI is Windows' built-in encryption system that protects things like saved passwords and Wi-Fi keys. Attackers don't break the encryption - they steal the keys to decrypt it.
 
+# Practise lab's
+> HTB: Voleur  
+> HTB: DarkCorp  
+> HTB: Puppy  
+> HTB: Vintage 
+> Hackvent 2024 - Hard  
+> HTB: Office  
+> HTB: Sekhmet  
+> HTB: Access  
+
+
 ## Verify it 
 ```bash
 cmdkey /list
 ```
-### Get the sid
+### Get the SID
 ```bash
 whoami /all
 or
 impacket-getpac.py
 ```
-### Grab these two files
+### File Locations
+if you go to this location, you will see the files Name like `AlphaNumeric-Numbers`. we have to download this files.
 ```bash
-C:\Users\<user>\AppData\Roaming\Microsoft\Protect
+C:\Users\<user>\AppData\Roaming\Microsoft\Protect\$SID
 
 C:\Users\<user>\AppData\Roaming\Microsoft\Credentials
 ```
