@@ -10,7 +10,8 @@ excerpt: "Technical understanding and practical overview"
 ---
 
 # DpApi attack  
-DPAPI is Windows' built-in encryption system that protects things like saved passwords and Wi-Fi keys. Attackers don't break the encryption - they steal the keys to decrypt it.
+> DPAPI is Windows' built-in encryption system that protects things like saved passwords and Wi-Fi keys. Attackers don't break the encryption - they steal the keys to decrypt it.
+{: .prompt-tip }
 
 ## Verify it 
 ```bash
