@@ -26,7 +26,7 @@ e.hills:Il0vemyj0b2025!
 ## Export target
 
 ```bash
-export target=$target-machine
+export target=$target-ip-here
 ```
 
 ## Discovering target hostname
