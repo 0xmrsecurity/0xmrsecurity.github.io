@@ -270,8 +270,10 @@ Certificate Templates
 ```
 
 # ESC1 attack (issue a certificate)
-> An ESC1 attack is a privilege escalation technique that exploits misconfigured certificate templates within Microsoft Active Directory Certificate Services (AD CS) to gain unauthorized access to high-privileged accounts, such as domain administrators.
-> This attack allows an adversary to request and receive a digital certificate for a privileged identity, enabling them to authenticate as that user and gain elevated control over the Active Directory environment.
+
+> An ESC1 attack is a privilege escalation technique that exploits misconfigured certificate templates within Microsoft Active Directory Certificate Services (AD CS) to gain unauthorized access to high-privileged accounts, such as domain administrators.This attack allows an adversary to request and receive a digital certificate for a privileged identity, enabling them to authenticate as that user and gain elevated control over the Active Directory environment.
+
+
 ```bash
 └─# certipy-ad req -username 'svc_ca@welcome.local' -password 'password@123!' -ca WELCOME-CA -target $target -template Welcome-Template -upn Administrator@welcome.local
 Certipy v5.0.3 - by Oliver Lyak (ly4k)
