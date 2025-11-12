@@ -5,7 +5,7 @@ categories: [AD-Attacks]
 tags: [Computers]
 platform: AD-Attacks
 author: 0xmr
-image: /assets/img/posts/computer.png
+image: /assets/img/posts/computer.jpg
 excerpt: "Technical understanding and practical overview"
 ---
 
