@@ -1,9 +1,9 @@
 ---
 title: "AD Computers"
 date: 2025-11-11 00:00:00 +0800
-categories: [AD-Attacks]
+categories: [AD- Attacks]
+platform: AD- Attacks
 tags: [Computers]
-platform: AD-Attacks
 author: 0xmr
 image: /assets/img/posts/computer.jpg
 excerpt: "Technical understanding and practical overview"
