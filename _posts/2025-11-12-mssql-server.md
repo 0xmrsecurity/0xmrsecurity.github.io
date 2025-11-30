@@ -15,9 +15,44 @@ excerpt: "Technical understanding and practical overview"
 
 ###  [+]  Connecting to mssqlclient 
 ```bash
+   nxc mssql $target -u '$user' -p '$pass' --local-auth
+
    impacket-mssqlclient  -windows-auth $Domain/$user:'$pass'@Domain
     
    impacket-mssqlclient $full_Domain/$user:'$pass'@Domain
+```
+### Comman usage
+```bash
+# login as different user
+exec_as_login <username here>
+
+# check databases
+enum_db
+
+# check linked servers
+enum_links
+```
+### [+] Database usage 
+```bash
+USE <database name here>;
+
+SELECT * FROM INFORMATION_SCHEMA.TABLES;
+
+SELECT * FROM <table name here>;
+```
+
+## Common Check's
+[+]  Logged in users:
+```bash
+nxc mssql DC01 -u '$user' -p '$pass' --local-auth -M enum_logins
+```
+[+] check impersonate user
+```bash
+nxc mssql DC01 -u '$user' -p '$pass' --local-auth -M enum_impersonate
+```
+[+] impersonate user
+```bash
+nxc mssql DC01 -u '$user' -p 'pass' --local-auth -M mssql_priv
 ```
 ###  [-]  Reading  $SID
 ```bash
