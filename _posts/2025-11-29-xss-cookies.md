@@ -115,9 +115,9 @@ After logging in as moderator, we access the `live.php` page. Capturing the requ
 
 ### WAF Bypass Techniques
 
-1. **URL encoding** - Encode the path
-2. **Path traversal** - Use `../config/app.conf` with dot notation
-3. **Default paths** - Try nginx default credential paths
+1. **URL encoding** - Encode the path.
+2. **Path traversal** - Use `config/app.conf` without dot notation.
+3. **Default paths** - Try nginx default credential paths & optional.
 
 ![Credentials Page](/assets/img/posts/credential.png)
 
