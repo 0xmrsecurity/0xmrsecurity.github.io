@@ -128,7 +128,7 @@ Successfully logged in as admin using the discovered password: `bxxxxxxxxo44`
 
 ---
 
-## Key Findings
+### Key Findings
 
 - **Vulnerable Parameters**: XSS in registration form, LFI in live.php
 - **WAF Bypass**: URL encoding and path traversal techniques
