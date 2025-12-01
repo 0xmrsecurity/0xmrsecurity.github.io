@@ -5,7 +5,7 @@ categories: [Web Exploitation]
 tags: [xss-cookie, WAF Bypass]
 platform: Web
 author: 0xmr
-image: /assets/img/posts/xss.png
+image: /assets/img/posts/xss.jpg
 excerpt: "Topic understanding and Exploiting !"
 ---
 # Padelify TryHackMe
