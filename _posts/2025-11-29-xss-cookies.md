@@ -74,7 +74,7 @@ Keyboard interrupt received, exiting.
 
 ## Login as Moderator
 
-![Moderator Page](/assets/img/posts/moderator.png)
+![Moderator Page](/assets/img/posts/moderatorpng.png)
 
 ## Directory Fuzzing
 
