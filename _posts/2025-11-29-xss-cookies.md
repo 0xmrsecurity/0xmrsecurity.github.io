@@ -1,14 +1,13 @@
 ---
 title: "Padelify: WAF Bypass"
-date: 2025-11-30 00:00:00 +0800
-categories: [web-exploitation]
-tags: [xss-cookie, waf-bypass]
-platform: web-exploitation
+date: 2025-11-28 00:00:00 +0800
+categories: [Web Exploitation]
+tags: [xss-cookie, WAF Bypass]
+platform: Web
 author: 0xmr
-image: /assets/img/posts/xss.jpg
-excerpt: "Technical understanding and practical overview"
+image: /assets/img/posts/xss.png
+excerpt: "Topic understanding and Exploiting !"
 ---
-
 # Padelify TryHackMe
 
 ## Scanning
