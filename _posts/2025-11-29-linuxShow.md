@@ -27,6 +27,8 @@ python3 keytabextract.py 'keytab file here'
 
 `/etc/apache2/sites-enabled/000-default.conf` —> apache2 config file.
 
+`/etc/nginx/sites-available/default` --> store the nginx secret detail like server name and creds.
+
 `/home/<username>/.ssh/id_rsa`  —> it store the public key.
 
 `/home/<username>/.ssh/authorized_keys` —> crucial for creating Backdoors.
