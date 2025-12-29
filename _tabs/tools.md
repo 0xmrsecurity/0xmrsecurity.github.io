@@ -24,7 +24,7 @@ Repo link:- [link](https://github.com/mubix/IOXIDResolver/blob/main/IOXIDResolve
 python3 IOXIDResolver.py -t  192.168.xx.xx
 ```
 ## username-anarchy  &&  GenUser_list.sh
-- Generating variation is the usernames.
+- Generating variation of usernames.
 
 Repo link:- [username-anarchy](https://github.com/urbanadventurer/username-anarchy)
 ### Usage:-
