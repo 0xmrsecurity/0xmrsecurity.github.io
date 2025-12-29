@@ -17,6 +17,7 @@ Repo link:- [link](https://github.com/0xmrsecurity/All_Fast/blob/main/Generate-P
 - Resolve all IP Address of the Machine.(Ipv4 and IPv6 Both)
 - Resolve all interface Adress.
 - Also Resolve the hostname
+
 Repo link:- [link](https://github.com/mubix/IOXIDResolver/blob/main/IOXIDResolver.py)
 ### Usage:-
 ```bash
