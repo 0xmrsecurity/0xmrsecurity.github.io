@@ -32,6 +32,7 @@ Repo link:- [username-anarchy](https://github.com/urbanadventurer/username-anarc
 ./username-anarchy -i users.txt  > valid-user.lst 
 ```
 Repo link:- [GenUser_list](https://github.com/0xmrsecurity/All_Fast/blob/main/Generate-Userlist/GenUser_list.sh)
+### Usage:-
 ```bash
 ./GenUser_list.sh -h 
 *****************************************
