@@ -23,4 +23,19 @@ Repo link:- [link](https://github.com/mubix/IOXIDResolver/blob/main/IOXIDResolve
 ```bash
 python3 IOXIDResolver.py -t  192.168.xx.xx
 ```
+## username-anarchy  &&  GenUser_list.sh
+- Generating variation is the usernames.
 
+Repo link:- [username-anarchy](https://github.com/urbanadventurer/username-anarchy)
+### Usage:-
+```bash
+./username-anarchy -i users.txt  > valid-user.lst 
+```
+Repo link:- [./GenUser_list.sh](https://github.com/0xmrsecurity/All_Fast/blob/main/Generate-Userlist/GenUser_list.sh)
+```bash
+./GenUser_list.sh -h 
+*****************************************
+*           GenUser_list.sh             *
+*****************************************
+Usage: ./GenUser_list.sh -i input_user.lst
+```
