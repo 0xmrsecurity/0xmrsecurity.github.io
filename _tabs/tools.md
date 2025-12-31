@@ -3,7 +3,7 @@
 icon: fas fa-tools
 order: 5
 ---
-## Powershell Generator Tool
+## 🛠 Powershell Generator Tool
 - Always Generate unique Random words in payload.
 - AMSI Bypass.
 - Fast & Efficient
@@ -13,7 +13,7 @@ Repo link:- [link](https://github.com/0xmrsecurity/All_Fast/blob/main/Generate-P
 ```bash
 ./Slot.sh --lhost 192.168.x.x --lport 9001 --sport 8000
 ```
-## IOXIDResolver
+## 🌐 IOXIDResolver
 - Resolve all IP Address of the Machine.(Ipv4 and IPv6 Both)
 - Resolve all interface Adress.
 - Also Resolve the hostname
@@ -23,7 +23,7 @@ Repo link:- [link](https://github.com/mubix/IOXIDResolver/blob/main/IOXIDResolve
 ```bash
 python3 IOXIDResolver.py -t  192.168.xx.xx
 ```
-## username-anarchy  &&  GenUser_list.sh
+## 🔧 username-anarchy  &&  🔧 GenUser_list.sh
 - Generating variation of usernames.
 
 Repo link:- [username-anarchy](https://github.com/urbanadventurer/username-anarchy)
