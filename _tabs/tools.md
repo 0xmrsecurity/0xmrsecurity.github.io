@@ -23,7 +23,7 @@ Repo link:- [link](https://github.com/mubix/IOXIDResolver/blob/main/IOXIDResolve
 ```bash
 python3 IOXIDResolver.py -t  192.168.xx.xx
 ```
-## 🔧 username-anarchy  &&  🔧 GenUser_list.sh
+## 🌐 username-anarchy  &&  🌐 GenUser_list.sh
 - Generating variation of usernames.
 
 Repo link:- [username-anarchy](https://github.com/urbanadventurer/username-anarchy)
@@ -39,4 +39,26 @@ Repo link:- [GenUser_list](https://github.com/0xmrsecurity/All_Fast/blob/main/Ge
 *           GenUser_list.sh             *
 *****************************************
 Usage: ./GenUser_list.sh -i input_user.lst
+```
+
+## 🌐 KeyTabExtract
+- Extract creds from keytab file.
+- For Example Below
+
+Repo link:- [KeyTabExtract](https://github.com/sosdave/KeyTabExtract/blob/master/keytabextract.py)
+### Usage:-
+```bash
+python3 KeyTabExtract.py /path/to/krb5.keytab
+```
+```bash
+└─# python3 KeyTabExtract.py /home/0xmr/krb5.keytab 
+[*] RC4-HMAC Encryption detected. Will attempt to extract NTLM hash.
+[*] AES256-CTS-HMAC-SHA1 key found. Will attempt hash extraction.
+[*] AES128-CTS-HMAC-SHA1 hash discovered. Will attempt hash extraction.
+[+] Keytab File successfully imported.
+        REALM : AI.LOC
+        SERVICE PRINCIPAL : UUCP$/
+        NTLM HASH : fa1a60293357xxxxxe99b306e406537
+        AES-256 HASH : 6de7510ba5a852dc1dea141a8bda6xxxxxx25db6d04a133713feaddbbc19f6ba8
+        AES-128 HASH : 5dde7468f96xxxxxfb326cb09ac28ee0
 ```
