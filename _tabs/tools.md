@@ -62,3 +62,11 @@ python3 KeyTabExtract.py /path/to/krb5.keytab
         AES-256 HASH : 6de7510ba5a852dc1dea141a8bda6xxxxxx25db6d04a133713feaddbbc19f6ba8
         AES-128 HASH : 5dde7468f96xxxxxfb326cb09ac28ee0
 ```
+## 🌐 trufflehog
+- Find .git File leaks.
+
+Repo link:- [trufflehog](https://github.com/trufflesecurity/trufflehog)
+### Usage:-
+```bash
+trufflehog file://$(pwd)   #It scan the current Directory for Git leaks....
+```
