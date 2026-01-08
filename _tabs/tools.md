@@ -3,7 +3,7 @@
 icon: fas fa-tools
 order: 5
 ---
-## 🛠 Powershell Payload Generator Tool
+## 🛠 Powershell Payload Generator Tool {{7*7}}
 - Always Generate unique Random words in payload.
 - AMSI Bypass.
 - Fast & Efficient
