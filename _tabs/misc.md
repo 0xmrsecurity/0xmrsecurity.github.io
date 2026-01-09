@@ -19,7 +19,7 @@ func main() {
         cmd.Run() 
 }
 ```
-### Compile it
+### Compile it !
 ```bash
 GOOS=windows GOARCH=amd64 go build -o pleasesubscribe.exe pleasesubscribe.go
 ```
