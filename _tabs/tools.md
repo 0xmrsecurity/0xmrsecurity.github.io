@@ -3,6 +3,9 @@
 icon: fas fa-tools
 order: 5
 ---
+# AD Mindmap 
+[Repo Link](https://orange-cyberdefense.github.io/ocd-mindmaps/img/mindmap_ad_dark_classic_2025.03.excalidraw.svg)
+
 ## 🛠 Powershell Payload Generator Tool 
 - Always Generate unique Random words in payload.
 - AMSI Bypass.
