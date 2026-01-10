@@ -17,14 +17,16 @@ nxc smb $ip   -u '0xmr'  -p ''    # It also Guest type Authentication
 ```
 ### Authentication
 ```bash
-nxc smb $IP -u '' -p <pass> -H <NTLM_HASH> --use-kcache -k --local-auth -d <domain> --kdcHost <FQDN>
+nxc smb $IP -u '' -p <pass> -H <NTLM_HASH> --use-kcache -k --local-auth -d <domain> --kdcHost <FQDN>  --pfx-cert file.pfx  --cert-pem file.pem  --key-pem file.key
 
--p               # Password Auth
--H               # NTLM Hash
---user-kcache    # Kcache key
--k               # kerberos Auth
+-p                                                                 # Password Auth
+-H                                                                 # NTLM Hash
+--user-kcache                                                      # Kcache key
+-k                                                                 # kerberos Auth
+--pfx-cert / --pfx-base64 with --pfx-pass for PFX certificates     # pfx Auth
+--cert-pem with --key-pem                                          # Both key and cert Required to Auth
 
--d  or --kdcHost   # Specify Domain Name and Fully Qualified Domain Name
+-d  or --kdcHost                                                   # Specify Domain Name and Fully Qualified Domain Name
 ```
 ### Generate File
 ```bash
@@ -37,10 +39,12 @@ export KRB5CCNAME=tgt.ccache           # Export ccahe key and authenticate it !
 ```
 ### Enumeration
 ```bash
-nxc smb $IP  --users  --shares  --groups  --computers  --sessions  --rid-brute   --loggedon-users  --pass-pol  --disks
+nxc smb $IP  --users  --shares  --groups  --computers  --sessions  --rid-brute   --loggedon-users  --pass-pol  --disks  --qwinsta  --tasklist  --dc-list  --put-file  --get-file  --interfaces
 
 --users            # Enumerate domain users
 --shares           # List all SMB shares and permissions
+--share            # use share ( --share <name> --dir)
+--dir              # Directory list in shares ( dir or dir "/path/to" )
 --groups           # Enumerate domain groups
 --computers        # List domain computers
 --sessions         # Show active SMB sessions/connections
@@ -48,5 +52,11 @@ nxc smb $IP  --users  --shares  --groups  --computers  --sessions  --rid-brute  
 --loggedon-users   # Show currently logged-on users
 --pass-pol         # Display domain password policy
 --disks            # Enumerate physical and logical drives attached to the system
+--qwinsta					 # Enumerate RDP sessions (Cross Session Attack)
+--tasklist         # Check Running tasks
+--dc-list          # list of Domains with Ip Adresses
+--put-file         # Send a local file to the remote target (--put-file /tmp/whoami.txt  /path/to/upload)
+--get-file         # Get a remote file on the remote target (--get-file \\Windows\\Temp\\whoami.txt  /path/to/save)
+--interfaces       # Enumerate network interfaces
 ```
 # More Thinks Add soon !!!
