@@ -73,3 +73,17 @@ Repo link:- [trufflehog](https://github.com/trufflesecurity/trufflehog)
 ```bash
 trufflehog file://$(pwd)   #It scan the current Directory for Git leaks....
 ```
+## 🌐 PCredz
+- PCredz is a tool written in python that can extract clear-text credentials such as credit card numbers, POP, SMTP, FTP, Kerberos AS-REQ hashes from a network packet capture or a live interface.
+
+Repo link:- [PCredz](https://github.com/lgandx/PCredz)
+```bash
+# Extract Secrets
+./pcredz -f file.pcap
+hashcat -m 5600 NTLMv2.txt /usr/share/wordlist/rockyou.txt
+
+# Focus on cleartext credentials only
+./Pcredz -f capture.pcap --disable NTLM --disable Kerberos
+
+./pcredz -i eth0 -v      # Capture live Interface
+```
