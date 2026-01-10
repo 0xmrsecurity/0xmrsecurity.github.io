@@ -8,7 +8,7 @@ author: 0xmr
 image: /assets/img/posts/smb.png
 excerpt: "Technical understanding and practical overview"
 ---
-# NetExec SMB Protocal
+# NetExec SMB Protocal !
 ### Authentication
 ```bash
 nxc smb $IP -u '' -p <pass> -H <NTLM_HASH> --use-kcache -k --local-auth -d <domain> --kdcHost <FQDN>
