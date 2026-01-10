@@ -3,7 +3,7 @@
 icon: fas fa-subway
 order: 6
 ---
-# Windows 10 Bypass With GO
+#  🖥️ Windows 10 Bypass With GO 
 Video Explaination [here](https://youtu.be/zM8EVJdErsc?si=uGHzpHG8HMlHIfjZ)
 ### nano pleasesubscribe.go
 ```bash
