@@ -9,6 +9,12 @@ image: /assets/img/posts/smb.png
 excerpt: "Technical understanding and practical overview"
 ---
 # NetExec SMB
+### Checks
+```bash
+nxc smb $ip   -u ''  -p ''        # Anonymous Login
+nxc smb $ip   -u 'Guest' -p ''    # Guest Login
+nxc smb $ip   -u '0xmr'  -p ''    # It also Guest type Authentication
+```
 ### Authentication
 ```bash
 nxc smb $IP -u '' -p <pass> -H <NTLM_HASH> --use-kcache -k --local-auth -d <domain> --kdcHost <FQDN>
