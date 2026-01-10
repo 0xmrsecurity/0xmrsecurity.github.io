@@ -36,11 +36,12 @@ enum_links
 ```
 ### [+] Database usage 
 ```bash
-USE <database name here>;
+enum_db                         #show databases
+use <db_name>;                  #use it
+select name from sys.tables;    #show tables
+select * from <table_name>;     #show content 
 
 SELECT * FROM INFORMATION_SCHEMA.TABLES;
-
-SELECT * FROM <table name here>;
 ```
 
 ## Common Check's
