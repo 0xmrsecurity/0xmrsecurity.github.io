@@ -8,7 +8,7 @@ author: 0xmr
 image: /assets/img/posts/smb.png
 excerpt: "Technical understanding and practical overview"
 ---
-# NetExec SMB Protocal !
+# NetExec SMB
 ### Authentication
 ```bash
 nxc smb $IP -u '' -p <pass> -H <NTLM_HASH> --use-kcache -k --local-auth -d <domain> --kdcHost <FQDN>
@@ -43,3 +43,4 @@ nxc smb $IP  --users  --shares  --groups  --computers  --sessions  --rid-brute  
 --pass-pol         # Display domain password policy
 --disks            # Enumerate physical and logical drives attached to the system
 ```
+# More Thinks Add soon !!!
