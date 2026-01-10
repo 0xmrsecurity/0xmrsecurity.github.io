@@ -9,6 +9,11 @@ image: /assets/img/posts/smb.png
 excerpt: "Technical understanding and practical overview"
 ---
 # NetExec SMB
+- SMB can refer to Server Message Block, a network protocol for file/printer sharing across Windows, macOS, Linux, etc.
+- A client-server protocol for sharing files, printers, and other resources over a network.
+- Allows applications to access files on remote servers as if they were local, using TCP/IP.
+- Modern versions (SMB3) offer encryption, signing, and Kerberos authentication for better security
+
 ### Checks
 ```bash
 nxc smb $ip   -u ''  -p ''        # Anonymous Login
@@ -55,8 +60,8 @@ nxc smb $IP  --users  --shares  --groups  --computers  --sessions  --rid-brute  
 --qwinsta					 # Enumerate RDP sessions (Cross Session Attack)
 --tasklist         # Check Running tasks
 --dc-list          # list of Domains with Ip Adresses
---put-file         # Send a local file to the remote target (--put-file /tmp/whoami.txt  /path/to/upload)
---get-file         # Get a remote file on the remote target (--get-file \\Windows\\Temp\\whoami.txt  /path/to/save)
+--put-file         # Send a local file to the remote target (--put-file /tmp/whoami.txt  /path/where/to/upload)
+--get-file         # Get a remote file on the remote target (--get-file \\Windows\\Temp\\whoami.txt  /path/where/to/save)
 --interfaces       # Enumerate network interfaces
 ```
 ### Attacks
@@ -72,7 +77,7 @@ nxc smb $ip -u '' -p ''
 
 -M rdcman
 -M security-questions
--M change-password -o USER=TargetUser NEWPASS=  or NEWHASH=
+-M change-password -o USER=TargetUser NEWPASS=  or NEWHASH=    # Change password
 ```
 ### Credential Dumping
 ```bash
