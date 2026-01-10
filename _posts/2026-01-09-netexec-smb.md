@@ -1,5 +1,5 @@
 ---
-title: "NetExec SMB Protocal"
+title: "NetExec SMB"
 date: 2026-01-10 00:00:00 +0530
 categories: [AD- Attacks]
 tags: [135 445 Port, Netexec smb, smb, SMB Protocal]
