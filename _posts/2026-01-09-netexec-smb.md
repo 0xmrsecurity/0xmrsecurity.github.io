@@ -108,6 +108,7 @@ nxc smb $ip -u '' -p ''
 ```bash
 nxc smb $ip -u '' -p ''
 
+-M winscp                   # Dump Registry Saved Passwords.
 --laps                      # Enumerate Local Administrator Password Solution
 --sam                       # Dump SAM hashes using methods from secretsdump.py
 --lsa                       # Requires Domain Admin or Local Admin Priviledges on target Domain Controller
