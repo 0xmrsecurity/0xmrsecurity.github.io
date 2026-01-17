@@ -144,5 +144,5 @@ dpapi_userkey: 0x8b68be9ef724xxxxxxxxx3559e10078e36e8ab32
 NL$KM: 0x8dd28e6754cxxxxxxx953b95b46a2b366
 ```
 ```bash
-py dump.py    # so simple for only windows 
+py dump.py
 ```
