@@ -26,6 +26,15 @@ Repo link:- [link](https://github.com/mubix/IOXIDResolver/blob/main/IOXIDResolve
 ```bash
 python3 IOXIDResolver.py -t  192.168.xx.xx
 ```
+
+## 🥅 NetSpray
+- Spray Passwords and Hash in all Protocals.
+
+Repo link:- [link](https://github.com/0xmrsecurity/NetExec-Stuff)
+### Usage:-
+```bash
+NetSpray all targets -u '' -p ''
+```
 ## 🌐 username-anarchy  &&  🌐 GenUser_list.sh
 - Generating variation of usernames.
 
