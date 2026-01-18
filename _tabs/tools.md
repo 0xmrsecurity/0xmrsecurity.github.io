@@ -33,7 +33,7 @@ python3 IOXIDResolver.py -t  192.168.xx.xx
 Repo link:- [link](https://github.com/0xmrsecurity/NetExec-Stuff)
 ### Usage:-
 ```bash
-NetSpray all targets -u '' -p ''
+NetSpray <protocols|all> <targets> -u <username> [-p <password> | -H <hash>]
 ```
 ## 🌐 username-anarchy  &&  🌐 GenUser_list.sh
 - Generating variation of usernames.
