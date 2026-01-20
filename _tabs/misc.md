@@ -25,6 +25,7 @@ func main() {
 GOOS=windows GOARCH=amd64 go build -o pleasesubscribe.exe pleasesubscribe.go
 ```
 # 💭💭 Defender Exclusion Path Detection
+[John Hammand Video](https://youtu.be/fxO1V0mzePQ?si=DkA5820pjg2F47pV)
 ### Add Exclusion Path
 ```bash
 # Need Admin Priv
