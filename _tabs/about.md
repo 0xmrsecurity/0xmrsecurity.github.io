@@ -4,7 +4,7 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-#👋 About
+# 👋 About
 A curated collection of my notes on Hacking, and Pentesting. concise, and openly shared.
 
 # 🥷 whoami /all
@@ -14,7 +14,7 @@ I love exploring, learning, and teaching. Whether it’s uncovering system vulne
 ### 🌞 Why This website Exists ?
 I believe in structured knowledge, free learning, and documenting what I explore. This site acts as my personal knowledge base, freely accessible to anyone curious.
 ### 🚵‍♂️ Available At !
-⛽ [Github](https://github.com/0xmrsecurity)
+⛽ [ Github ](https://github.com/0xmrsecurity)
 
 > 0xmr was here ... 
 {: .prompt-tip }
