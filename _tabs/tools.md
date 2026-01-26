@@ -213,7 +213,7 @@ dpapi_userkey: 0x8b68be9ef724xxxxxxxxx3559e10078e36e8ab32
 NL$KM: 0x8dd28e6754cxxxxxxx953b95b46a2b366
 ```
 
-## 🐒 Ipcloud & ip2provider
+## 🐒 Ip2cloud & ip2provider
 - Both tool help us to find the vendor Ip, where it's is hosted like aws,gcp,azure or etc...
 
 Rep0 link:-[ip2cloud Github](https://github.com/devanshbatham/ip2cloud)
