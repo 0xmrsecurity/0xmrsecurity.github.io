@@ -240,7 +240,7 @@ aws configure --profile <Profile Name>
 cloudfox aws --profile <Profile Name> all-checks
 ```
 ## 💀 dsnap
-- Gold Mine tool to find the snapshot and Download it
+- Gold Mine tool to find the snapshot and Download it (EBS=They are like virtual Machine Hardisk.)
 
 Repo link:-[dsnap](https://github.com/dsnap/dsnap)
 - [Resources Blog](https://www.techwithtyler.dev/cloud-security/tools/dsnap)
@@ -248,7 +248,7 @@ Repo link:-[dsnap](https://github.com/dsnap/dsnap)
 ### Usage:-
 ```bash
 # Configure Profile
-aws configure
+aws configure --profile <ProfileName>
 
 # list snapshot id's
 dsnap --profile <profileName> --region <awsRegion> list
