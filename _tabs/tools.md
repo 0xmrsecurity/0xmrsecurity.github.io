@@ -226,3 +226,16 @@ Repo link:-[ip2provider Github](https://github.com/oldrho/ip2provider)
 ```bash
 ./ip2provider.py $IP
 ```
+## ⛷️ cloudfox
+- CloudFox helps you gain situational awareness in unfamiliar cloud environments.
+- It’s an open source command line tool created to help penetration testers and other offensive security professionals find exploitable attack paths in cloud infrastructure.
+
+Repo link:-[Cloudfox Github](https://github.com/BishopFox/cloudfox)
+### Usage:-
+```bash
+# Create a profile
+aws configure --profile <Profile Name>
+
+# Got some pentesting stuff
+cloudfox aws --profile <Profile Name> all-checks
+```
