@@ -241,9 +241,11 @@ cloudfox aws --profile <Profile Name> all-checks
 ```
 ## 💀 dsnap
 - Gold Mine tool to find the snapshot and Download it
+
 Repo link:-[dsnap](https://github.com/dsnap/dsnap)
+- [Resources Blog](https://www.techwithtyler.dev/cloud-security/tools/dsnap)
+
 ### Usage:-
-[Resources Blog](https://www.techwithtyler.dev/cloud-security/tools/dsnap)
 ```bash
 # Configure Profile
 aws configure
