@@ -39,7 +39,7 @@ Search virus  ---> open it ---> click on Virus & Threat Protection ( Manage sett
 ```bash
 Get-WinEvent -LogName "Microsoft-Windows-Windows Defender/Operational" -FilterXPath "*[System[(EventID=5007)]]" | Where-Object { $_.Message -like "*exclusion*" } | Select-Object Message | FL
 ```
-# 🐼 Get your Box IpAdresses
+# 🐼 Get your Box IpAddress
 ## IPv4 Address
 ```bash
 Get-NetIPAddress -AddressFamily IPv4 |findstr /i ipaddress
@@ -48,7 +48,7 @@ Get-NetIPAddress -AddressFamily IPv4 |findstr /i ipaddress
 ```bash
 Get-NetIPAddress -AddressFamily IPv6 |findstr /i ipaddress
 ```
-### Get Internet Facing Ipaddress
+### Get Internet Facing IPAddress
 ```bash
 $pubIPv4 = Invoke-RestMethod -Uri "https://api.ipify.org"
 $pubIPv6 = Invoke-RestMethod -Uri "https://api64.ipify.org"
@@ -56,7 +56,7 @@ $pubIPv6 = Invoke-RestMethod -Uri "https://api64.ipify.org"
 Write-Output "Your Public IPv4 Address : $pubIPv4"
 Write-Output "Your Public IPv6 Address : $pubIPv6"
 ```
-### small one linear
+### One linear
 ```bash
 "Your IPv4 is: $(irm api.ipify.org)"; "Your IPv6 is: $(irm api64.ipify.org)"    # irm= invoke Rest Method 
 ```
