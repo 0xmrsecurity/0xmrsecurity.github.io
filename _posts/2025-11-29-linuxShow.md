@@ -40,6 +40,61 @@ python3 keytabextract.py 'keytab file here'
 `/proc/[pid]/cmdline` -→ Command line of running process
 `/proc/self/cmdline` -→ Command line of running process
 
+```bash
+/etc/hosts
+/etc/hostname
+/etc/resolv.conf
+/etc/passwd
+/etc/shadow
+
+/proc/mounts
+/proc/self/environ
+/proc/self/cmdline
+
+/home/user/.env  
+/home/user/.ssh/id_rsa
+/home/user/.ssh/id_ed25519     
+/home/user/.ssh/authorized_keys
+
+======>
+nginx
+
+/etc/nginx/nginx.conf                          # Main configuration file
+/etc/nginx/sites-available/default             # Default site configuration
+/etc/nginx/sites-enabled/default               # Enabled site configuration
+/etc/nginx/sites-available/*                   # All available sites
+/etc/nginx/sites-enabled/*                     # All enabled sites
+/etc/nginx/conf.d/*                            # Additional configurations
+/etc/nginx/.htpasswd                           # Basic authentication file
+/etc/nginx/.htaccess                           # Access control (if enabled)
+/var/www/html/index.html                       # Default web root
+/var/www/*/                                    # Virtual host directories
+=====>
+apache
+
+/etc/apache2/apache2.conf                      # Main configuration file
+/etc/apache2/sites-available/000-default.conf  # Default site configuration
+/etc/apache2/sites-enabled/000-default.conf    # Enabled site configuration
+/etc/apache2/conf-available/*                  # Available configurations
+/etc/apache2/conf-enabled/*                    # Enabled configurations
+/etc/apache2/.htpasswd                         # Basic authentication file
+/etc/apache2/.htaccess                         # Access control
+/var/www/html/                                 # Default web root
+/var/www/*/                                    # Virtual host directories
+/var/log/apache2/access.log                    # Access logs
+/var/log/apache2/error.log                     # Error logs
+=====>
+AD
+
+/etc/krb5.keytab                               # Kerberos keytab file (sensitive!)
+/etc/krb5.conf                                 # Kerberos configuration
+/etc/krb5kdc/kdc.conf                          # KDC configuration
+/var/lib/krb5kdc/principal                     # Kerberos principal database
+/etc/sssd/sssd.conf                            # SSSD configuration (LDAP/AD)
+/etc/ldap/ldap.conf                            # LDAP configuration
+/etc/openldap/ldap.conf                        # OpenLDAP configuration
+=====>
+```
 ### Search for credentials in files
 ```bash
 grep -riE "(password|passwd|pwd|user|username|api_key|secret|token).*=" /etc /var/www /opt 2>/dev/null | grep -v "Binary"
