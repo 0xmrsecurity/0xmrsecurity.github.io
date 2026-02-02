@@ -40,6 +40,7 @@ python3 keytabextract.py 'keytab file here'
 `/proc/[pid]/cmdline` -→ Command line of running process
 `/proc/self/cmdline` -→ Command line of running process
 
+## Read to use files
 ```bash
 /etc/hosts
 /etc/hostname
@@ -55,7 +56,9 @@ python3 keytabextract.py 'keytab file here'
 /home/user/.ssh/id_rsa
 /home/user/.ssh/id_ed25519     
 /home/user/.ssh/authorized_keys
-
+```
+## Nginx server file
+```bash
 ======>
 nginx
 
@@ -69,9 +72,11 @@ nginx
 /etc/nginx/.htaccess                           # Access control (if enabled)
 /var/www/html/index.html                       # Default web root
 /var/www/*/                                    # Virtual host directories
+```
+## Apache server files
+```bash
 =====>
 apache
-
 /etc/apache2/apache2.conf                      # Main configuration file
 /etc/apache2/sites-available/000-default.conf  # Default site configuration
 /etc/apache2/sites-enabled/000-default.conf    # Enabled site configuration
@@ -83,6 +88,9 @@ apache
 /var/www/*/                                    # Virtual host directories
 /var/log/apache2/access.log                    # Access logs
 /var/log/apache2/error.log                     # Error logs
+```
+## Active Directory files
+```bash
 =====>
 AD
 
