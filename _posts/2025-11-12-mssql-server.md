@@ -13,6 +13,8 @@ excerpt: "Technical understanding and practical overview"
 > Microsoft SQL Server is a relational database management system (RDBMS) developed by Microsoft, designed to manage and organize data in a structured way using tables that are related to each > other through defined relationships.
 > It allows applications and users to store, retrieve, update, and manage data efficiently using Transact-SQL (T-SQL), Microsoft’s implementation of the SQL language.
 
+[Resource](https://swisskyrepo.github.io/PayloadsAllTheThings/SQL%20Injection/MSSQL%20Injection/)
+
 ###  [+]  Connecting to mssqlclient 
 ```bash
 NetExec mssql $target -u '$user' -p '$pass' --local-auth
