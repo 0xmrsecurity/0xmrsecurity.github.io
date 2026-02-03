@@ -14,6 +14,7 @@ I love exploring, learning, and teaching. Whether it’s uncovering system vulne
 ### 🌞 Why This website Exists ?
 I believe in structured knowledge, free learning, and documenting what I explore. This site acts as my personal knowledge base, freely accessible to anyone curious.
 # Quote
+<img width="1199" height="512" alt="image" src="https://newsmeter.in/h-upload/2023/04/13/343668-2023-04-13-200020.jpg" />
 # In 1942 Dr. B.R. Ambedkar Said `Educate`, `Agitate`, `Organize`.
 
 ### 🚵‍♂️ Available At !
