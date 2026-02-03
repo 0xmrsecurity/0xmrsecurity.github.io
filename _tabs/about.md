@@ -13,6 +13,9 @@ Hello there! I’m Suraj, a passionate cybersecurity student and an aspiring Red
 I love exploring, learning, and teaching. Whether it’s uncovering system vulnerabilities, experimenting with new tools, or mastering complex concepts, I’m always eager to go deeper and learn something new every day.
 ### 🌞 Why This website Exists ?
 I believe in structured knowledge, free learning, and documenting what I explore. This site acts as my personal knowledge base, freely accessible to anyone curious.
+# Quote
+# In 1942 Dr. B.R. Ambedkar Said `Educate`, `Agitate`, `Organize`.
+
 ### 🚵‍♂️ Available At !
 ⛽ [ Github ](https://github.com/0xmrsecurity)
 
