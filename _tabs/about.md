@@ -18,8 +18,9 @@ I believe in structured knowledge, free learning, and documenting what I explore
 
 # In 1942 Dr. B.R. Ambedkar Said `Educate`, `Agitate`, `Organize`.
 
-### 🚵‍♂️ Available At !
-⛽ [ Github ](https://github.com/0xmrsecurity)
+### 🏡 Available At !
+🥇 [ Github ](https://github.com/0xmrsecurity)
+🥈 [ linkedin ](www.linkedin.com/in/suraj-gupta-mrx-)
 
 > 0xmr was here ... 
 {: .prompt-tip }
