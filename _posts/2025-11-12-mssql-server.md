@@ -265,6 +265,8 @@ exec xp_cmdshell 'powershell -enc <encoded_raw_code>'
 - DC validates TGT and issues TGS for requested service
 - User presents TGS to service
 - Service validates TGS and grants access
+
+
 > How Silver Ticket attack works:
 - Attacker has service account password hash
 - Attacker forges TGS ticket locally without contacting DC
