@@ -14,14 +14,15 @@ A curated collection of my notes on Hacking, and Pentesting. concise, and openly
 ### 🌞 Why This website Exists ?
 I believe in structured knowledge, free learning, and documenting what I explore. This site acts as my personal knowledge base, freely accessible to anyone curious.
 
-## Iam Open for
+## 🎙️ Iam Open for
 > Security research collaboration
 > CTF team participation
-> Job opportunities in Pentester, Cybersecurity Guy, Security Consultant, offensive security
+> Job opportunities in Pentester, Cybersecurity, Security Consultan, offensive security.
 
 ### 🏡 Available At !
-- 🥇 [ Github ](https://github.com/0xmrsecurity)
-- 🥈 [ linkedin ](https://www.linkedin.com/in/suraj-gupta-mrx-/)
+-  [ Github Profile ](https://github.com/0xmrsecurity)
+-  [ linkedin Profile ](https://www.linkedin.com/in/suraj-gupta-mrx-/)
+
 
 > 0xmr was here ... 
 {: .prompt-tip }
