@@ -24,7 +24,7 @@ I believe in structured knowledge, free learning, and documenting what I explore
 -  [ linkedin Profile ](https://www.linkedin.com/in/suraj-gupta-mrx-/)
 
 
-> 0xmr was here ... 
+> 0xmr was here ...
 {: .prompt-tip }
 
 
