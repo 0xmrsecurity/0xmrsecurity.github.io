@@ -20,7 +20,7 @@ I believe in structured knowledge, free learning, and documenting what I explore
 
 ### 🏡 Available At !
 🥇 [ Github ](https://github.com/0xmrsecurity)
-🥈 [ linkedin ](www.linkedin.com/in/suraj-gupta-mrx-)
+🥈 [ linkedin ](https://www.linkedin.com/in/suraj-gupta-mrx-/)
 
 > 0xmr was here ... 
 {: .prompt-tip }
