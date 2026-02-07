@@ -80,7 +80,7 @@ EXEC xp_cmdshell 'whoami';
 
 ## Common Check's
 ### Rid-Brute 
-```json
+```bash
 nxc mssql $ip -u '$user' -p '$pass' --rid-brute 2000 # max
 ```
 
