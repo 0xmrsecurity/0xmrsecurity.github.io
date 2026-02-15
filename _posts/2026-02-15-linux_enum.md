@@ -5,7 +5,7 @@ categories: [Cheatsheet]
 tags: [linux, Linux Enum]
 platform: Cheatsheet
 author: 0xmr
-image: /assets/img/posts/Linux.webp
+image: /assets/img/posts/linux.webp
 ---
 
 # Linux Enum
