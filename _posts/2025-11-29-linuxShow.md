@@ -1,9 +1,9 @@
 ---
 title: "Linux Hunt"
 date: 2025-11-08 00:00:00 +0800
-categories: [Linux]
-tags: [Linux]
-platform: Linux
+categories: [Cheatsheet]
+tags: [Linux, Basic linux]
+platform: Cheatsheet
 author: 0xmr
 image: /assets/img/posts/linux_hunt.jpeg
 excerpt: "Technical understanding and practical overview"
