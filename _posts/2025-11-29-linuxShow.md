@@ -90,8 +90,14 @@ apache
 ```
 ## Active Directory files
 ```bash
-=====>
-AD
+===================================================================================
+Active Directory:- keytab , config 
+===================================================================================
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+find /etc -type f \( -name "*.keytab" -o -name "*.config" \) 2>/dev/null
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Files:-
+
 /etc/krb5.keytab                               # Kerberos keytab file (sensitive!)
 /etc/krb5.conf                                 # Kerberos configuration
 /etc/krb5kdc/kdc.conf                          # KDC configuration
@@ -99,7 +105,9 @@ AD
 /etc/sssd/sssd.conf                            # SSSD configuration (LDAP/AD)
 /etc/ldap/ldap.conf                            # LDAP configuration
 /etc/openldap/ldap.conf                        # OpenLDAP configuration
-=====>
+=========================================================================================================================================================================================================
+find /etc /opt /var/lib -type f \( -iname "krb5.conf" -o -iname "*.keytab" -o -iname "sssd.conf" -o -iname "ldap.conf" -o -iname "nslcd.conf" -o -iname "realmd.conf" -o -iname "smb.conf" \) 2>/dev/null
+==========================================================================================================================================================================================================
 ```
 ## Strings Search ? (Passwd)
 ```bash
