@@ -145,6 +145,11 @@ grep --color=auto -rnw '/' -iIe "PASSW\|PASSWD\|PASSWORD\|PWD" --color=always 2>
 (systemctl list-units --type=service; ss -tulnp) 2>/dev/null | grep -Ei 'mysql|mariadb|postgresql|mssql|3306|5432|1433'
 ```
 
+## ssh files
+```bash
+find / -type f \( -name "*id_rsa*" -o -name "*id_dsa*" -o -name "*id_ecdsa*" -o -name "*id_ed25519*" -o -name "*authorized_keys*" -o -name "*ssh_host*" \) 2>/dev/null
+```
+
 
 ## Intersting Browser config File ?
 ```bash
