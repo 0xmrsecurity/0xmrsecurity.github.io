@@ -9,7 +9,8 @@ image: /assets/img/posts/linux.webp
 ---
 
 ### Linux Quick Enum
-I created a simple Quick recon check list for linux environment.
+> I am creating a simple Quick recon check list for linux environment for Post Exploitation.
+> 
 
 # System & Identity
 ```bash
