@@ -61,7 +61,6 @@ python3 keytabextract.py 'keytab file here'
 ```bash
 ======>
 nginx
-
 /etc/nginx/nginx.conf                          # Main configuration file
 /etc/nginx/sites-available/default             # Default site configuration
 /etc/nginx/sites-enabled/default               # Enabled site configuration
@@ -93,7 +92,6 @@ apache
 ```bash
 =====>
 AD
-
 /etc/krb5.keytab                               # Kerberos keytab file (sensitive!)
 /etc/krb5.conf                                 # Kerberos configuration
 /etc/krb5kdc/kdc.conf                          # KDC configuration
@@ -103,12 +101,35 @@ AD
 /etc/openldap/ldap.conf                        # OpenLDAP configuration
 =====>
 ```
-### Search for credentials in files
+## Strings Search ? (Passwd)
 ```bash
-grep -riE "(password|passwd|pwd|user|username|api_key|secret|token).*=" /etc /var/www /opt 2>/dev/null | grep -v "Binary"
+# Custom string search
+grep -ri --include="*.<Extension>" -n "<String>" <Directory> 2>/dev/null
+
+# Password string search
+grep -ri --include="*.xml" -n "Password" /opt 2>/dev/null
 ```
 
-## Intersting Strings Search
+
+## Find Config Files ?
+
+Custom File Extensions:-
+```bash
+# Custom extension file search
+find / -type f -name "*.<Extension Name>" 2>/dev/null
+```
+
+All Config file check:-
+```bash
+# Search Whole file system
+find / -type f \( -name "*.xml" -o -name "*.db" -o -name "*.sql" -o -name "*.config" \) 2>/dev/null
+
+# Specific Paths /opt /etc /home /var
+find /opt /var /home /etc -type f \( -name "*.xml" -o -name "*.db" -o -name "*.sql" -o -name "*.config" \) 2>/dev/null
+```
+
+
+## Intersting Strings Search !!!
 ```bash
 for file in $(find / -type f \( -name "*.cnf" -o -name "*.conf" -o -name "*.config" -o -name "*.ini" \) 2>/dev/null | grep -vE "(doc|lib|proc|sys|fonts|share|snap)"); do results=$(grep -iE "(user|username|password|pass|passwd|pwd|auth|credential|token|secret|key|api)" "$file" 2>/dev/null | grep -vE "^\s*(#|;|//)"); if [ -n "$results" ]; then echo -e "\n=== $file ==="; echo "$results" | sed 's/^/  /'; fi; done
 ```
@@ -117,23 +138,15 @@ find / -exec ls -lad $PWD/* "{}" 2>/dev/null \; | grep -i -I "passw\|pwd"
 grep --color=auto -rnw '/' -iIe "PASSW\|PASSWD\|PASSWORD\|PWD" --color=always 2>/dev/null
 ```
 
-## Intersting Database Check
+
+## Find Databases ?
 ```bash
+# Check Running Databases
 (systemctl list-units --type=service; ss -tulnp) 2>/dev/null | grep -Ei 'mysql|mariadb|postgresql|mssql|3306|5432|1433'
 ```
-```bash
-for l in $(echo ".sql .db .*db .db*");do echo -e "\nDB File extension: " $l; find / -name *$l 2>/dev/null | grep -v "doc\|lib\|headers\|share\|man";done
-```
 
-## Intersting Config File Check
-```bash
-find / -type f \( -name "*.conf" -o -name "*.config" -o -name "*.cfg" -o -name "*.ini" -o -name "*.yaml" -o -name "*.yml" -o -name "*.json" -o -name ".*rc" \) 2>/dev/null | grep -vE "^/(proc|sys|dev|run)" | sort
-```
-```bash
-for l in $(echo ".conf .config .cnf .cfg .yaml .yml .json");do echo -e "\nFile extension: " $l; find / -name *$l 2>/dev/null | grep -vE "lib\|fonts\|share\|core|run\|dev\|sys\|proc" ;done
-```
 
-## Intersting Brower config file
+## Intersting Browser config File ?
 ```bash
 find ~ -type f \( -name "logins.json" -o -name "Login Data" -o -name "key*.db" -o -name "signons.sqlite" \) 2>/dev/null
 ```
