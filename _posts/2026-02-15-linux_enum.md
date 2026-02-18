@@ -38,7 +38,28 @@ ss -tlnp
 netstat -tunlp
 ip a
 ip addr show
-ip route show
+ip route show            # show Routes in Linux
+route print              # show Routes in Windows
+
+cat /etc/resolv.conf     # check DNS configuration in Linux
+ipconfig /all            # check DNS configuration in Windows
+```
+
+# SUID Files
+```bash
+# Special file permissions in Linux that allow users to execute files with the permissions of the file's owner.
+find / -type f -perm -4000 2>/dev/null
+
+find / -perm -u=s -type f 2>/dev/null | grep -i 'Username Here'
+find / -type f -perm -4000 -user <Username Here> 2>/dev/null
+
+find / -perm -4000 -type f -exec ls -ld {} \\; 2>/dev/null   
+find / -perm -u=s -type f -exec ls -la {} + 2>/dev/null
+```
+
+# Capabilities
+```bash
+getcap -r / 2>/dev/null 
 ```
 
 #### More thinks Coming soon...
