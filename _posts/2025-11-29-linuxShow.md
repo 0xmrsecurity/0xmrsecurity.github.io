@@ -52,10 +52,16 @@ python3 keytabextract.py 'keytab file here'
 /proc/self/environ
 /proc/self/cmdline
 
+------------------------------
+SSH && Env  Files:-
+-----------------------------
 /home/user/.env  
 /home/user/.ssh/id_rsa
 /home/user/.ssh/id_ed25519     
 /home/user/.ssh/authorized_keys
+=========================================================================================================================================================================================
+find / -type f \( -name "*id_rsa*" -o -name "*id_dsa*" -o -name "*id_ecdsa*" -o -name "*id_ed25519*" -o -name "*authorized_keys*" -o -name "*ssh_host*" -o -name ".env"  \) 2>/dev/null
+=========================================================================================================================================================================================
 ```
 ## Nginx server file
 ```bash
