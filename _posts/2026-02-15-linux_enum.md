@@ -12,6 +12,7 @@ image: /assets/img/posts/linux.webp
 > I am creating a simple Quick recon check list for linux environment for Post Exploitation.
 > 
 
+
 # System & Identity
 ```bash
 id                        # User’s identity information
@@ -26,11 +27,13 @@ last -n 5                         # shows the login history of last 5 users.
 cat /etc/passwd | grep -i 'sh$'   # list users
 ```
 
+
 # Processes & Runtime
 ```bash
 ps auxf
 px -ef --forest
 ```
+
 
 # Network & listeners
 ```bash
@@ -45,7 +48,8 @@ cat /etc/resolv.conf     # check DNS configuration in Linux
 ipconfig /all            # check DNS configuration in Windows
 ```
 
-# SUID Files
+
+# SUID's  Files
 ```bash
 # Special file permissions in Linux that allow users to execute files with the permissions of the file's owner.
 find / -type f -perm -4000 2>/dev/null
@@ -57,9 +61,70 @@ find / -perm -4000 -type f -exec ls -ld {} \\; 2>/dev/null
 find / -perm -u=s -type f -exec ls -la {} + 2>/dev/null
 ```
 
+
 # Capabilities
 ```bash
 getcap -r / 2>/dev/null 
 ```
+
+
+# SSH & .env  Files
+```bash
+find / -type f \( -name "*id_rsa*" -o -name "*id_dsa*" -o -name "*id_ecdsa*" -o -name "*id_ed25519*" -o -name "*authorized_keys*" -o -name "*ssh_host*" -o -name ".env"  \) 2>/dev/null
+```
+
+
+# Running Database
+```bash
+# Check Running Databases
+(systemctl list-units --type=service; ss -tulnp) 2>/dev/null | grep -Ei 'mysql|mariadb|postgresql|mssql|3306|5432|1433'
+```
+
+
+# Config Files
+```bash
+# Custom extension file search
+find / -type f -name "*.<Extension Name>" 2>/dev/null
+
+# Search Whole file system
+find / -type f \( -name "*.xml" -o -name "*.db" -o -name "*.sql" -o -name "*.config" \) 2>/dev/null
+
+# Specific Paths /opt /etc /home /var
+find /opt /var /home /etc -type f \( -name "*.xml" -o -name "*.db" -o -name "*.sql" -o -name "*.config" \) 2>/dev/null
+```
+
+
+# Password Finding's
+```bash
+# Custom string search
+grep -ri --include="*.<Extension>" -n "<String>" <Directory> 2>/dev/null
+
+# Password string search in /opt
+grep -ri --include="*.xml" -n "Password" /opt 2>/dev/null
+```
+
+
+# Active Directory Files
+```bash
+===================================================================================
+Active Directory:- keytab , config 
+===================================================================================
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+find /etc -type f \( -name "*.keytab" -o -name "*.config" \) 2>/dev/null
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Files:-
+
+/etc/krb5.keytab                               # Kerberos keytab file (sensitive!)
+/etc/krb5.conf                                 # Kerberos configuration
+/etc/krb5kdc/kdc.conf                          # KDC configuration
+/var/lib/krb5kdc/principal                     # Kerberos principal database
+/etc/sssd/sssd.conf                            # SSSD configuration (LDAP/AD)
+/etc/ldap/ldap.conf                            # LDAP configuration
+/etc/openldap/ldap.conf                        # OpenLDAP configuration
+=========================================================================================================================================================================================================
+find /etc /opt /var/lib -type f \( -iname "krb5.conf" -o -iname "*.keytab" -o -iname "sssd.conf" -o -iname "ldap.conf" -o -iname "nslcd.conf" -o -iname "realmd.conf" -o -iname "smb.conf" \) 2>/dev/null
+==========================================================================================================================================================================================================
+```
+
 
 #### More thinks Coming soon...
