@@ -121,10 +121,32 @@ Files:-
 /etc/sssd/sssd.conf                            # SSSD configuration (LDAP/AD)
 /etc/ldap/ldap.conf                            # LDAP configuration
 /etc/openldap/ldap.conf                        # OpenLDAP configuration
-=========================================================================================================================================================================================================
+==========================================================================================================================================================================================================
 find /etc /opt /var/lib -type f \( -iname "krb5.conf" -o -iname "*.keytab" -o -iname "sssd.conf" -o -iname "ldap.conf" -o -iname "nslcd.conf" -o -iname "realmd.conf" -o -iname "smb.conf" \) 2>/dev/null
 ==========================================================================================================================================================================================================
 ```
+
+
+# Proc Files:-
+```bash
+==================================================================================
+Proc Files:- PID's , Version, arp, environ , cmdline , tcp , dev , mounts
+==================================================================================
+Files:-
+
+/proc/version                # kernel version
+/proc/net/dev                # show all connected interfaces (eth0, tun0, docker)
+/proc/net/tcp                # check for open ports (Grab a :hex number and convert into decimal number).
+/proc/self/environ           # env variables
+/proc/*/environ               
+/proc/$$/environ             # current running process  cat /proc/$$/environ | tr '\0' '\n'
+/proc/self/cmdline           # current running process
+/proc/*/cmdline 
+/proc/cmdline
+/proc/mounts                 # grep the nfs share info
+/proc/net/arp                # IP and MAC Address of Connected Devices
+```
+
 
 
 #### More thinks Coming soon...
