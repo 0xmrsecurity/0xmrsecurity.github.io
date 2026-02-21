@@ -16,8 +16,8 @@ image: /assets/img/posts/linux.webp
 # System & Identity
 ```bash
 id                        # User’s identity information
-hostname or hostnamectl   # Host Name of Computer
-whoami                    # who are you
+hostname or hostnamectl   # Host Computer Details
+whoami                    # who are you !
 uname -a                  # Display system information
 sudo -l                   # which files you can run as root
 sudo -V                   # sudo version Exploit
@@ -31,7 +31,7 @@ cat /etc/passwd | grep -i 'sh$'   # list users
 # Processes & Runtime
 ```bash
 ps auxf
-px -ef --forest
+ps -ef --forest
 ```
 
 
