@@ -256,3 +256,29 @@ dsnap --profile <profileName> --region <awsRegion> list
 # Download snapshots
 dsnap --profile <profileName> --region <awsRegion> get <snapshot id>
 ```
+
+## ⛷️Snyk && OpenGrep
+- Gold Mine Tool for Source Code Review. Find Open Vulnerbility in Open Source Codes.
+
+
+<img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/435e76b5-0865-4124-8c9f-58c3b651b9bb" />
+
+### Snyk Usage:-
+```bash
+# Scan Current Directory Files
+snyk code test .
+
+# Normal Scan
+snyk test
+```
+### OpenGrep Usage:-
+```bash
+# Auto Scan
+opengrep scan --config auto .
+
+# Scan OWASP TOP 10
+opengrep scan --config p/owasp-top-ten .
+
+# Scan Python files for vulnerblities
+opengrep scan --config p/python .
+```
