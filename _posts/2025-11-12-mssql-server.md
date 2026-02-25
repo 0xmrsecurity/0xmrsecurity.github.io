@@ -286,8 +286,10 @@ EXEC sp_oadestroy @output
 <img width="800" height="400" alt="image" src="assets/img/posts/Screenshot 2026-02-07 232402.png" />
 
 > A Silver Ticket is a forged Kerberos TGS (Ticket Granting Service) ticket. Unlike Golden Tickets which forge TGT (Ticket Granting Tickets), Silver Tickets target specific services.
-> 
+
+
 > How Kerberos normally works:
+
 - User authenticates to DC, receives TGT
 - User presents TGT to DC to request service ticket (TGS)
 - DC validates TGT and issues TGS for requested service
@@ -296,13 +298,13 @@ EXEC sp_oadestroy @output
 
 
 > How Silver Ticket attack works:
+
 - Attacker has service account password hash
 - Attacker forges TGS ticket locally without contacting DC
 - Attacker includes arbitrary group memberships in the ticket
 - Service validates ticket using its own hash (not by contacting DC)
 - Service grants access based on forged group memberships
 
-> 
 ```bash
 ticketer.py -nthash $nthash -domain-sid $Domain_SID -domain $Domain -spn $user/$Full_DOmain:$Port -groups 512,513,519 -user-id 500 Administrator
 ```
