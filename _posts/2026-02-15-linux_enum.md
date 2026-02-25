@@ -10,7 +10,6 @@ image: /assets/img/posts/linux.webp
 
 ### Linux Quick Enum
 > I am creating a simple Quick recon check list for linux environment for Post Exploitation.
-> 
 
 
 # System & Identity
@@ -50,8 +49,9 @@ ipconfig /all            # check DNS configuration in Windows
 
 
 # SUID's  Files
+>  Special file permissions in Linux that allow users to execute files with the permissions of the file's owner.
+
 ```bash
-# Special file permissions in Linux that allow users to execute files with the permissions of the file's owner.
 find / -type f -perm -4000 2>/dev/null
 find / -perm -4000 -type f -ls 2>/dev/null
 
@@ -108,6 +108,7 @@ grep -ri --include="*.xml" -n "Password" /opt 2>/dev/null
 
 # Automation
 > Linux Smart Enumeration Script [lse](https://github.com/diego-treitos/linux-smart-enumeration/tree/master)
+
 - Level 1
 ```bash
 ./lse.sh -l 1
@@ -118,6 +119,7 @@ grep -ri --include="*.xml" -n "Password" /opt 2>/dev/null
 ```
 
 > Linepeass [Peass-NG](https://github.com/peass-ng/PEASS-ng/tree/master)
+
 - Standard Level
 ```bash
 ./linpeas.sh
