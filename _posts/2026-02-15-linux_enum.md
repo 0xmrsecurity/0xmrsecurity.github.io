@@ -52,14 +52,18 @@ ipconfig /all            # check DNS configuration in Windows
 >  Special file permissions in Linux that allow users to execute files with the permissions of the file's owner.
 
 ```bash
+# Important !
 find / -perm -4000 2> /dev/null | xargs ls -lah
 
+# Common !
 find / -type f -perm -4000 2>/dev/null
 find / -perm -4000 -type f -ls 2>/dev/null
 
+# Extract full Detail's
 find / -type f -perm -4000 -ls 2>/dev/null |grep -i 'root'
 find / -type f -perm -4000 -user <Username Here> 2>/dev/null
 
+# Custom !
 find / -type f -a \( -perm -u+s -o -perm -g+s\) -exec ls -l {} \; 2> /dev/null
 ```
 
