@@ -280,5 +280,8 @@ opengrep scan --config auto .
 opengrep scan --config p/owasp-top-ten .
 
 # Scan Python files for vulnerblities
-opengrep scan --config p/python .
+opengrep scan --config p/python file.py
+
+# Scan javascript files for vuln
+opengrep scan --config p/javascript file.js
 ```
