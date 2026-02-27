@@ -5,7 +5,7 @@ categories: [Web Exploitation]
 tags: [wordpress-hacking, wordpress]
 platform: Web
 author: 0xmr
-image: /assets/img/posts/git.webp
+image: /assets/img/posts/wordpress.jpg
 excerpt: "Hacking Wordpress..."
 ---
 
