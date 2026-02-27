@@ -285,3 +285,44 @@ opengrep scan --config p/python file.py
 # Scan javascript files for vuln
 opengrep scan --config p/javascript file.js
 ```
+
+## MANSPIDER
+- MANSPIDER is a tool that allows us to crawl through network shares to find clear text credentials. It uses regex filters to identify passwords saved within filetypes such as docx, xlsx, xml etc.
+
+### Usage:-
+```bash
+# Searching for filenames with creds
+manspider $IP -f passw pass password passwd pwd cred creds credential credentials secret secrets key keys token tokens auth authentication login logon user username admin administrator account accounts api apikey api_key access accesskey db database db_pass db_password db_user db_username connection connectionstring conn connstr network config configuration -d $DOMAIN -u $USER -p $PASSWD
+
+# Searching for spreadsheets with *password* in the filename
+manspider $IP -f passw pass password passwd pwd cred creds secret secrets token tokens auth login logon key keys -e xlsx csv ods tsv xlsm xls -d $DOMAIN -u $USER -p $PASSWD
+
+# Searching for documents containing passwords
+manspider $IP -c passw password passwd pwd credentials creds secret token apikey api_key connectionstring conn_str -e xlsx csv docx pdf txt xml json yaml yml ini conf cfg properties env log md rtf odt -d $DOMAIN -u $USER -p $PASSWD
+
+# Searching for SSH keys
+manspider $IP -e ppk rsa pem ssh pub asc gpg pgp -o -f id_rsa id_dsa id_ecdsa id_ed25519 id_xmss known_hosts authorized_keys -d $DOMAIN -u $USER -p $PASSWD
+manspider $IP -e '' -c 'BEGIN .{1,10} PRIVATE KEY' -d $DOMAIN -u $USER -p $PASSWD
+
+# Searching for password manager files
+manspider $IP -e kdbx kdb 1pif agilekeychain opvault lpd dashlane psafe3 enpass bwdb msecure stickypass pwm rdb safe zps pmvault mywallet jpass pwmdb kwallet keeweb pass -d $DOMAIN -u $USER -p $PASSWD
+
+# Searching for certificates & crypto material
+manspider $IP -e pfx pk12 pkcs12 pkcs8 pem key crt cer csr jks keystore keys der p12 p7b p7c p8 spc pvk snk aes -d $DOMAIN -u $USER -p $PASSWD
+
+# Searching for config & environment files (high value targets)
+manspider $IP -e conf cfg ini env properties yaml yml toml xml json -c passw password passwd secret token apikey connection -d $DOMAIN -u $USER -p $PASSWD
+
+# Searching for backup & sensitive archive files
+manspider $IP -f backup bak old dump shadow ntds sam system security -e zip tar gz 7z rar bak bkp old sql dump -d $DOMAIN -u $USER -p $PASSWD
+
+# Searching for browser stored credentials
+manspider $IP -f logins cookies places history -e sqlite db json -d $DOMAIN -u $USER -p $PASSWD
+
+# Searching for VPN / RDP / Network config files
+manspider $IP -e ovpn rdp pcf vpn -f vpn rdp remote gateway -d $DOMAIN -u $USER -p $PASSWD
+
+# Searching for scripts that may contain hardcoded creds
+manspider $IP -e ps1 psm1 bat cmd sh bash zsh py rb pl vbs js ts -c passw password passwd secret token apikey credential -d $DOMAIN -u $USER -p $PASSWD
+
+```
