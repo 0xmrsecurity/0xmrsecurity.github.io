@@ -47,7 +47,8 @@ curl https://example.com/ | grep 'content="WordPress'    # https
 # CVE-2023-6553
 > This cve shows the Remote Code Execution vulnerbility in Backup Migration wordpress Plugin Version=1.3.7 via the /includes/backup-heart.php file. You can Download the backup via /wp-content/uploads/*  directory.
 
-Nuclei Template Detection
+
+Nuclei Template Detection:- 
 [Nuclei Resource link](https://github.com/0xmrsecurity/Public_Poc/blob/main/nuclei/CVE-2023-6553.yaml)
 
 <img width="1901" height="461" alt="image" src="https://github.com/user-attachments/assets/8b6ef40f-53a4-4ad9-a070-e5e74c956f34" />
