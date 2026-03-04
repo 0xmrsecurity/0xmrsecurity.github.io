@@ -31,8 +31,8 @@ excerpt: "Hacking Wordpress..."
 Press ----> Ctrl + f (Search wordpress)
 
 # Curl
-curl http://example.com/ | grep 'content="WordPress'     # http
-curl https://example.com/ | grep 'content="WordPress'    # https
+curl -s http://example.com/ | grep 'WordPress'     # http
+curl -s https://example.com/ | grep 'WordPress'    # https
 ```
 > Updating in a mean while...
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -41,6 +41,7 @@ curl https://example.com/ | grep 'content="WordPress'    # https
 # Automation Hacking 
 > Updating in a mean while...
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## CVE Exploitation
 
 # CVE-2023-6553
