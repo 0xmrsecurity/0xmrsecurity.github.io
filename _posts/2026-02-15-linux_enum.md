@@ -111,10 +111,11 @@ grep -ri --include="*.xml" -n "Password" /opt 2>/dev/null
 
 # CronTab's
 > Adding soon........!!!
-- Checking Running Jobs
-- Writeable Cron Jobs
-- Writeable Cron Jobs Dependency (Files, python library, config files...)
-
+```bash
+# Checking Running Jobs
+# Writeable Cron Jobs
+# Writeable Cron Jobs Dependency (Files, python library, config files...)
+```
 
 # Automation
 > Linux Smart Enumeration Script [lse](https://github.com/diego-treitos/linux-smart-enumeration/tree/master)
@@ -136,26 +137,28 @@ grep -ri --include="*.xml" -n "Password" /opt 2>/dev/null
 ```
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Credential Access 
-- Reused Passwords
-- Credentials from configuration files
-- Credentials from local database files
-- Credentials from Bash History
-- ssh file and Environment variables
-- sudo Access
-- Group Privilleges (Docker, LXD, etc)
-
+```bash
+# Reused Passwords
+# Credentials from configuration files
+# Credentials from local database files
+# Credentials from Bash History
+# ssh file and Environment variables
+# sudo Access
+# Group Privilleges (Docker, LXD, etc)
+```
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Misconfiguration
-- Immediate System Identity
-- SUID, SGID Files
-- Intersting Capabilities on Binary
-- Credential Access Files
-- Review Internal Ports & Services
-- Writing Path ($PATH Hijacking)
-- LD_PRELOAD and LD_PRELOAD set in /etc/sudoers
-- Kernel Exploits (Last Resort)
-- Automation Tools (lse.sh, linpeass.sh, linEnum, pspy64, linux-exploit-suggester.sh, linux-privesc-check.sh)
-
+```bash
+# Immediate System Identity
+# SUID, SGID Files
+# Intersting Capabilities on Binary
+# Credential Access Files
+# Review Internal Ports & Services
+# Writing Path ($PATH Hijacking)
+# LD_PRELOAD and LD_PRELOAD set in /etc/sudoers
+# Kernel Exploits (Last Resort)
+# Automation Tools (lse.sh, linpeass.sh, linEnum, pspy64, linux-exploit-suggester.sh, linux-privesc-check.sh)
+```
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
