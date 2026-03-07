@@ -111,12 +111,13 @@ grep -ri --include="*.xml" -n "Password" /opt 2>/dev/null
 
 # CronTab's
 > Crontab file is the system-wide crontab used to schedule system-level tasks in Linux
-```bash
-# Checking Running Jobs
-cat /etc/crontab
 
-# Writeable Cron Jobs
-# Writeable Cron Jobs Dependency (Files, python library, config files...)
+```bash
+ # Checking Running Jobs
+ cat /etc/crontab
+
+ # Writeable Cron Jobs
+ # Writeable Cron Jobs Dependency (Files, python library, config files...)
 ```
 > Adding soon........!!!
 
