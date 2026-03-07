@@ -7,7 +7,7 @@ order: 6
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #  🖥️ Windows 10 Bypass With GO 
-Video Explaination [here](https://youtu.be/zM8EVJdErsc?si=uGHzpHG8HMlHIfjZ)
+Exploitation Video Example here... [here](https://youtu.be/zM8EVJdErsc?si=uGHzpHG8HMlHIfjZ)
 ### nano pleasesubscribe.go
 ```elixir
 package main
