@@ -42,7 +42,17 @@ Invoke-RestMethod is.gd/Q2Katq | Invoke-Expression
 ```
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# 📸 ShutOFF your webcam
+This Required Admin Powers...
+```bash
+# ShutOFF your webcam
+Disable-PnpDevice -InstanceId (Get-PnpDevice -Class Camera -Status OK).InstanceId -Confirm:$false
 
+# Fireup Your webcam
+Enable-PnpDevice -InstanceId (Get-PnpDevice -Class Camera -Status Error).InstanceId -Confirm:$false   
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # 💭  Defender Exclusion Path Detection
 [John Hammand Video ](https://youtu.be/fxO1V0mzePQ?si=DkA5820pjg2F47pV)
 ### Add Exclusion Path
