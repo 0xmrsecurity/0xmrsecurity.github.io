@@ -13,13 +13,15 @@ A curated collection of my notes on Hacking, and Pentesting. concise, and openly
 > I love exploring, learning, and teaching. Whether it’s uncovering system vulnerabilities, experimenting with new tools, or mastering complex concepts, I’m always eager to go deeper and learn something new every day.
 
 # 💻 Skills & Abilities
-> [!TIP]
+> [!WARNING]
 > 
+> add soon ...
 
 
 # 📽️ Projects Made
-> [!TIP]
+> [!WARNING]
 > 
+> add soon ...
 
 ### 🌞 Why This website Exists ?
 I believe in structured knowledge, free learning, and documenting what I explore. This site acts as my personal knowledge base, freely accessible to anyone curious.
