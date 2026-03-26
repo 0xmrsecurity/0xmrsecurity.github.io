@@ -53,6 +53,29 @@ Enable-PnpDevice -InstanceId (Get-PnpDevice -Class Camera -Status Error).Instanc
 ```
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# 🧶 Common Windows Thinks
+```bash
+[Directory Listing in Different Partitions] :-
+dir C:\    or    dir D:\     or     dir E:\
+dir C:\ -force
+dir D:\ -force
+
+[Defender Check] :-
+(Get-Service windefend).Status
+Get-MpComputerStatus
+Get-MpComputerStatus | Select-Object AntivirusEnabled, RealTimeProtectionEnabled
+Get-MpComputerStatus | findstr /I "AntivirusEnabled RealTimeProtectionEnabled ComputerID AMEngineVersion AMProductVersion"
+
+[Password Policiy]:-
+net accounts
+net accounts /domain
+
+```
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # 💭  Defender Exclusion Path Detection
 [John Hammand Video ](https://youtu.be/fxO1V0mzePQ?si=DkA5820pjg2F47pV)
 ### Add Exclusion Path
