@@ -11,6 +11,17 @@ image: /assets/img/posts/linux.webp
 ### Linux Quick Enum
 > I am creating a simple Quick recon check list for linux environment for Post Exploitation.
 
+## Ready to start
+```bash
+whoami
+id
+groups
+sudo -l
+sudo -v
+crontab -l
+cat /etc/crontab
+ls -la /
+```
 
 # System & Identity
 ```bash
