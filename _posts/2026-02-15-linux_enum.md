@@ -87,6 +87,11 @@ getcap -r / 2>/dev/null
 
 # SSH & .env  Files
 ```bash
+env
+printenv
+cat /proc/$$/environ
+
+
 find / -type f \( -name "*id_rsa*" -o -name "*id_dsa*" -o -name "*id_ecdsa*" -o -name "*id_ed25519*" -o -name "*authorized_keys*" -o -name "*ssh_host*" -o -name ".env"  \) 2>/dev/null
 ```
 
