@@ -219,9 +219,10 @@ python3 -c "from urllib.parse import quote; encode_username = quote('username_he
 
 # Assetnote (best for modern subdomains – monthly updated)
  commonspeak2_subdomains.txt   # or download the latest from wordlists.assetnote.io
+```
 
-
-[Username Brute Force Wordlists]:-
+### Username Brute Force Wordlists
+```bash
 /usr/share/wordlists/seclists/Usernames/top-usernames-shortlist.txt
 /usr/share/wordlists/seclists/Usernames/xato-net-10-million-usernames.txt
 /usr/share/wordlists/seclists/Usernames/Honeypot-Captures/multiplesources-users-fabian-fingerle.de.txt
