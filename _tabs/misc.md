@@ -182,6 +182,7 @@ python3 -c "from urllib.parse import quote; encode_username = quote('username_he
 ```
 
 # 📋 Wordlists
+Resource [wordlists.assetnote.io](https://wordlists.assetnote.io/)
 
 ### Directory Brute Force Wordlists
 ```bash
@@ -220,6 +221,22 @@ python3 -c "from urllib.parse import quote; encode_username = quote('username_he
 # Assetnote (best for modern subdomains – monthly updated)
  commonspeak2_subdomains.txt   # or download the latest from wordlists.assetnote.io
 ```
+
+### Parameter Brute Force Wordlists
+```bash
+# Must-Have #1 – Highest efficiency for most targets
+/usr/share/wordlists/seclists/Discovery/Web-Content/burp-parameter-names.txt
+
+# Very strong complementary lists from SecLists
+/usr/share/wordlists/seclists/Discovery/Web-Content/raft-large-words-lowercase.txt
+/usr/share/wordlists/seclists/Discovery/Web-Content/raft-medium-words-lowercase.txt
+/usr/share/wordlists/seclists/Discovery/Web-Content/api/api-endpoints.txt          # Great for API parameter names too
+
+# Assetnote – Best modern/fresh list (highly recommended in 2026)
+# Download latest from: https://wordlists.assetnote.io/
+httparchive_parameters_top_1m_2026_02_27.txt     # ~376k real-world parameters (replace with newest monthly version)
+```
+
 
 ### Username Brute Force Wordlists
 ```bash
@@ -267,3 +284,21 @@ python3 -c "from urllib.parse import quote; encode_username = quote('username_he
 # while read name; do echo "${name,,}@target.com"; echo "${name// /.}@target.com"; done <   Wordlist  > emails.txt
 ```
 
+
+### LFI Filw Wordlists
+```bash
+# Absolute King for LFI – Highest hit rate
+/usr/share/wordlists/seclists/Fuzzing/LFI/LFI-Jhaddix.txt
+
+# Cleaner / lower noise variants
+/usr/share/wordlists/seclists/Fuzzing/LFI/LFI-graceful.txt
+/usr/share/wordlists/seclists/Fuzzing/LFI/LFI-LFISuite-pathtotest.txt
+
+# Huge version (use only if you have time/bandwidth)
+/usr/share/wordlists/seclists/Fuzzing/LFI/LFI-LFISuite-pathtotest-huge.txt
+
+# Interesting files to test after finding LFI (Linux + Windows)
+/usr/share/wordlists/seclists/Discovery/Web-Content/default-web-root-directory-linux.txt
+/usr/share/wordlists/seclists/Discovery/Web-Content/default-web-root-directory-windows.txt
+/usr/share/wordlists/seclists/Fuzzing/LFI/common-sensitive-files.txt
+```
