@@ -99,6 +99,7 @@ Get-NetIPAddress -AddressFamily IPv4 |findstr /i ipaddress
 ## IPv6 Address
 ```elixir
 Get-NetIPAddress -AddressFamily IPv6 |findstr /i ipaddress
+powershell irm apip.cc/json
 ```
 ### Get Internet Facing IPAddress
 ```elixir
@@ -110,7 +111,9 @@ Write-Output "Your Public IPv6 Address : $pubIPv6"
 ```
 ### One linear
 ```elixir
-"Your IPv4 is: $(irm api.ipify.org)"; "Your IPv6 is: $(irm api64.ipify.org)"    # irm= invoke Rest Method 
+"Your IPv4 is: $(irm api.ipify.org)"; "Your IPv6 is: $(irm api64.ipify.org)"    # irm= invoke Rest Method
+
+powershell -->  "Your IPV6 Address is leaked.. $(irm apip.cc/json)"
 ```
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
