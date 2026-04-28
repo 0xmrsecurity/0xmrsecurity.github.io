@@ -60,10 +60,14 @@ sudo git help add
 - nmap
 - joomlacheck.sh  <--- script
 - nuclei   <--- for cve detection
+=======
+nuclei -u $URL -t /root/nuclei-templates/http/cves/ -tags joomla
+=======
 - dirsearch <--- for directory brute force
 - git poc <--- for SQL Injection Exploitation
 - curl 
-- searchsploit
+- searchsploit 
+- msfconsole  <-- A lot!
 
 # Linux kernal Exploitation
 ------> linux kernal exploitation <-------
