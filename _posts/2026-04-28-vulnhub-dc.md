@@ -54,5 +54,20 @@ sudo git help add
 
 # dc-3
 ```bash
-Adding soon!...
+# Exploiting Joomla 3.7.0 Version
+ Explore msf usage for joomla exploitation , get used exploit and auxilaries
+# Raw tool used for exploitation ?
+- nmap
+- joomlacheck.sh  <--- script
+- nuclei   <--- for cve detection
+- dirsearch <--- for directory brute force
+- git poc <--- for SQL Injection Exploitation
+- curl 
+- searchsploit
+
+# Linux kernal Exploitation
+------> linux kernal exploitation <-------
+=> uname -a
+=> file /bin/bash
+=> cat /etc/*-release
 ```
