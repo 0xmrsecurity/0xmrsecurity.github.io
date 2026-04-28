@@ -125,6 +125,19 @@ grep -ri --include="*.<Extension>" -n "<String>" <Directory> 2>/dev/null
 grep -ri --include="*.xml" -n "Password" /opt 2>/dev/null
 ```
 
+# Kernal Exploitation
+```bash
+# Linux kernal Exploitation
+------> linux kernal exploitation <-------
+=> uname -a
+=> file /bin/bash
+=> cat /etc/*-release
+
+# searchsploit <linux version>
+# search on exploitdb
+# Needs :- which gcc cc tar unzip
+``
+
 # CronTab's
 > Crontab file is the system-wide crontab used to schedule system-level tasks in Linux
 
