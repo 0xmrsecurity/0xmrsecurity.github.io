@@ -136,7 +136,7 @@ grep -ri --include="*.xml" -n "Password" /opt 2>/dev/null
 # searchsploit <linux version>
 # search on exploitdb
 # Needs :- which gcc cc tar unzip
-``
+```
 
 # CronTab's
 > Crontab file is the system-wide crontab used to schedule system-level tasks in Linux
