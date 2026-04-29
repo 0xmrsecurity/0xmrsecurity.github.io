@@ -9,16 +9,9 @@ image: /assets/img/posts/vulnhub.webp
 excerpt: "Vulnhub Hacking Boxes..."
 ---
 
-## DC Series Learning Guide
+## DC Series Learnings
 
 This comprehensive guide covers exploitation techniques for the Vulnhub DC series. Each box focuses on different vulnerabilities and post-exploitation methods.
-
-### Table of Contents
-1. [DC 1 - Drupal 7](#dc-1-drupal-7)
-2. [DC 2 - WordPress 4.7.10](#dc-2-wordpress)
-3. [DC 3 - Joomla 3.7.0](#dc-3-joomla)
-4. [DC 4 - SSH Brute Force](#dc-4-ssh)
-5. [DC 5 - Log Poisoning](#dc-5-log-poisoning)
 
 
 ## DC 1
