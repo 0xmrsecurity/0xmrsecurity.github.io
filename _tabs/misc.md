@@ -116,6 +116,17 @@ Write-Output "Your Public IPv6 Address : $pubIPv6"
 powershell -->  "Your IPV6 Address is leaked.. $(irm apip.cc/json)"
 ```
 
+# 🗺️ linux Public Info Feteching
+see your public information...
+```bash
+#!/bin/bash
+echo -e  "Feteching Your Public IP Address.."
+sleep 3
+echo -e "[+] Prinitng your live Public Information"
+curl -s https://apip.cc/json | jq . 
+echo "[*] Information feteched successfully"
+```
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #  🗃️ File Transfer
