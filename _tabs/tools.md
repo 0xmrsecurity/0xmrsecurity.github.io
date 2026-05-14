@@ -291,6 +291,11 @@ opengrep scan --config p/javascript file.js
 
 ### Usage:-
 ```bash
+-c --> content regex parser  (content like pass, cred, api)
+-e --> file extension parser (extension like txt py exe conf)
+-f --> file name parser (file name file1 file2 file2)
+```
+```bash
 # Searching for filenames with creds
 manspider $IP -f passw pass password passwd pwd cred creds credential credentials secret secrets key keys token tokens auth authentication login logon user username admin administrator account accounts api apikey api_key access accesskey db database db_pass db_password db_user db_username connection connectionstring conn connstr network config configuration -d $DOMAIN -u $USER -p $PASSWD
 
