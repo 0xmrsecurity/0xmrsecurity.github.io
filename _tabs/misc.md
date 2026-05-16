@@ -51,15 +51,20 @@ Disable-PnpDevice -InstanceId (Get-PnpDevice -Class Camera -Status OK).InstanceI
 # Fireup Your webcam
 Enable-PnpDevice -InstanceId (Get-PnpDevice -Class Camera -Status Error).InstanceId -Confirm:$false   
 ```
+
 # ⛄ Windows History's
+
 ### Powershell
 Powershell stored history in 2 ways..
-> Current PowerShell session History 
+
+> Current PowerShell session History
+
 ```bash
 Get-History   or    h   or   history
 ```
 
 > Persistent History
+
 ```bash
 # Print all users powershell History
 type "c:\users\*\appdata\roaming\microsoft\windows\powershell\psreadline\ConsoleHost_history.txt"
@@ -71,6 +76,7 @@ notepad $env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history
 
 ### cmd
 Cmd does't stores there history.But if you login to already running Current CMD window (Press ↑ (Up Arrow) or F7)
+
 ```bash
 # Only work when you login as already running cmd session by user..
 Press ↑ (Up Arrow) or F7
