@@ -95,7 +95,29 @@ net accounts
 net accounts /domain
 
 ```
+# 🪙 Snatching Wifi 💰 Password
+> Using Tool
 
+[Download link](https://github.com/Alfex4936/Windows-WiFi-Extractor-Rust/releases/download/v1.0.2/wifi_viewer.exe)
+```bash
+wifi_viewer.exe
+```
+
+> Using Powershell
+
+```bash
+> netsh
+> wlan
+> show (show all capabilities)
+> show profile (list all wifi profiles)
+> show profile name="Profile_Name" key=clear
+```
+> Using CMD
+
+```bash
+> netsh wlan show profiles
+> netsh wlan show profiles name="Profile_Name" key=clear  
+```
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
