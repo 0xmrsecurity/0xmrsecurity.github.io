@@ -72,6 +72,9 @@ Get-Content "c:\users\*\appdata\roaming\microsoft\windows\powershell\psreadline\
 
 # Open in Notepad
 notepad $env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
+
+# Custom Experiments
+type "c:\u*\*\appdata\r*\m*\w*\power*\p*\C*.t*"
 ```
 
 ### cmd
