@@ -157,6 +157,7 @@ grep -ri --include="*.xml" -n "Password" /opt 2>/dev/null
 ```bash
  # Checking Running Jobs
  cat /etc/crontab
+ ls -la /etc/cron.d
 
  # Writeable Cron Jobs
  # Writeable Cron Jobs Dependency (Files, python library, config files...)
