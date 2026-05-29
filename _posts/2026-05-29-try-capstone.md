@@ -182,6 +182,8 @@ svc-drop:xxxxxxxxxxxx
 
 {Global search} :- Control + shift + F ==> Type (username,password)
 Found Creds j.harris:xxxxxxxxxxxxx2026!
+
+
 ```
 
-> updating...
+> I am keep updating all Challenge Writeups...
