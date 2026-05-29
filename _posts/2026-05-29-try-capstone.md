@@ -11,7 +11,7 @@ excerpt: "Tryhackme Hacking Boxes..."
 
 ## Tryhackme Jr.Pentester Challenges
 
-### Operation Promotion
+# Operation Promotion
 ```bash
 export IP=Target_IP
 [Scanning]
@@ -81,8 +81,7 @@ sudo -l
 sudo find . -exec /bin/sh -p \; -quit
 ```
 
-### Operation Coldstart
-
+# Operation Coldstart
 ```bash
 export IP=Target_IP
 [Scanning]
