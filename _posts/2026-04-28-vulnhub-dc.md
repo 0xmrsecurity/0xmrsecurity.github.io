@@ -1,9 +1,9 @@
 ---
 title: "Vulnhub DC Series"
 date: 2026-04-04 00:00:00 +0800
-categories: [vulnhub]
-tags: [vulhub]
-platform: Vulhub
+categories: [Series]
+tags: [Series]
+platform: Series
 author: 0xmr
 image: /assets/img/posts/vulnhub.webp
 excerpt: "Vulnhub Hacking Boxes..."
