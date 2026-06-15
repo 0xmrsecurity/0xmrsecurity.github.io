@@ -288,7 +288,7 @@ Files:-
 /etc/ldap/ldap.conf                            # LDAP configuration
 /etc/openldap/ldap.conf                        # OpenLDAP configuration
 ==========================================================================================================================================================================================================
-find /etc /opt /var/lib -type f \( -iname "krb5.conf" -o -iname "*.keytab" -o -iname "sssd.conf" -o -iname "ldap.conf" -o -iname "nslcd.conf" -o -iname "realmd.conf" -o -iname "smb.conf" \) 2>/dev/null
+find /etc /opt /var/lib -type f \( -iname "krb5.conf" -o -iname "*.keytab" -o -iname "sssd.conf" -o -iname "ldap.conf" -o -iname "nslcd.conf" -o -iname "realmd.conf" -o -iname "smb.conf" \) 2>/dev/null 
 ==========================================================================================================================================================================================================
 ```
 
