@@ -25,7 +25,10 @@ func main() {
 ```
 ### Compile it !
 ```elixir
+# Simple one
 GOOS=windows GOARCH=amd64 go build -o pleasesubscribe.exe pleasesubscribe.go
+# Gui Application
+GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -ldflags="-H windowsgui -s -w" -o pleasesubscribe.exe pleasesubscribe.go
 ```
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
