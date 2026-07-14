@@ -51,6 +51,21 @@ $assem = [System.Reflection.Assembly]::Load($data)
 [Sharphound.Program]::Main("--collectionmethods All --domain $Domain_Name --searchforest true --outputdirectory c:\users\public\ --zipfilename Bloodhound.zip".Split())   
 ```
 
+## Auto Enumeration Tool
+This tools enumerate the Active Directory Users, Computers and Run `Multi Collector for BloodHound Loot`.
+[Tool  bloodhound2enum.sh](https://github.com/0xmrsecurity/ad2enum/blob/main/bloodhound/bloodhound2enum.sh)
+
+```bash
+# Install
+wget https://github.com/0xmrsecurity/ad2enum/blob/main/bloodhound/bloodhound2enum.sh
+chmod +x bloodhound2enum.sh
+
+# Usage
+./bloodhound2enum.sh -h
+./bloodhound2enum.sh -f $FQDN -d $DOMAIN -i $IP -u $USER -p $PASSWORD
+```
+<img width="1100" height="912" alt="image" src="https://github.com/0xmrsecurity/ad2enum/blob/main/Img/bloodhound2enum.png" />
+
 
 ### Custom Queries
 
