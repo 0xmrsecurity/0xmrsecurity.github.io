@@ -64,7 +64,7 @@ chmod +x bloodhound2enum.sh
 ./bloodhound2enum.sh -h
 ./bloodhound2enum.sh -f $FQDN -d $DOMAIN -i $IP -u $USER -p $PASSWORD
 ```
-<img width="1100" height="912" alt="image" src="https://github.com/0xmrsecurity/ad2enum/blob/main/Img/bloodhound2enum.png" />
+<img width="550" height="490" alt="image" src="https://github.com/0xmrsecurity/0xmrsecurity.github.io/blob/main/assets/img/posts/bloodhound2enum.png" />
 
 
 ### Custom Queries
