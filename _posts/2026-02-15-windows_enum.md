@@ -116,10 +116,12 @@ gci -force
 cd "S-*"
 
 # Deleted user
+bloodyAD --host $Target --dns $IP -d $DOMAIN -u $USER -p '$PASS' get writable
 Get-ADObject -Filter 'IsDeleted -eq $true' -IncludeDeletedObjects -Properties * | Where-Object {$_.ObjectClass -eq "user"} | Format-List *
 Get-ADObject -filter 'isDeleted -eq $true -and name -ne "Deleted Objects"' -includeDeletedObjects -property objectSid,lastKnownParent
 
 Restore-ADObject -Identity "Paste_UID_Here"
+bloodyAD --host $Target --dns $IP -d $DOMAIN -u $USER -p '$PASS' set restore <Deleted_User_Name>
 ```
 
 ## Schduled Taks
