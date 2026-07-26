@@ -71,7 +71,7 @@ i686-w64-mingw32-gcc pleasesubscribe.c -shared -o pleasesubscribe.dll
 
 
 
-# Stablize Reverse shell
+# 🍿 Stablize Reverse shell
 ### script
 ```bash
 script -q /dev/null
