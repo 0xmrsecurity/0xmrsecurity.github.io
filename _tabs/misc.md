@@ -32,6 +32,37 @@ GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -ldflags="-H windowsgui -s -w" 
 ```
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+# Stablize Reverse shell
+### script
+```bash
+script -q /dev/null
+bash
+Press --> Ctrl + Z
+Hit Twice Enter.
+export TERM=xterm
+
+# Fix font size Glitch
+- Type in your terminal
+stty -a
+- Do in victim terminal
+stty rows <value> cols <values>
+```
+### python3 or python
+```bash
+python3 -c 'import pty;pty.spawn("/bin/bash")'
+or
+python -c 'import pty;pty.spawn("/bin/bash")'
+Press --> Ctrl + Z
+Hit Twice Enter.
+export TERM=xterm
+
+# Fix font size Glitch
+- Type in your terminal
+stty -a
+- Do in victim terminal
+stty rows <value> cols <values>
+```
+
 # 🔥 Fire Your Notepad.exe
 ```bash
 # Daily Stuff
