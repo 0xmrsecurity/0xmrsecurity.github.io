@@ -34,7 +34,7 @@ GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -ldflags="-H windowsgui -s -w" 
 
 #  🖥️ Windows 10 Bypass With C
 ### nano pleasesubscribe.c
-```
+```elixir
 #include <windows.h>
 
 BOOL APIENTRY DllMain(
