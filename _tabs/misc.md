@@ -86,6 +86,7 @@ stty -a
 - Do in victim terminal
 stty rows <value> cols <values>
 ```
+
 ### python3 or python
 ```bash
 python3 -c 'import pty;pty.spawn("/bin/bash")'
@@ -219,40 +220,51 @@ Search virus  ---> open it ---> click on Virus & Threat Protection ( Manage sett
 ```elixir
 Get-WinEvent -LogName "Microsoft-Windows-Windows Defender/Operational" -FilterXPath "*[System[(EventID=5007)]]" | Where-Object { $_.Message -like "*exclusion*" } | Select-Object Message | FL
 ```
+
 # 🐼 Get your Box IpAddress
 ## IPv4 Address
 ```elixir
+curl ipinfo.io
+powershell irm ipinfo.io
+# list your all interfaces
 Get-NetIPAddress -AddressFamily IPv4 |findstr /i ipaddress
 ```
 ## IPv6 Address
 ```elixir
-Get-NetIPAddress -AddressFamily IPv6 |findstr /i ipaddress
 powershell irm apip.cc/json
+# list your all interfaces
+Get-NetIPAddress -AddressFamily IPv6 |findstr /i ipaddress
 ```
 ### Get Internet Facing IPAddress
 ```elixir
 $pubIPv4 = Invoke-RestMethod -Uri "https://api.ipify.org"
+$pubipv4 = Invoke-RestMethod -Uri "https://ipinfo.io"
+
 $pubIPv6 = Invoke-RestMethod -Uri "https://api64.ipify.org"
 
 Write-Output "Your Public IPv4 Address : $pubIPv4"
+Write-Output "Your Public IPv4 Address : $pubipv4"
 Write-Output "Your Public IPv6 Address : $pubIPv6"
 ```
 ### One linear
 ```elixir
 "Your IPv4 is: $(irm api.ipify.org)"; "Your IPv6 is: $(irm api64.ipify.org)"    # irm= invoke Rest Method
+"Your IPv4 is: $(curl ipinfo.io)"
 
 powershell -->  "Your IPV6 Address is leaked.. $(irm apip.cc/json)"
 ```
 
 # 🗺️ linux Public Info Feteching
-see your public information...
+I can see your public information...
 ```bash
 #!/bin/bash
-echo -e  "Feteching Your Public IP Address.."
-sleep 3
-echo -e "[+] Prinitng your live Public Information"
+echo -e  "Feteching Your Public IP Information....."
+sleep 2
+echo -e "[+] Prinitng your live Public Information  [apip.cc]"
 curl -s https://apip.cc/json | jq . 
-echo "[*] Information feteched successfully"
+echo -e "[+] Prinitng your live Public Information  [ipinfo.io]"
+curl -s https://ipinfo.io | jq .
+echo "[*] Info feteched successfully!!"
 ```
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -427,7 +439,7 @@ httparchive_parameters_top_1m_2026_02_27.txt     # ~376k real-world parameters (
 ```
 
 
-### LFI Filw Wordlists
+### LFI File Wordlists
 ```bash
 # Absolute King for LFI – Highest hit rate
 /usr/share/wordlists/seclists/Fuzzing/LFI/LFI-Jhaddix.txt
