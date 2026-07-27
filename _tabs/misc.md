@@ -69,6 +69,16 @@ x86_64-w64-mingw32-gcc pleasesubscribe.c --shared -o pleasesubscribe.dll
 i686-w64-mingw32-gcc pleasesubscribe.c -shared -o pleasesubscribe.dll
 ```
 
+# 🎧 Destroying File Data
+```elixir
+# Windows
+choco install sdelete
+sdelete -p 7 -f -s "C:\Path\To\File"
+
+# Linux
+apt install shred
+shred -n 7 -uvz "File_Path"   
+```
 
 
 # 🍿 Stablize Reverse shell
