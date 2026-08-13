@@ -105,7 +105,7 @@ printenv
 cat /proc/$$/environ
 
 
-find / -type f \( -name "*id_rsa*" -o -name "*id_dsa*" -o -name "*id_ecdsa*" -o -name "*id_ed25519*" -o -name "*authorized_keys*" -o -name "*ssh_host*" -o -name ".env"  \) 2>/dev/null
+find / -type f \( -name "id_rsa*" -o -name "id_dsa*" -o -name "id_ed25519*" -o -name "id_ecdsa*" -o -name "authorized_keys*" -o -name "ssh_host*" -o -name ".env" \) 2>/dev/null
 ```
 
 
@@ -126,6 +126,16 @@ find / -type f \( -name "*.xml" -o -name "*.db" -o -name "*.sql" -o -name "*.con
 
 # Specific Paths /opt /etc /home /var
 find /opt /var /home /etc -type f \( -name "*.xml" -o -name "*.db" -o -name "*.sql" -o -name "*.config" \) 2>/dev/null
+
+# Important Extension's
+find / -type f -name "*.log" 2>/dev/null
+find / -type f -name "*.xml" 2>/dev/null
+find / -type f -name "*.docs" 2>/dev/null
+find / -type f -name "*.pdf" 2>/dev/null
+find / -type f -name "*.db" 2>/dev/null
+find / -type f -name "*.config" -name "*.conf" 2>/dev/null
+
+find / -type f \( -name "*.log" -o -name "*.pdf" -o -name "*.docs" -o -name "*.pdf" -o -name "*.config" -o -name "*.conf" -o -name "*.db" \) 2>/dev/null
 ```
 
 
