@@ -136,6 +136,17 @@ Disable-PnpDevice -InstanceId (Get-PnpDevice -Class Camera -Status OK).InstanceI
 Enable-PnpDevice -InstanceId (Get-PnpDevice -Class Camera -Status Error).InstanceId -Confirm:$false   
 ```
 
+# 📽️ Screen Shot Tricks
+```bash
+# Just Start a Screen-clip
+Start-Process ms-screenclip:
+explorer ms-screenclip:
+
+# Silent Capture Screen Shot
+Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.SendKeys]::SendWait('{PrtSc}')
+```
+
+
 # ⛄ Windows History's
 
 ### Powershell
