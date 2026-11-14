@@ -87,7 +87,7 @@ shred -n 7 -uvz "File_Path"
 script -q /dev/null
 bash
 Press --> Ctrl + Z
-Hit Twice Enter.
+Hit  Enter Twice.
 export TERM=xterm
 
 # Fix font size Glitch
@@ -141,9 +141,15 @@ Enable-PnpDevice -InstanceId (Get-PnpDevice -Class Camera -Status Error).Instanc
 # Just Start a Screen-clip
 Start-Process ms-screenclip:
 explorer ms-screenclip:
+snippingtool /clip
+Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.SendKeys]::SendWait('{PrtSc}')
+
 
 # Silent Capture Screen Shot
-Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.SendKeys]::SendWait('{PrtSc}')
+Add-Type -AssemblyName System.Windows.Forms,System.Drawing; $s=[System.Windows.Forms.Screen]::PrimaryScreen.Bounds; $b=New-Object Drawing.Bitmap $s.Width,$s.Height; [Drawing.Graphics]::FromImage($b).CopyFromScreen(0,0,0,0,$b.Size); $b.Save("$([Environment]::GetFolderPath('Desktop'))\shot.png")
+
+### Custom Path 
+$p="C:\Custom\Path\shot.png"; New-Item -ItemType Directory -Force (Split-Path $p) > $null; Add-Type -AssemblyName System.Windows.Forms,System.Drawing; $s=[System.Windows.Forms.Screen]::PrimaryScreen.Bounds; $b=New-Object Drawing.Bitmap $s.Width,$s.Height; [Drawing.Graphics]::FromImage($b).CopyFromScreen(0,0,0,0,$b.Size); $b.Save($p)
 ```
 
 
