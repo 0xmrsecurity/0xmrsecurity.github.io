@@ -1,2 +1,7 @@
 Hack Smarter Lab:
-  description: "Writeups of realistic Active Directory labs from the Hack Smarter platform. Covers techniques such as password spraying, GenericAll abuse, Shadow Credentials, ESC1, force-change-password, and privilege escalation paths."
+  description: >-
+    This series covers all the free labs on HackSmarter, walking through my full trial-and-error process.
+
+    Want writeups for the premium labs and ranges too? I currently can't afford a subscription, so if you'd like to help fund it, your support would be huge! I always want to keep educational content free and accessible for everyone.
+
+    Thanks for the support—happy hacking, keep learning, and enjoy!
